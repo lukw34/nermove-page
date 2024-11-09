@@ -1,0 +1,44 @@
+.defaultButton {
+    display: inline-block;
+    border: none;
+    padding: 1rem 2rem;
+    margin: 0;
+    text-decoration: none;
+    background: #f4f4f4;
+    color: black;
+    font-size: 1rem;
+    line-height: 1;
+    border-radius: 4px;
+    cursor: pointer;
+    max-height: 40px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    transition: background 250ms ease-in-out, transform 150ms ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    &:hover {
+        background: #a3a3a3;
+    }
+}
+
+
+.menuButton {
+    @extend .defaultButton;
+    background: rgba(125, 249, 255, 0.5);
+    max-height: 35px;
+
+    &:hover {
+        background: rgba(125, 249, 255, 1);
+    }
+}
+
+.strongBlueButton {
+    @extend .defaultButton;
+    background: rgba(125, 249, 255, 1);
+    max-height: 45px;
+    height: 45px;
+    font-weight: bold;
+    border-radius: 7px;
+    box-shadow: 6px 8px 10px 1px rgba(0, 0, 0, 0.5);
+}

@@ -1,0 +1,42 @@
+.modelsContainer {
+    .singleModel {
+        position: relative;
+        width: 100%;
+
+        .image {
+            width: 100vw;
+            height: 100%;
+            object-fit: fill;
+        }
+
+        .info {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 5%;
+            margin-inline: auto;
+            background-color: rgba($color: #000000, $alpha: 0.7);
+            width: 100%;
+            color: white;
+
+            h2 {
+                margin: 10px
+            }
+
+            h5 {
+                margin: 5px
+            }
+        }
+
+        .button {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 10%;
+            margin-inline: auto;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+    }
+}

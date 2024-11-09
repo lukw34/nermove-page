@@ -1,3 +1,19 @@
 .appHeader {
-    border-bottom: 2px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: absolute;
+    z-index: 100;
+    width: 92vw;
+    left: 4vw;
+    top: 1vh;
+    h1 {
+        margin: 0;
+        font-size: 2rem;
+        letter-spacing: 0.4vw;
+        text-shadow: 5px 5px rgba(0, 0, 0, 0.2);
+        -webkit-text-stroke: rgba(125, 249, 255, 1) 3px;
+        letter-spacing: 0.4vw;
+    }
 }
