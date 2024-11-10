@@ -1,10 +1,10 @@
 import React from 'react';
+import ContacForm from '../components/ContactForm/ContactForm';
 
 const Contact = () => (
-  <div>
-    Contact form
-    Company Information
-  </div>
+  <section id="contact">
+    <ContacForm />
+  </section>
 );
 
 export default Contact;
