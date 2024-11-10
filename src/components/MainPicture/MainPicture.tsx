@@ -9,7 +9,7 @@ const MainPicture = () => (
       alt="Burger track"
       className={styles.mainImage} 
       src="https://innovokitchen.com/wp-content/uploads/2022/01/Innovo-Food-Truck-13.jpg"
-         />
+    />
     <div className={styles.mainImageHeaderContainer}>
       <h2>Przyczepy od 20 000zł</h2>
       <div className={styles.mainImageButtonContainer }>

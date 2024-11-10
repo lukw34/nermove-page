@@ -15,8 +15,6 @@
     display: flex;
     align-items: center;
     transition: background 250ms ease-in-out, transform 150ms ease;
-    -webkit-appearance: none;
-    -moz-appearance: none;
     &:hover {
         background: #a3a3a3;
     }
@@ -38,6 +36,7 @@
     background: rgba(125, 249, 255, 1);
     max-height: 45px;
     height: 45px;
+    padding: 0.5rem 1rem;
     font-weight: bold;
     border-radius: 7px;
     box-shadow: 6px 8px 10px 1px rgba(0, 0, 0, 0.5);

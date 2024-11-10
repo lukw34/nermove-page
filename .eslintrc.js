@@ -20,6 +20,7 @@ module.exports = {
         '@typescript-eslint'
     ],
     rules: {
+        'indent': [2, 2],
         'quote-props': ['error', 'as-needed'],
         semi: 'error',
         'react/jsx-indent-props': [2, 2],

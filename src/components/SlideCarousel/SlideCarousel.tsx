@@ -5,7 +5,7 @@ import { Carousel } from 'react-responsive-carousel';
 const SlideCarousel = () => (
   <Carousel
     autoPlay={true}
-    >
+  >
     <div>
       <img src="https://www.bccpolska.pl/storage/offer/burger_ib1g3b.webp" />
       <p className="legend">Zbuduj z nami swoje zaplecze gastronomiczne!</p>
