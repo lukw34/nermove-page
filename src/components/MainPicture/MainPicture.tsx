@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '../Button/Button';
+import LinkButton from '../Button/LinkButton';
 import styles from './mainPicture.module.scss';
 
 
@@ -13,8 +13,8 @@ const MainPicture = () => (
     <div className={styles.mainImageHeaderContainer}>
       <h2>Przyczepy od 20 000zł</h2>
       <div className={styles.mainImageButtonContainer }>
-        <Button onClick={() => null} title="Skontaktuj sie z nami !"/>
-        <Button onClick={() => null} title="Zobacz nasze realizacje !"/>
+        <LinkButton title="Skontaktuj sie z nami !" to="/contact"/>
+        <LinkButton title="Zobacz nasze realizacje !" to="/gallery"/>
       </div>
     </div>
   </section>

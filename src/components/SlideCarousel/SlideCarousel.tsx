@@ -11,13 +11,10 @@ const SlideCarousel = () => (
       <p className="legend">Zbuduj z nami swoje zaplecze gastronomiczne!</p>
     </div>
     <div>
-      <img src="https://img1.wsimg.com/isteam/ip/6b968050-6df0-4759-9be8-e5d2044b0ebd/cropnewaf-fb219b7.jpg" />
+      <img src="https://innovokitchen.com/wp-content/uploads/2022/01/Innovo-Food-Truck-13.jpg" />
       <p className="legend">Przyczepy gastronomiczne od 100000zł</p>
     </div>
-    <div>
-      <img src="https://innovokitchen.com/wp-content/uploads/2022/01/Innovo-Food-Truck-13.jpg" />
-      <p className="legend">Everything is Awesome</p>
-    </div>
+
   </Carousel>
 );
 

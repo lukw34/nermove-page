@@ -1,16 +1,16 @@
 import React from 'react';
 import styles from './app.module.scss';
 import Header from '../Header/Header';
-import FoodTruckModels from '../FoodTruckModels/FoodTruckModels';
-import MainPicture from '../MainPicture/MainPicture';
+import {
+  Outlet,
+} from 'react-router-dom';
 
 const App = () => {
   return (
     <div className={styles.app}>
       <Header/>
       <main>
-        <MainPicture/>
-        <FoodTruckModels/>
+        <Outlet/>
       </main>
     </div>
   );
