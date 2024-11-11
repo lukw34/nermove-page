@@ -1,3 +1,5 @@
+@import "./configurator.scss";
+
 .input-number {
     width: 40px;
     padding: 0 12px;
@@ -33,5 +35,27 @@
 
     &:active {
         background: #ddd;
+    }
+}
+
+.box-checkbox {
+    height: 45px;
+    
+    &:hover {
+        background-color: #ccc;
+    }
+
+    .disable-input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+
+    &.checked-checkbox {
+        border: rgb(121, 119, 119) solid 2px !important;
+        background-color: lightcyan;
     }
 }

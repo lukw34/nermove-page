@@ -11,6 +11,8 @@ interface ConfiguratorModel {
 }
 
 export type ModelDimension = 'width' | 'height' | 'depth';
+export type WeightProperties = 'includeDoubleAxis' | 'additionalWeightSupport'
+
 
 
 export const useConfiguratorModel = () => {
@@ -31,9 +33,17 @@ export const useConfiguratorModel = () => {
     });
   };
 
+  const setWeightProperties = (key: WeightProperties, value: boolean) => {
+    setConfiguration({
+      ...configuration,
+      [key]: value
+    });
+  };
+
   return  {
     configuration,
-    setSize
+    setSize,
+    setWeightProperties
   };
 
 };

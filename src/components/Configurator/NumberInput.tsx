@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useCallback } from 'react';
-import './numberInput.scss';
+import './input.scss';
 import './configurator.scss';
 import { ModelDimension } from '../../hooks/useConfiguratorModel';
 
