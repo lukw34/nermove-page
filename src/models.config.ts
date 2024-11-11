@@ -1,25 +1,25 @@
-enum BaseConfigurationType {
+export enum BaseConfigurationType {
     ELECTRICITY = 'ELECTRICITY',
     WATER = 'WATER',
     FURNITURE = 'FURNITURE'
 }
 
-enum SpecialConfigurationType {
+export enum SpecialConfigurationType {
     KEBAB = 'KEBAB',
     PIZZA = 'PIZZA'
 }
 
-interface BaseConfiguration {
+export interface BaseConfiguration {
     additionalPrice: number,
     type: BaseConfigurationType
 }
 
-interface DoubleAxisConfiguration {
+export interface DoubleAxisConfiguration {
     isDoubleAxisSupported: true,
     doubleAxisPrice: number
 }
 
-type AxisConfiguration = {
+export type AxisConfiguration = {
     isDoubleAxisSupported: boolean,
     additionalWeightSuportPrice: number,
 } | DoubleAxisConfiguration;

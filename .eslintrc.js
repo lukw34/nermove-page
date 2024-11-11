@@ -20,6 +20,8 @@ module.exports = {
         '@typescript-eslint'
     ],
     rules: {
+        "jsx-quotes": ["error", "prefer-double"],
+        quotes: ["error", "double"],
         'indent': [2, 2],
         'quote-props': ['error', 'as-needed'],
         semi: 'error',

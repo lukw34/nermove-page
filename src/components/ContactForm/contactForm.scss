@@ -1,3 +1,10 @@
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
 .form-wrapper {
     margin-left:auto;
     margin-right:auto;
@@ -16,7 +23,6 @@
     background: rgba(0, 0, 0, 0.2); 
     overflow: hidden; 
     height: 50%;
-    margin-top: 20%;
     align-items: center;
     justify-content: center;
     display: flex;
@@ -32,7 +38,7 @@
     display:block;
     font-family: 'Source Sans Pro', sans-serif;
     font-size:18px;
-    color:#fff;
+    color:#000000;
     padding-left:45px;
     padding-right:20px;
     padding-top:12px;
@@ -49,7 +55,7 @@
     display:block;
     font-family: 'Source Sans Pro', sans-serif;
     font-size:18px;
-    color:#fff;
+    color:#000000;
     padding-left:45px;
     padding-right:20px;
     margin-bottom:20px;

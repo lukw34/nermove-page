@@ -1,0 +1,37 @@
+.input-number {
+    width: 40px;
+    padding: 0 12px;
+    vertical-align: top;
+    text-align: center;
+    outline: none;
+    height: 40px;
+    border: none;
+
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    &::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+}
+
+.input-number-modificator {
+    border: none;
+    height: 40px;
+    margin: 2px;
+    display: inline-block;
+    width: 30px;
+    line-height: 38px;
+    background: #f1f1f1;
+    color: #444;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+
+    &:active {
+        background: #ddd;
+    }
+}
