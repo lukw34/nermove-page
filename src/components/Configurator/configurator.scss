@@ -6,6 +6,7 @@
     flex-flow: row nowrap;
     background-color: #FFF;
     align-items: center;
+    overflow-y: hidden;
 
     .model-image {
         width:70vw;
@@ -13,11 +14,21 @@
     }
 
     .basic-config {
+        overflow-y: scroll;
         width: 30vw;
         flex: 1;
         display: flex;
         flex-direction: column;
         align-items: center;
+        .config-divider {
+            font-size: 1rem;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            border-top: 1px black solid;
+            width: 70%;
+            padding: 20px;
+        }
+
         .config-item {
             padding: 7px 15px;
             min-width: 80%;

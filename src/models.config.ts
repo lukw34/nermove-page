@@ -17,10 +17,11 @@ export interface BaseConfiguration {
 export interface DoubleAxisConfiguration {
     isDoubleAxisSupported: true,
     doubleAxisPrice: number
+    additionalWeightSuportPrice: number,
 }
 
 export type AxisConfiguration = {
-    isDoubleAxisSupported: boolean,
+    isDoubleAxisSupported: false,
     additionalWeightSuportPrice: number,
 } | DoubleAxisConfiguration;
 

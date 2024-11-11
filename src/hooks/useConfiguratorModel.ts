@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { BaseConfigurationType } from '../models.config';
+import { useMemo, useState } from 'react';
+import { BaseConfigurationType, Model } from '../models.config';
 
 interface ConfiguratorModel {
     width: number,
@@ -15,7 +15,7 @@ export type WeightProperties = 'includeDoubleAxis' | 'additionalWeightSupport'
 
 
 
-export const useConfiguratorModel = () => {
+export const useConfiguratorModel = (modelConfig: Model) => {
   const [configuration, setConfiguration] = useState<ConfiguratorModel>({
     width: 100,
     height: 100,
@@ -40,10 +40,28 @@ export const useConfiguratorModel = () => {
     });
   };
 
+  const calculatedPrice = useMemo(() => {
+    let price = modelConfig.basePrice;
+    if(configuration.additionalWeightSupport) {
+      price += modelConfig.axisConfiguration.additionalWeightSuportPrice;
+    }
+
+    if(modelConfig.axisConfiguration.isDoubleAxisSupported && configuration.includeDoubleAxis) {
+      price += modelConfig.axisConfiguration.doubleAxisPrice;
+    }
+
+    return price;
+
+  }, [modelConfig,
+    configuration.additionalWeightSupport,
+    configuration.includeDoubleAxis
+  ]);
+
   return  {
     configuration,
     setSize,
-    setWeightProperties
+    setWeightProperties,
+    calculatedPrice,
   };
 
 };
