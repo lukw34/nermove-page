@@ -5,6 +5,7 @@ import NumberInput from './NumberInput';
 import { useConfiguratorModel } from '../../hooks/useConfiguratorModel';
 import WeightCheckboxInput from './WeightCheckbox';
 import PriceIndicator from './PriceIndicator';
+import EquipmentCheckbox from './EquipmentCheckbox';
 
 interface ConfiguratorProps {
     model: Model
@@ -12,7 +13,7 @@ interface ConfiguratorProps {
 
 
 const Configurator: React.FC<ConfiguratorProps> = ({ model }) => {
-  const { image, name, axisConfiguration } = model;
+  const { image, name, axisConfiguration, baseConfigurationOptions } = model;
   const { 
     isDoubleAxisSupported,
     additionalWeightSuportPrice,
@@ -21,6 +22,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({ model }) => {
     configuration,
     setSize,
     setWeightProperties,
+    setConfigurationOptions,
     calculatedPrice
   } = useConfiguratorModel(model);
     
@@ -50,6 +52,15 @@ const Configurator: React.FC<ConfiguratorProps> = ({ model }) => {
           value={configuration.includeDoubleAxis}
         /> : null }
         <p className="config-divider">Wyposażenie</p>
+        { baseConfigurationOptions.map(({type, additionalPrice }) => (
+          <EquipmentCheckbox
+            fieldKey={type}
+            key={`${name}-${type}`}
+            onChange={setConfigurationOptions}
+            price={additionalPrice}
+            value={configuration.configurtationOptions[type]}
+          />
+        ))}
       </div>
     </div>
   );

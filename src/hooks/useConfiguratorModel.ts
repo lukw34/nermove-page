@@ -7,7 +7,7 @@ interface ConfiguratorModel {
     depth: number,
     includeDoubleAxis: boolean,
     additionalWeightSupport: boolean,
-    configurtationOptions: Set<BaseConfigurationType>
+    configurtationOptions: Record<string, boolean>
 }
 
 export type ModelDimension = 'width' | 'height' | 'depth';
@@ -22,7 +22,10 @@ export const useConfiguratorModel = (modelConfig: Model) => {
     depth: 100,
     includeDoubleAxis: false,
     additionalWeightSupport: false,
-    configurtationOptions: new Set()
+    configurtationOptions: modelConfig.baseConfigurationOptions.reduce((prev, item) => ({
+      ...prev,
+      [item.type]: false
+    }), {})
   });
 
 
@@ -40,6 +43,16 @@ export const useConfiguratorModel = (modelConfig: Model) => {
     });
   };
 
+  const setConfigurationOptions = (key: BaseConfigurationType, value: boolean) => {
+    setConfiguration({
+      ...configuration,
+      configurtationOptions: {
+        ...configuration.configurtationOptions,
+        [key]: value
+      }
+    });
+  };
+
   const calculatedPrice = useMemo(() => {
     let price = modelConfig.basePrice;
     if(configuration.additionalWeightSupport) {
@@ -50,11 +63,18 @@ export const useConfiguratorModel = (modelConfig: Model) => {
       price += modelConfig.axisConfiguration.doubleAxisPrice;
     }
 
-    return price;
+    return modelConfig.baseConfigurationOptions.reduce((prev, item) => {
+      if(configuration.configurtationOptions[item.type]) {
+        return prev + item.additionalPrice;
+      }
+
+      return prev;
+    }, price);
 
   }, [modelConfig,
     configuration.additionalWeightSupport,
-    configuration.includeDoubleAxis
+    configuration.includeDoubleAxis,
+    configuration.configurtationOptions,
   ]);
 
   return  {
@@ -62,6 +82,7 @@ export const useConfiguratorModel = (modelConfig: Model) => {
     setSize,
     setWeightProperties,
     calculatedPrice,
+    setConfigurationOptions,
   };
 
 };
