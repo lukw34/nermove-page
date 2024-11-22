@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './foodTruckModels.module.scss';
 import { StrongBlueButton } from '../Button/StrongBlueButton';
 import { modelsConfigs, modelsList } from '../../models.config';
-import i18next from 'i18next';
+// import i18next from 'i18next';
 
 
 const FoodTruckModels: React.FC = () => (
@@ -14,8 +14,8 @@ const FoodTruckModels: React.FC = () => (
           <img alt={item.name} className={styles.image} src={item.image} />
           <div className={styles.info}>
             <h2>{item.name}</h2>
-            <h5>Skonfigurj od...</h5>
-            <p>{i18next.t('priceWithCurrency',{ val: item.basePrice })}</p>
+            {/* <h5>Skonfiguruj od...</h5>
+            <p>{i18next.t('priceWithCurrency',{ val: item.basePrice })}</p> */}
           </div>
           <div className={styles.button}>
             <StrongBlueButton 
