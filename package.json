@@ -2,6 +2,7 @@
   "name": "neromove-page",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://lukw34.github.io/nermove-page/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -25,7 +26,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint ./src"
+    "lint": "eslint ./src",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -52,6 +55,7 @@
     "eslint": "^8.57.0",
     "eslint-import-resolver-typescript": "^3.6.3",
     "eslint-plugin-import": "^2.31.0",
-    "eslint-plugin-react": "^7.37.2"
+    "eslint-plugin-react": "^7.37.2",
+    "gh-pages": "^6.2.0"
   }
 }

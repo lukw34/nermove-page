@@ -2,11 +2,12 @@
     display: inline-block;
     border: none;
     padding: 1rem 2rem;
-    margin: 0;
+    margin: 1rem;
     text-decoration: none;
-    background: #f4f4f4;
-    color: black;
+    background: rgba(249, 235, 195, 1);
+    color: rgb(102, 80, 80);
     font-size: 1rem;
+    font-weight: bolder;
     line-height: 1;
     border-radius: 4px;
     cursor: pointer;
@@ -16,28 +17,32 @@
     align-items: center;
     transition: background 250ms ease-in-out, transform 150ms ease;
     &:hover {
-        background: #a3a3a3;
+        background: rgba(243, 205, 96, 0.6);
     }
 }
 
 
 .menuButton {
     @extend .defaultButton;
-    background: rgba(125, 249, 255, 0.5);
+    background: rgba(249, 235, 195, 0.4);
     max-height: 35px;
+    color: black;
 
     &:hover {
-        background: rgba(125, 249, 255, 1);
+        background: rgba(249, 235, 195, 1);
     }
 }
 
 .strongBlueButton {
     @extend .defaultButton;
-    background: rgba(125, 249, 255, 1);
+    background: rgba(249, 235, 195, 1);
     max-height: 45px;
     height: 45px;
     padding: 0.5rem 1rem;
     font-weight: bold;
     border-radius: 7px;
     box-shadow: 6px 8px 10px 1px rgba(0, 0, 0, 0.5);
+    &:hover {
+        background: rgba(243, 205, 96, 1);
+    }
 }
