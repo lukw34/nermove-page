@@ -6,11 +6,6 @@ import i18next from 'i18next';
 
 const MainPicture = () => (
   <section className={styles.mainImageContainer}>
-    <img 
-      alt="Burger track"
-      className={styles.mainImage} 
-      src="./main.jpeg"
-    />
     <div className={styles.mainImageHeaderContainer}>
       <h2>PRZYCZEPY OD {i18next.t('priceWithCurrency',{ val: 20000 })}</h2>
     </div>

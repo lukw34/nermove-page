@@ -1,5 +1,5 @@
 import {
-  createBrowserRouter,
+  createHashRouter,
   redirect,
 } from 'react-router-dom';
 import App from '../components/App/App';
@@ -9,7 +9,7 @@ import Main from './Main';
 import Configuration from './Configuration';
 
   
-export const router = createBrowserRouter([
+export const router = createHashRouter([
   {
     path: '/',
     element: <App />,

@@ -1,12 +1,10 @@
 .app {
   text-align: center;
   position: relative;
-  background: linear-gradient(135deg, rgba(222,241,33, 0.3) 27%, rgba(255,255,255,1) 63%, rgba(125,249,255,0.8) 100%);
-  min-height: 100vh;
   display: flex;
+  background-image: url("/img/main.jpeg");
   flex-direction: column;
   font-size: calc(10px + 2vmin);
-  background-attachment: fixed;
   main {
     height: 100vh;
   }
