@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/neromove/static/css/main.65f0424c.css",
-    "main.js": "/neromove/static/js/main.6d541326.js",
-    "static/js/453.400118ab.chunk.js": "/neromove/static/js/453.400118ab.chunk.js",
-    "static/media/main.jpeg": "/neromove/static/media/main.70d3eb86351ca7432815.jpeg",
-    "index.html": "/neromove/index.html",
-    "main.65f0424c.css.map": "/neromove/static/css/main.65f0424c.css.map",
-    "main.6d541326.js.map": "/neromove/static/js/main.6d541326.js.map",
-    "453.400118ab.chunk.js.map": "/neromove/static/js/453.400118ab.chunk.js.map"
+    "main.css": "/nermove-page/static/css/main.20bf4aa3.css",
+    "main.js": "/nermove-page/static/js/main.4eca8804.js",
+    "static/js/453.400118ab.chunk.js": "/nermove-page/static/js/453.400118ab.chunk.js",
+    "static/media/main.jpeg": "/nermove-page/static/media/main.70d3eb86351ca7432815.jpeg",
+    "index.html": "/nermove-page/index.html",
+    "main.20bf4aa3.css.map": "/nermove-page/static/css/main.20bf4aa3.css.map",
+    "main.4eca8804.js.map": "/nermove-page/static/js/main.4eca8804.js.map",
+    "453.400118ab.chunk.js.map": "/nermove-page/static/js/453.400118ab.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.65f0424c.css",
-    "static/js/main.6d541326.js"
+    "static/css/main.20bf4aa3.css",
+    "static/js/main.4eca8804.js"
   ]
 }
