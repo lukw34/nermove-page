@@ -9,7 +9,7 @@ interface LinkButtonProps {
 
 
 const LinkButton: React.FC<LinkButtonProps> = ({ title, to }) => (
-  <Link className={styles.defaultButton} to={to}>
+  <Link className={styles.linkButton} to={to}>
     {title}
   </Link>
 
