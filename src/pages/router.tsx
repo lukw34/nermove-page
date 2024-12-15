@@ -7,6 +7,8 @@ import Contact from './Contat';
 import Gallery from './Gallery';
 import Main from './Main';
 import Configuration from './Configuration';
+import About from './About';
+import RealizationProcess from './RealizationProcess';
 
   
 export const router = createHashRouter([
@@ -26,6 +28,14 @@ export const router = createHashRouter([
       {
         path: 'gallery',
         element: <Gallery />,
+      },
+      {
+        path: 'about',
+        element: <About />,
+      },
+      {
+        path: 'process',
+        element: <RealizationProcess />,
       },
       {
         path: '',

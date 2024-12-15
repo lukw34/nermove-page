@@ -7,11 +7,11 @@ interface LinkButtonProps {
     to: string
 }
 
-const LinkButton: React.FC<LinkButtonProps> = ({ title, to }) => (
-  <Link className={styles.linkButton} to={to}>
+const MenuLinkButton: React.FC<LinkButtonProps> = ({ title, to }) => (
+  <Link className={styles.menuLinkButton} to={to}>
     {title}
   </Link>
 
 );
 
-export default LinkButton;
+export default MenuLinkButton;

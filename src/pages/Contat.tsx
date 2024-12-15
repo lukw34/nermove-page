@@ -1,9 +1,9 @@
 import React from 'react';
-import ContacForm from '../components/ContactForm/ContactForm';
+import ContactForm from '../components/ContactForm/ContactForm';
 
 const Contact = () => (
   <section id="contact">
-    <ContacForm />
+    <ContactForm />
   </section>
 );
 

@@ -1,0 +1,21 @@
+.articleItemContainer {
+    display: flex;
+    align-items: center;
+    background: rgba(249, 235, 195, 0.5);
+    height: 40vh;
+    margin-bottom: 20px;
+    .articleContent {
+        text-align:justify;
+        padding: 20px;
+        width: 45vw;
+        font-size: 1.2rem;
+        h3 {
+            font-size: 2rem;
+        }
+    }
+    
+    .articleImage {
+        width: 45vw;
+        max-height: 40vh;
+    }
+}

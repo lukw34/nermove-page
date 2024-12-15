@@ -5,13 +5,11 @@
   background-size: 100vw 100vh;
   background-image: url("/img/main1.jpg");
   flex-direction: column;
+  background-position: center;
+  background-attachment: fixed;
   font-size: calc(10px + 2vmin);
   main {
-    height: 100vh;
+    min-height: 90vh;
+    height: 100%;
   }
-}
-
-
-.App-link {
-  color: #61dafb;
 }
