@@ -1,10 +1,10 @@
 .configurator-wrapper {
     position: relative;
-    height: 100vh;
+    height: 90vh;
     width: 100vw;
     display: flex;
     flex-flow: row nowrap;
-    background-color: #FFF;
+    background-image: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgb(255,255, 255) 5%);    
     align-items: center;
     overflow-y: hidden;
 
@@ -16,6 +16,7 @@
     .basic-config {
         overflow-y: scroll;
         width: 30vw;
+        height: 100%;
         flex: 1;
         display: flex;
         flex-direction: column;
