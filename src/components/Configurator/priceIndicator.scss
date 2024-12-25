@@ -1,18 +1,16 @@
 .price-indicator-wrapper {
     position: absolute;
-    padding: 20px 1vw;
-    line-height: 30px;
-    bottom: 5vh;
-    left: 5vw;
-    width: 58vw;
+    padding: 5px 1vw;
+    line-height: 25px;
+    bottom: 0;
+    right: 33vw;
+    width: 20vw;
     display: flex;
     align-items: center;
     flex-direction: column;
-    border: solid 1px lightgray;
     z-index: 100;
-    font-size: 1.2rem;
-    background: linear-gradient(135deg, rgba(222,241,33, 0.3) 27%, rgba(255,255,255,1) 63%, rgba(125,249,255,0.8) 100%);
-
+    font-size: 0.8rem !important;
+    background: white;
     .price {
         font-weight: bold;
     }

@@ -32,7 +32,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint ./src",
     "watch": "tsc -w",
-    "cdk": "cdk"
+    "deploy": "yarn build && cdk deploy"
   },
   "eslintConfig": {
     "extends": [

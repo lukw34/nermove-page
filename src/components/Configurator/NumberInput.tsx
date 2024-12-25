@@ -33,14 +33,16 @@ const NumberInput: React.FC<NumberInputProps> = ({fieldKey, value, onChange, lab
   }, [value, onChange]);
 
   return (
-    <div className="config-item">
-      {label} <div>
-        <button className="input-number-modificator" onClick={increment}>+</button>
-        <button className="input-number-modificator" onClick={decrement}>–</button>
-        <input className="input-number" min={100} onChange={onChangeHandler} type="number" value={value}/>
-        <span>cm</span>
-      </div>
-    </div> 
+    <div className="config-item-container">
+      <div className="config-item">
+        {label} <div>
+          <button className="input-number-modificator" onClick={increment}>+</button>
+          <button className="input-number-modificator" onClick={decrement}>–</button>
+          <input className="input-number" min={100} onChange={onChangeHandler} type="number" value={value}/>
+          <span>cm</span>
+        </div>
+      </div> 
+    </div>
   );
 };
 

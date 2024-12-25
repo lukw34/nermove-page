@@ -26,11 +26,13 @@ const EquipmentCheckbox: React.FC<EquipmentCheckboxProps> = ({fieldKey, price, v
   }, [value, onChange]);
   const priceValue = i18next.t('priceWithCurrency',{ val: price });
   return (
-    <label className={`config-item box-checkbox ${value && 'checked-checkbox'} ${fieldKey.toLowerCase()}-wrapper`}>
-      <span>{labelMap[fieldKey]}</span>
-      <span>{priceValue}</span>
-      <input checked={value} className="disable-input" onChange={onChangeHandler} type="checkbox"/>
-    </label>
+    <div className="config-item-container">
+      <label className={`config-item box-checkbox ${value && 'checked-checkbox'} ${fieldKey.toLowerCase()}-wrapper`}>
+        <span>{labelMap[fieldKey]}</span>
+        <span>{priceValue}</span>
+        <input checked={value} className="disable-input" onChange={onChangeHandler} type="checkbox"/>
+      </label>
+    </div>
   );
 };
 

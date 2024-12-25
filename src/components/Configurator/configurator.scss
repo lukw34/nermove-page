@@ -9,14 +9,17 @@
     overflow-y: hidden;
 
     .model-image {
-        width:70vw;
-        object-fit: contain;
+        border-radius: 20px;
+        width: 65vw;
+        height: 80vh;
+        object-fit: fill;
+        border: 2px solid rgb(249, 235, 195);
     }
 
     .basic-config {
         overflow-y: scroll;
-        width: 30vw;
-        height: 100%;
+        width: 35vw;
+        height: 90%;
         flex: 1;
         display: flex;
         flex-direction: column;
@@ -30,19 +33,22 @@
             padding: 20px;
         }
 
-        .config-item {
-            padding: 7px 15px;
+        .config-item-container {
+            height: 50px;
             min-width: 80%;
             margin-bottom: 15px;
-            font-weight: bold;
-            font-size: 0.9rem;
-            align-items: center;
-
-            border-radius: 5px;
-            border: solid 1px #d0d1d2;
-            inline-size: auto;
-            justify-content: space-between;
-            display: flex;
+            .config-item {
+                padding:5px 15px;
+                width: 100%;
+                font-weight: bold;
+                font-size: 0.9rem;
+                align-items: center;
+                border-radius: 5px;
+                border: solid 1px #d0d1d2;
+                inline-size: auto;
+                justify-content: space-between;
+                display: flex;
+            }
         }
     }
 }

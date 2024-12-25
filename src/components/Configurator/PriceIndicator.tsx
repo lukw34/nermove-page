@@ -17,7 +17,7 @@ const PriceIndicator: React.FC<PriceIndicatorProps> = ({ calculatedPrice }) => {
     <div className="price-indicator-wrapper">
       Szacunkowa cena: 
       <div className="price">{i18next.t('priceWithCurrency',{ val: calculatedPrice })}</div>
-      <BlueButton onClick={handleOnClick} title="Wyslij zpaytanie o oferte !"/> 
+      <BlueButton onClick={handleOnClick} title="Podsumowanie"/> 
     </div>
   );
 };
