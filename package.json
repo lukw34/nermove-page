@@ -2,7 +2,9 @@
   "name": "neromove-page",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://lukw34.github.io/nermove-page",
+  "bin": {
+    "infrastructure": "bin/infrastructure.js"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -19,16 +21,18 @@
     "react-scripts": "5.0.1",
     "sass": "^1.80.6",
     "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "aws-cdk-lib": "2.173.2",
+    "constructs": "^10.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "build": "react-scripts build && tsc",
+    "test": "react-scripts test && jest",
     "eject": "react-scripts eject",
     "lint": "eslint ./src",
-    "predeploy": "yarn build",
-    "deploy": "gh-pages -d build"
+    "watch": "tsc -w",
+    "cdk": "cdk"
   },
   "eslintConfig": {
     "extends": [
@@ -56,6 +60,12 @@
     "eslint-import-resolver-typescript": "^3.6.3",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-react": "^7.37.2",
-    "gh-pages": "^6.2.0"
+    "@types/jest": "^29.5.14",
+    "@types/node": "22.7.9",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
+    "aws-cdk": "2.173.2",
+    "ts-node": "^10.9.2",
+    "typescript": "~5.6.3"
   }
 }
