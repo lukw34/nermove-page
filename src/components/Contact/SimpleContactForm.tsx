@@ -1,11 +1,11 @@
 import React from 'react';
-import './contactForm.scss';
+import './contact.scss';
 import { SubmitButton } from '../Button/SubmitButton';
 
 const SimpleContacForm = () => {
   return (
-    <div className="form-container">
-      <form className="form-wrapper">
+    <div className="contact-container">
+      <form className="contact-wrapper">
         <input className="input-wrapper" name="name" placeholder="Podaj swoje imię" required />
         <input className="input-wrapper" name="emailaddress" placeholder="Podaj swój email" required type="email" />
         <SubmitButton onClick={() => null} title="Wyslij wiadomosć" />

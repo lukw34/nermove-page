@@ -1,7 +1,7 @@
 import React, { useContext, useMemo } from 'react';
 import { ConfiguratorContext } from '../../../context/Configurator.context';
 import i18next from 'i18next';
-import SimpleContacForm from '../../ContactForm/SimpleContactForm';
+import SimpleContacForm from '../../Contact/SimpleContactForm';
 import './summary.scss';
 import LinkButton from '../../Button/LinkButton';
 

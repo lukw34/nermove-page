@@ -1,13 +1,19 @@
-.form-container {
+.contact-container {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.form-wrapper {
+.contact-wrapper-size {
+    min-width: 350px;
+    min-height: 500px;
+}
+
+.contact-wrapper {
     margin-left:auto;
     margin-right:auto;
-    padding:30px;
+    padding: 30px;
+    margin-top: 5vh;
     font-family: 'Source Sans Pro', sans-serif;
     color:#fff;
     border: 1px solid rgba(0,0,0,.2);
