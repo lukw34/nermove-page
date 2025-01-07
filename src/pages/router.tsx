@@ -9,6 +9,8 @@ import Main from './Main';
 import Configuration from './Configuration';
 import About from './About';
 import RealizationProcess from './RealizationProcess';
+import { Setup } from '../components/Configurator/Setup/Setup';
+import { Summary } from '../components/Configurator/Summary/Summary';
 
   
 export const router = createHashRouter([
@@ -20,6 +22,13 @@ export const router = createHashRouter([
       {
         path: 'models/:modelId',
         element: <Configuration />,
+        children: [{
+          path: '',
+          element: <Setup/>
+        }, {
+          path: 'summary',
+          element: <Summary />
+        }]
       },
       {
         path: 'contact',

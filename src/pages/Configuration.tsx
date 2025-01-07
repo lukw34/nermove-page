@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { redirect, useParams } from 'react-router-dom';
 import { modelsConfigs } from '../models.config';
 import Configurator from '../components/Configurator/Configurator';
+import { ConfiguratorContextProvider } from '../context/Configurator.context';
 
 const Configuration = () => {
   const { modelId } = useParams();
@@ -11,11 +12,13 @@ const Configuration = () => {
     return null;
   }
 
-  const model = modelsConfigs[modelId];
+  const model = useMemo(() => modelsConfigs[modelId], [modelId]);
 
   return (
     <section id={`configuration-${modelId}`}>
-      <Configurator model={model}/>
+      <ConfiguratorContextProvider model={model}>
+        <Configurator />
+      </ConfiguratorContextProvider>
     </section>
   );
 };

@@ -1,0 +1,24 @@
+.summary-container {
+    padding-top: 10vh;
+    width: 35vw;
+    height: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .delivery-label {
+        font-weight: 400;
+        color: #5c5e62;
+        font-size: 0.9rem;
+    }
+    .price-container {
+        padding: 20px 0;
+        font-size: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .price-value {
+            font-weight: bold;
+        }
+    }
+}

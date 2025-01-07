@@ -1,22 +1,9 @@
 import { useMemo, useState } from 'react';
-import { BaseConfigurationType, Model } from '../models.config';
-
-interface ConfiguratorModel {
-    width: number,
-    height: number,
-    depth: number,
-    includeDoubleAxis: boolean,
-    additionalWeightSupport: boolean,
-    configurtationOptions: Record<string, boolean>
-}
-
-export type ModelDimension = 'width' | 'height' | 'depth';
-export type WeightProperties = 'includeDoubleAxis' | 'additionalWeightSupport'
-
+import { BaseConfigurationType, ConfiguratorModel, Model, ModelDimension, WeightProperties } from '../models.config';
 
 
 export const useConfiguratorModel = (modelConfig: Model) => {
-  const [configuration, setConfiguration] = useState<ConfiguratorModel>({
+  const [setup, setSetupValue] = useState<ConfiguratorModel>({
     width: 100,
     height: 100,
     depth: 100,
@@ -30,41 +17,41 @@ export const useConfiguratorModel = (modelConfig: Model) => {
 
 
   const setSize = (key: ModelDimension, value: number) => {
-    setConfiguration({
-      ...configuration,
+    setSetupValue({
+      ...setup,
       [key]: value
     });
   };
 
   const setWeightProperties = (key: WeightProperties, value: boolean) => {
-    setConfiguration({
-      ...configuration,
+    setSetupValue({
+      ...setup,
       [key]: value
     });
   };
 
   const setConfigurationOptions = (key: BaseConfigurationType, value: boolean) => {
-    setConfiguration({
-      ...configuration,
+    setSetupValue({
+      ...setup,
       configurtationOptions: {
-        ...configuration.configurtationOptions,
+        ...setup.configurtationOptions,
         [key]: value
       }
     });
   };
 
-  const calculatedPrice = useMemo(() => {
+  const calculatedPrice: number = useMemo(() => {
     let price = modelConfig.basePrice;
-    if(configuration.additionalWeightSupport) {
+    if(setup.additionalWeightSupport) {
       price += modelConfig.axisConfiguration.additionalWeightSuportPrice;
     }
 
-    if(modelConfig.axisConfiguration.isDoubleAxisSupported && configuration.includeDoubleAxis) {
+    if(modelConfig.axisConfiguration.isDoubleAxisSupported && setup.includeDoubleAxis) {
       price += modelConfig.axisConfiguration.doubleAxisPrice;
     }
 
     return modelConfig.baseConfigurationOptions.reduce((prev, item) => {
-      if(configuration.configurtationOptions[item.type]) {
+      if(setup.configurtationOptions[item.type]) {
         return prev + item.additionalPrice;
       }
 
@@ -72,13 +59,13 @@ export const useConfiguratorModel = (modelConfig: Model) => {
     }, price);
 
   }, [modelConfig,
-    configuration.additionalWeightSupport,
-    configuration.includeDoubleAxis,
-    configuration.configurtationOptions,
+    setup.additionalWeightSupport,
+    setup.includeDoubleAxis,
+    setup.configurtationOptions,
   ]);
 
   return  {
-    configuration,
+    setup,
     setSize,
     setWeightProperties,
     calculatedPrice,

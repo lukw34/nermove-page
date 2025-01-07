@@ -2,7 +2,7 @@ import React, { ChangeEvent, useCallback } from 'react';
 import i18next from 'i18next';
 import './input.scss';
 import './configurator.scss';
-import { WeightProperties } from '../../hooks/useConfiguratorModel';
+import { WeightProperties } from '../../models.config';
 
 interface CheckboxInputProps {
     value: boolean,

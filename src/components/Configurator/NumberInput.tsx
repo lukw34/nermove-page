@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useCallback } from 'react';
 import './input.scss';
 import './configurator.scss';
-import { ModelDimension } from '../../hooks/useConfiguratorModel';
+import { ModelDimension } from '../../models.config';
 
 interface NumberInputProps {
     value: number,

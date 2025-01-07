@@ -36,8 +36,17 @@ export interface Model {
     specialConfigurations: SpecialConfigurationType[]
 }
 
+export interface ConfiguratorModel {
+  width: number,
+  height: number,
+  depth: number,
+  includeDoubleAxis: boolean,
+  additionalWeightSupport: boolean,
+  configurtationOptions: Record<string, boolean>
+}
 
-
+export type ModelDimension = 'width' | 'height' | 'depth';
+export type WeightProperties = 'includeDoubleAxis' | 'additionalWeightSupport'
 
 const modelsBaseConfigs: Model[] = [{
   key: 'nunu',

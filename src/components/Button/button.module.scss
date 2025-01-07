@@ -30,13 +30,7 @@
 
 .submitButton {
     @extend .defaultButton;
-    background: rgba(249, 235, 195, 0.4);
     max-height: 35px;
-    color: black;
-
-    &:hover {
-        background: rgba(249, 235, 195, 1);
-    }
 }
 
 .strongBlueButton {

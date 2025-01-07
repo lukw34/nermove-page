@@ -7,21 +7,14 @@
 .form-wrapper {
     margin-left:auto;
     margin-right:auto;
-    width: 343px;
-    height: 333px;
     padding:30px;
     font-family: 'Source Sans Pro', sans-serif;
     color:#fff;
     border: 1px solid rgba(0,0,0,.2);
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
     border-radius: 5px;
-    -moz-background-clip: padding;
-    -webkit-background-clip: padding-box;
     background-clip: padding-box;
     background: rgba(0, 0, 0, 0.2); 
     overflow: hidden; 
-    height: 50%;
     align-items: center;
     justify-content: center;
     display: flex;
@@ -47,7 +40,7 @@
 
 .input-wrapper {
     width: 276px;
-    height: 48px;
+    height: 41px;
     border: 1px solid rgba(255,255,255,.4);
     border-radius: 4px;
     background-clip: padding-box; 

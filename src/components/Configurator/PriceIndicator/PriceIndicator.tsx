@@ -2,6 +2,7 @@ import React from 'react';
 import { SubmitButton } from '../../Button/SubmitButton';
 import i18next from 'i18next';
 import './priceIndicator.scss';
+import { useNavigate } from 'react-router-dom';
 
 interface PriceIndicatorProps {
     calculatedPrice: number
@@ -9,8 +10,9 @@ interface PriceIndicatorProps {
 
 
 const PriceIndicator: React.FC<PriceIndicatorProps> = ({ calculatedPrice }) => {
+  const navigate = useNavigate();
   const handleOnClick = () => {
-    alert('Zapytanie wyslane');
+    navigate('summary');
   };
   
   return (
