@@ -5,13 +5,14 @@
     display: flex;
     flex-flow: row nowrap;
     background-image: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgb(255,255, 255) 5%);    
-    align-items: center;
+    align-items: flex-start;
     overflow-y: hidden;
 
     .model-image {
         border-radius: 20px;
         width: 65vw;
-        height: 80vh;
+        height: 90%;
+        margin: 5% 0;
         object-fit: fill;
         border: 2px solid rgb(249, 235, 195);
     }
@@ -19,7 +20,7 @@
     .basic-config {
         overflow-y: scroll;
         width: 35vw;
-        height: 90%;
+        height: 78vh;
         flex: 1;
         display: flex;
         flex-direction: column;

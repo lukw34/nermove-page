@@ -4,7 +4,7 @@ import './configurator.scss';
 import NumberInput from './NumberInput';
 import { useConfiguratorModel } from '../../hooks/useConfiguratorModel';
 import WeightCheckboxInput from './WeightCheckbox';
-import PriceIndicator from './PriceIndicator';
+import PriceIndicator from './PriceIndicator/PriceIndicator';
 import EquipmentCheckbox from './EquipmentCheckbox';
 
 interface ConfiguratorProps {

@@ -30,7 +30,8 @@
     "build": "react-scripts build && tsc",
     "test": "react-scripts test && jest",
     "eject": "react-scripts eject",
-    "lint": "eslint ./src",
+    "lint": "eslint ./src && eslint ./infrastructure",
+    "lint:fix": "eslint --fix ./src && eslint --fix ./infrastructure",
     "watch": "tsc -w",
     "deploy": "yarn build && cdk deploy"
   },

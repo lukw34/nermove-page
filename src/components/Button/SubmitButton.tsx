@@ -7,8 +7,8 @@ interface BlueButtonProps {
 }
 
 
-export const BlueButton: React.FC<BlueButtonProps> = ({ title, onClick }) => (
-  <button className={styles.menuButton} onClick={onClick}>
+export const SubmitButton: React.FC<BlueButtonProps> = ({ title, onClick }) => (
+  <button className={styles.submitButton} onClick={onClick}>
     {title}
   </button>
 
