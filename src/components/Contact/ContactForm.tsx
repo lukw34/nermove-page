@@ -1,6 +1,6 @@
 import React from 'react';
 import './contact.scss';
-import { SubmitButton } from '../Button/SubmitButton';
+import { ActionButton } from '../Button/ActionButton';
 import ContactInfo from './ContactInfo';
 
 const ContactForm = () => {
@@ -11,7 +11,7 @@ const ContactForm = () => {
         <input className="input-wrapper" name="name" placeholder="Podaj swoje imię" required />
         <input className="input-wrapper" name="emailaddress" placeholder="Podaj swój email" required type="email" />
         <textarea className="textarea-wrapper" cols={50} name="subject" placeholder="Wpisz wiadomość do nas" required rows={4} />
-        <SubmitButton onClick={() => null} title="Wyslij wiadomosć" />
+        <ActionButton onClick={() => null} title="Wyslij wiadomosć" />
       </form>
       <ContactInfo />
     </div>

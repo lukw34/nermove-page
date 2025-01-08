@@ -4,13 +4,13 @@
     line-height: 25px;
     bottom: 0;
     right: 2vw;
-    width: 29vw;
+    width: 35vw;
     height: 10vh;
     display: flex;
     align-items: center;
     flex-direction: row;
     z-index: 100;
-    font-size: 1.1rem;
+    font-size: 1rem;
     background: white;
     border-radius: 9px 9px 0 0;
     box-shadow: 0 -2px 8px 0 #0000001a;
@@ -21,7 +21,7 @@
             font-weight: bold;
         }
         .monthly-price {
-            border-top: #000 1px solid;
+            border-top: #00000021 1px solid;
             font-size: 0.9rem;
             .monthly-price-value {
             font-weight: bold;
@@ -33,5 +33,17 @@
             font-size: 0.9rem;
             margin: 0.5rem;
         }
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .price-indicator-wrapper {
+        width: 70vw;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    .price-indicator-wrapper {
+        width: 94vw;
     }
 }

@@ -1,4 +1,18 @@
-.appHeader {
+@media only screen and (max-width: 750px) {
+    .header-full-screen-buttons {
+        display: none !important;
+    }
+
+    .header-menu-button {
+        display: block !important;
+    }
+
+    .app-header {
+        justify-content: space-between;
+    }
+}
+
+.app-header {
     display: flex;
     align-items: center;
     font-family: "Nova Flat";
@@ -6,12 +20,21 @@
     width: 92vw;
     height: 6vh;
     padding: 0 2rem;
-    .headerLink {
+    .header-full-screen-buttons {
+        display: flex;
+    }
+    .header-menu-button {
+        display: none;
+        button {
+            padding: 0.7rem 1.2rem;
+            font-size: 1rem;
+        }
+    }
+    .header-link {
         border: none;
         text-decoration: none;
         h1 {
             margin: 0;
-            margin-right: 3rem;
             font-size: 2rem;
             color: rgba(249, 235, 195, 0.86);
             letter-spacing: 0.4vw;
@@ -21,3 +44,4 @@
         }
     }
 }
+

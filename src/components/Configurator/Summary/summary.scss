@@ -22,3 +22,20 @@
         }
     }
 }
+
+@media only screen and (max-width: 900px) {
+    .summary-container{
+        width: 40vw !important;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+        .summary-container {
+            width: 100vw !important;
+            padding-top: 0;
+            .price-container {
+                padding: 5px 0;
+                font-size: 1rem;
+            }
+        }
+    }

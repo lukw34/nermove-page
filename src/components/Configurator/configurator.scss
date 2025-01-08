@@ -1,12 +1,13 @@
 .configurator-wrapper {
     position: relative;
-    height: 90vh;
+    height: 94vh;
     width: 100vw;
     display: flex;
     flex-flow: row nowrap;
     background-image: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgb(255,255, 255) 5%);    
     align-items: flex-start;
     overflow-y: hidden;
+    overflow-x: hidden;
 
     .model-image {
         border-radius: 20px;
@@ -50,6 +51,31 @@
                 justify-content: space-between;
                 display: flex;
             }
+        }
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .model-image  {
+        width: 60vw !important;
+    }
+    .basic-config {
+        width: 40vw !important;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    .configurator-wrapper {
+        flex-direction: column;
+        align-items: center;
+        .model-image  {
+            width: 96vw !important;
+            height: 30vh;
+            margin: 2% 0;
+        }
+        .basic-config {
+            width: 100vw !important;
+            margin-bottom: 12vh;
         }
     }
 }

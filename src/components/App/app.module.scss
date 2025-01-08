@@ -1,8 +1,9 @@
 .app {
+  overflow-x: hidden;
   text-align: center;
   position: relative;
   display: flex;
-  background-size: 100vw 100vh;
+  background-size: 100% 100%;
   background-image: url("/img/main1.jpg");
   flex-direction: column;
   background-position: center;

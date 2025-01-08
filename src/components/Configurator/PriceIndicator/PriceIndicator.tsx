@@ -1,5 +1,5 @@
 import React from 'react';
-import { SubmitButton } from '../../Button/SubmitButton';
+import { ActionButton } from '../../Button/ActionButton';
 import i18next from 'i18next';
 import './priceIndicator.scss';
 import { useNavigate } from 'react-router-dom';
@@ -25,7 +25,7 @@ const PriceIndicator: React.FC<PriceIndicatorProps> = ({ calculatedPrice }) => {
         </div>
       </div>
       <div className="submit-button-container">
-        <SubmitButton onClick={handleOnClick} title="Podsumowanie"/> 
+        <ActionButton onClick={handleOnClick} title="Podsumowanie"/> 
       </div>
     </div>
   );
