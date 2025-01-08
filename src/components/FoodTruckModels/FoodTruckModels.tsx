@@ -1,6 +1,6 @@
 import React, { forwardRef, useRef } from 'react';
 import styles from './foodTruckModels.module.scss';
-import { StrongBlueButton } from '../Button/StrongBlueButton';
+import { StrongLinkButton } from '../Button/StrongLinkButton';
 import { modelsConfigs, modelsList } from '../../models.config';
 import ArrowDownButton from '../Button/ArrowDownButton';
 
@@ -27,7 +27,7 @@ const FoodTruckModels = forwardRef<HTMLDivElement | null>(function FoodTruckMode
               <h2>{item.name}</h2>
             </div>
             <div className={styles.button}>
-              <StrongBlueButton 
+              <StrongLinkButton 
                 title={`Skonfiguruj ${item.name} pod swoje potrzeby`}
                 to={`/models/${item.key}`}
               />

@@ -4,7 +4,11 @@ import MenuLinkButton from '../Button/MenuLinkButton';
 import { Link } from 'react-router-dom';
 import { ActionButton } from '../Button/ActionButton';
 
-const Header: React.FC = () => (
+interface HeaderProps {
+  openOverlay: () => void
+}
+
+const Header: React.FC<HeaderProps> = ({ openOverlay }) => (
   <header className="app-header">
     <Link className="header-link" to="/">
       <h1>
@@ -18,7 +22,7 @@ const Header: React.FC = () => (
       <MenuLinkButton title="O nas" to="about"/>
     </div>
     <div className="header-menu-button">   
-      <ActionButton title="Menu" onClick={()=>null}/>
+      <ActionButton onClick={openOverlay} title="Menu"/>
     </div> 
   </header>
 );
