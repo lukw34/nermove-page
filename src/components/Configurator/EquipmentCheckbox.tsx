@@ -13,9 +13,11 @@ interface EquipmentCheckboxProps {
 
 
 const labelMap: Record<BaseConfigurationType, string> = {
-  [BaseConfigurationType.ELECTRICITY]: 'Prąd',
-  [BaseConfigurationType.WATER]: 'Podpięcie wody',
-  [BaseConfigurationType.FURNITURE]: 'Meble'
+  [BaseConfigurationType.ELECTRICITY]: 'Elektryka',
+  [BaseConfigurationType.WATER]: 'Sanitaria',
+  [BaseConfigurationType.ADDITONAL_WEIGHT_SUPPORT]: 'Wzmocniona Podloga',
+  [BaseConfigurationType.COLOR]: 'Dowolny Kolor Obicia',
+  [BaseConfigurationType.SIZE_ADJUSTMENT]: 'Dostosuj rozmiar'
 };
 
 const EquipmentCheckbox: React.FC<EquipmentCheckboxProps> = ({fieldKey, price, value, onChange }) => {

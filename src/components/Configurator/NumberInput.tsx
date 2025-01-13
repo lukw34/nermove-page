@@ -1,17 +1,25 @@
-import React, { ChangeEvent, useCallback } from 'react';
+import React, { ChangeEvent, useCallback, useEffect } from 'react';
 import './input.scss';
 import './configurator.scss';
 import { ModelDimension } from '../../models.config';
 
 interface NumberInputProps {
+    defaultValue: number,
     value: number,
     fieldKey: ModelDimension,
     onChange: (fieldKey: ModelDimension, newValue: number) => void,
     label: string;
+    disabled: boolean
 }
 
 
-const NumberInput: React.FC<NumberInputProps> = ({fieldKey, value, onChange, label }) => {
+const NumberInput: React.FC<NumberInputProps> = ({fieldKey, value, onChange, label, disabled,defaultValue }) => {
+
+  useEffect(() => {
+    if(disabled) {
+      onChange(fieldKey, defaultValue);
+    }
+  }, [disabled]);
 
   const decrement = useCallback(() => {
     const newValue = value - 1;
@@ -36,9 +44,16 @@ const NumberInput: React.FC<NumberInputProps> = ({fieldKey, value, onChange, lab
     <div className="config-item-container">
       <div className="config-item">
         {label} <div>
-          <button className="input-number-modificator" onClick={increment}>+</button>
-          <button className="input-number-modificator" onClick={decrement}>–</button>
-          <input className="input-number" min={100} onChange={onChangeHandler} type="number" value={value}/>
+          <button 
+            className={`input-number-modificator ${disabled && 'input-disabled'}`} 
+            disabled={disabled}
+            onClick={increment}
+          >+</button>
+          <button
+            className={`input-number-modificator ${disabled && 'input-disabled'}`}
+            disabled={disabled}
+            onClick={decrement}>–</button>
+          <input className="input-number" disabled={disabled} min={100} onChange={onChangeHandler} type="number" value={value}/>
           <span>cm</span>
         </div>
       </div> 

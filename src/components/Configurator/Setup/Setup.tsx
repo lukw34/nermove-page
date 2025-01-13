@@ -1,49 +1,56 @@
-import React, { useContext } from 'react';
+import React, { useContext, useMemo } from 'react';
 import EquipmentCheckbox from '../EquipmentCheckbox';
 import NumberInput from '../NumberInput';
 import PriceIndicator from '../PriceIndicator/PriceIndicator';
-import WeightCheckboxInput from '../WeightCheckbox';
 import { ConfiguratorContext } from '../../../context/Configurator.context';
+import { BaseConfigurationType, SIZE_ADJUSTMENT_PRICE } from '../../../models.config';
 
 export const Setup = () => {
   const {
     selectedModel: {
       name,
-      axisConfiguration,
-      baseConfigurationOptions
+      baseConfigurationOptions,
+      size: {
+        width,
+        depth
+      }
     },
     configurator: {
       setup,
       setSize,
       setConfigurationOptions,
-      setWeightProperties,
       calculatedPrice
     }
-  } = useContext(ConfiguratorContext);  
+  } = useContext(ConfiguratorContext);
+  const isSizeAdjusted = useMemo(() => setup.configurtationOptions[BaseConfigurationType.SIZE_ADJUSTMENT], [setConfigurationOptions]); 
   return (
     <>
       <div className="basic-config">
         <h3>{name}</h3>
         <p className="config-divider">Wymiary</p>
-        <NumberInput fieldKey="height" label="Wysokość" onChange={setSize} value={setup.height}/>
-        <NumberInput fieldKey="width" label="Szerokość" onChange={setSize} value={setup.width}/>
-        <NumberInput fieldKey="depth" label="Głębokość" onChange={setSize} value={setup.depth}/>
-        <p className="config-divider">Obciążenie</p>
-        <WeightCheckboxInput 
-          fieldKey="additionalWeightSupport"
-          label="Wzmocnienie osi"
-          onChange={setWeightProperties}
-          price={axisConfiguration.additionalWeightSuportPrice}
-          value={setup.additionalWeightSupport}
+        <NumberInput 
+          defaultValue={width} 
+          disabled={!isSizeAdjusted} 
+          fieldKey="width" 
+          label="Szerokość" 
+          onChange={setSize}
+          value={setup.width}
         />
-        {axisConfiguration.isDoubleAxisSupported ? <WeightCheckboxInput 
-          fieldKey="includeDoubleAxis"
-          label="Podwójna oś"
-          onChange={setWeightProperties}
-          price={axisConfiguration.doubleAxisPrice}
-          value={setup.includeDoubleAxis}
-        /> : null }
-        <p className="config-divider">Wyposażenie</p>
+        <NumberInput 
+          defaultValue={depth} 
+          disabled={!isSizeAdjusted} 
+          fieldKey="depth" 
+          label="Głębokość" 
+          onChange={setSize}
+          value={setup.depth}
+        />
+        <EquipmentCheckbox
+          fieldKey={BaseConfigurationType.SIZE_ADJUSTMENT}
+          onChange={setConfigurationOptions}
+          price={SIZE_ADJUSTMENT_PRICE}
+          value={isSizeAdjusted}
+        />
+        <p className="config-divider">Wyposażenie Bazowe</p>
         { baseConfigurationOptions.map(({type, additionalPrice }) => (
           <EquipmentCheckbox
             fieldKey={type}

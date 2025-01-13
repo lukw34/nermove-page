@@ -1,12 +1,9 @@
 export enum BaseConfigurationType {
     ELECTRICITY = 'ELECTRICITY',
     WATER = 'WATER',
-    FURNITURE = 'FURNITURE'
-}
-
-export enum SpecialConfigurationType {
-    KEBAB = 'KEBAB',
-    PIZZA = 'PIZZA'
+    ADDITONAL_WEIGHT_SUPPORT = 'ADDITONALWEIGHTSUPPORT',
+    COLOR = 'COLOR',
+    SIZE_ADJUSTMENT = 'SIZEADJUSTMENT'
 }
 
 export interface BaseConfiguration {
@@ -14,98 +11,118 @@ export interface BaseConfiguration {
     type: BaseConfigurationType
 }
 
-export interface DoubleAxisConfiguration {
-    isDoubleAxisSupported: true,
-    doubleAxisPrice: number
-    additionalWeightSuportPrice: number,
+export interface ModelSize {
+  width: number,
+  depth: number,
 }
-
-export type AxisConfiguration = {
-    isDoubleAxisSupported: false,
-    additionalWeightSuportPrice: number,
-} | DoubleAxisConfiguration;
-
 
 export interface Model {
     key: string,
     name: string,
     basePrice: number,
+    size: ModelSize,
     image: string,
-    axisConfiguration: AxisConfiguration,
     baseConfigurationOptions: BaseConfiguration[],
-    specialConfigurations: SpecialConfigurationType[]
 }
 
 export interface ConfiguratorModel {
   width: number,
-  height: number,
   depth: number,
-  includeDoubleAxis: boolean,
-  additionalWeightSupport: boolean,
   configurtationOptions: Record<string, boolean>
 }
 
-export type ModelDimension = 'width' | 'height' | 'depth';
-export type WeightProperties = 'includeDoubleAxis' | 'additionalWeightSupport'
+export type ModelDimension = 'width' | 'depth';
+
+export const SIZE_ADJUSTMENT_PRICE = 1000;
 
 const modelsBaseConfigs: Model[] = [{
   key: 'nunu',
   name: 'Nunu',
-  basePrice: 12432134,
-  image: 'https://przyczepygastronomiczne.pl/wp-content/uploads/2022/12/food-truck-coffe-merrild-45.jpg',
-  axisConfiguration: {
-    isDoubleAxisSupported: false,
-    additionalWeightSuportPrice: 23954345
+  basePrice: 17900,
+  size: {
+    width: 350,
+    depth: 200,
   },
+  image: 'https://przyczepygastronomiczne.pl/wp-content/uploads/2022/12/food-truck-coffe-merrild-45.jpg',
   baseConfigurationOptions: [{
     type: BaseConfigurationType.ELECTRICITY,
-    additionalPrice: 3453456
+    additionalPrice: 2500,
   }, {
-    type: BaseConfigurationType.FURNITURE,
+    type: BaseConfigurationType.ADDITONAL_WEIGHT_SUPPORT,
+    additionalPrice: 3934593
+  }, {
+    type: BaseConfigurationType.COLOR,
     additionalPrice: 3934593
   }, {
     type: BaseConfigurationType.WATER,
-    additionalPrice: 23424
+    additionalPrice: 2500
   }],
-  specialConfigurations: [SpecialConfigurationType.KEBAB]
 }, {
   key: 'explorer',
   name: 'Explorer',
   basePrice: 20032400,
+  size: {
+    width: 450,
+    depth: 220,
+  },
   image: 'https://przyczepygastronomiczne.pl/wp-content/uploads/2023/07/syty-wol-24.jpg',
-  axisConfiguration: {
-    isDoubleAxisSupported: false,
-    additionalWeightSuportPrice: 23954345
-  },
   baseConfigurationOptions: [{
     type: BaseConfigurationType.ELECTRICITY,
-    additionalPrice: 323453456
+    additionalPrice: 2500,
   }, {
-    type: BaseConfigurationType.WATER,
-    additionalPrice: 23424
-  }],
-  specialConfigurations: [SpecialConfigurationType.KEBAB, SpecialConfigurationType.PIZZA]
-}, {
-  key: 'rocket',
-  name: 'Rocket',
-  basePrice: 3023403,
-  image: 'https://przyczepygastronomiczne.pl/wp-content/uploads/2021/11/samochod-ekspozycyjny-wystawowy-010.jpg',
-  axisConfiguration: {
-    isDoubleAxisSupported: true,
-    additionalWeightSuportPrice: 23954345,
-    doubleAxisPrice: 12423231212
-  },
-  baseConfigurationOptions: [{
-    type: BaseConfigurationType.ELECTRICITY,
-    additionalPrice: 3453456
+    type: BaseConfigurationType.ADDITONAL_WEIGHT_SUPPORT,
+    additionalPrice: 3934593
   }, {
-    type: BaseConfigurationType.FURNITURE,
+    type: BaseConfigurationType.COLOR,
     additionalPrice: 3934593
   }, {
     type: BaseConfigurationType.WATER,
-    additionalPrice: 23424
+    additionalPrice: 2500
   }],
-  specialConfigurations: [SpecialConfigurationType.KEBAB, SpecialConfigurationType.PIZZA]
+}, {
+  key: 'odyssey',
+  name: 'Odyssey',
+  size: {
+    width: 550,
+    depth: 240,
+  },
+  basePrice: 3023403,
+  image: 'https://przyczepygastronomiczne.pl/wp-content/uploads/2021/11/samochod-ekspozycyjny-wystawowy-010.jpg',
+  baseConfigurationOptions: [{
+    type: BaseConfigurationType.ELECTRICITY,
+    additionalPrice: 2500,
+  }, {
+    type: BaseConfigurationType.ADDITONAL_WEIGHT_SUPPORT,
+    additionalPrice: 3934593
+  }, {
+    type: BaseConfigurationType.COLOR,
+    additionalPrice: 3934593
+  }, {
+    type: BaseConfigurationType.WATER,
+    additionalPrice: 2500
+  }]
+},  {
+  key: 'rocket',
+  name: 'Rocket',
+  size: {
+    width: 650,
+    depth: 240,
+  },
+  basePrice: 3023403,
+  image: 'https://przyczepygastronomiczne.pl/wp-content/uploads/2021/11/samochod-ekspozycyjny-wystawowy-010.jpg',
+  baseConfigurationOptions: [{
+    type: BaseConfigurationType.ELECTRICITY,
+    additionalPrice: 2500,
+  }, {
+    type: BaseConfigurationType.ADDITONAL_WEIGHT_SUPPORT,
+    additionalPrice: 3934593
+  }, {
+    type: BaseConfigurationType.COLOR,
+    additionalPrice: 3934593
+  }, {
+    type: BaseConfigurationType.WATER,
+    additionalPrice: 2500
+  }]
 }];
 
 const { modelsConfigs, modelsList } = modelsBaseConfigs.reduce<{

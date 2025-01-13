@@ -9,6 +9,7 @@
 
     .app-header {
         justify-content: space-between;
+        padding: 0 !important;
     }
 }
 
@@ -34,14 +35,8 @@
     .header-link {
         border: none;
         text-decoration: none;
-        h1 {
-            margin: 0;
-            font-size: 2rem;
-            color: rgba(249, 235, 195, 0.86);
-            letter-spacing: 0.4vw;
-            text-shadow: 3px 2px rgba(243, 205, 96, 0.6);
-            -webkit-text-stroke: rgba(249, 235, 195, 0.86);
-            letter-spacing: 0.4vw;
+        .logo-image {
+            width: 300px;
         }
     }
 }
