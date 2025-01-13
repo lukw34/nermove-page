@@ -1,9 +1,16 @@
 export enum BaseConfigurationType {
     ELECTRICITY = 'ELECTRICITY',
     WATER = 'WATER',
-    ADDITONAL_WEIGHT_SUPPORT = 'ADDITONALWEIGHTSUPPORT',
+    ADDITONAL_WEIGHT_SUPPORT = 'ADDITONAL_WEIGHT_SUPPORT',
     COLOR = 'COLOR',
-    SIZE_ADJUSTMENT = 'SIZEADJUSTMENT'
+    SIZE_ADJUSTMENT = 'SIZEA_DJUSTMENT',
+    DETACHABLE_DRAWBAR = 'DETACHABLE_DRAWBAR',
+    SUPPORTS = 'SUPPORTS',
+    HOOD = 'HOOD',
+}
+
+export enum HoodOptions {
+  ONE_METER = 'ONE_METER'
 }
 
 export interface BaseConfiguration {
@@ -34,6 +41,19 @@ export interface ConfiguratorModel {
 export type ModelDimension = 'width' | 'depth';
 
 export const SIZE_ADJUSTMENT_PRICE = 1000;
+
+
+export const addons = {
+  [BaseConfigurationType.DETACHABLE_DRAWBAR]: {
+    price: 500,
+  },
+  [BaseConfigurationType.SUPPORTS]: {
+    price: 2000
+  },
+  [BaseConfigurationType.HOOD]: {
+    options: [{ type: HoodOptions.ONE_METER, price: 1250 }]
+  },
+};
 
 const modelsBaseConfigs: Model[] = [{
   key: 'nunu',

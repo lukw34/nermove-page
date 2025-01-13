@@ -60,6 +60,8 @@ export const Setup = () => {
             value={setup.configurtationOptions[type]}
           />
         ))}
+        <p className="config-divider">Okap</p>
+        {/* Komponent do wyboru bedzie mial tylko setConfigurationOptions i  */}
       </div>
       <PriceIndicator calculatedPrice={calculatedPrice} />
     </>
