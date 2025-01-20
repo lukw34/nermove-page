@@ -1,6 +1,6 @@
 import { createContext } from 'react';
-import {ConfiguratorModel, ModelDimension, BaseConfigurationType, Model} from '../models.config';
 import { useConfiguratorModel } from '../hooks/useConfiguratorModel';
+import { ConfiguratorModel, ModelDimension, BaseConfigurationType, Model } from '../config/models.config types';
 
 
 interface Configurator {

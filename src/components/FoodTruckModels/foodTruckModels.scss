@@ -1,0 +1,58 @@
+.models-container {
+    .single-model {
+        position: relative;
+        background-size: 100vw 100vh;
+        width: 100vw;
+        height: 100vh;
+
+        .next-button {
+            position: absolute;
+            bottom: 5%;
+            right: 5%;
+        }
+
+        .info {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 5%;
+            margin-inline: auto;
+            background-color: #4a3641c4;
+            letter-spacing: 9px;
+            width: 100%;
+            color: rgba(249, 235, 195, 0.86);
+
+            h2 {
+                margin: 10px;
+                font-family: "Nova Flat";
+            }
+        }
+
+        .button {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 10%;
+            margin-inline: auto;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+    }
+}
+
+.nunu {
+    background-image: url("/img/truck/nunu_desktop.jpg");
+}
+.explorer {
+    background-image: url("/img/truck/explorer_desktop.jpg");
+}
+
+@media only screen and (max-width: 550px) {
+    .nunu {
+        background-image: url("/img/truck/nunu_mobile.jpg");
+    }
+    .explorer {
+        background-image: url("/img/truck/explorer_mobile.jpg");
+    }
+}

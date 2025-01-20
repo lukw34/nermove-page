@@ -3,7 +3,8 @@ import EquipmentCheckbox from '../EquipmentCheckbox';
 import NumberInput from '../NumberInput';
 import PriceIndicator from '../PriceIndicator/PriceIndicator';
 import { ConfiguratorContext } from '../../../context/Configurator.context';
-import { BaseConfigurationType, SIZE_ADJUSTMENT_PRICE } from '../../../models.config';
+import { BaseConfigurationType, SIZE_ADJUSTMENT_PRICE, TruckAddonsType } from '../../../config/models.config types';
+import { truckAddons } from '../../../config/addons.config';
 
 export const Setup = () => {
   const {
@@ -60,8 +61,19 @@ export const Setup = () => {
             value={setup.configurtationOptions[type]}
           />
         ))}
-        <p className="config-divider">Okap</p>
-        {/* Komponent do wyboru bedzie mial tylko setConfigurationOptions i  */}
+        <p className="config-divider">Dodatki</p>
+        <EquipmentCheckbox
+          fieldKey={TruckAddonsType.DETACHABLE_DRAWBAR}
+          onChange={setConfigurationOptions}
+          price={truckAddons[TruckAddonsType.DETACHABLE_DRAWBAR].price}
+          value={setup.configurtationOptions[BaseConfigurationType.DETACHABLE_DRAWBAR]}
+        />
+        <EquipmentCheckbox
+          fieldKey={BaseConfigurationType.SUPPORTS}
+          onChange={setConfigurationOptions}
+          price={truckAddons[BaseConfigurationType.SUPPORTS].price}
+          value={setup.configurtationOptions[BaseConfigurationType.SUPPORTS]}
+        />
       </div>
       <PriceIndicator calculatedPrice={calculatedPrice} />
     </>

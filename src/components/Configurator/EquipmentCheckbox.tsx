@@ -2,23 +2,16 @@ import React, { ChangeEvent, useCallback } from 'react';
 import i18next from 'i18next';
 import './input.scss';
 import './configurator.scss';
-import { BaseConfigurationType } from '../../models.config';
+import { labelMap } from '../../config/models.config';
+import { BaseConfigurationType, TruckAddonsType } from '../../config/models.config types';
 
 interface EquipmentCheckboxProps {
     value: boolean,
-    fieldKey: BaseConfigurationType,
-    onChange: (fieldKey: BaseConfigurationType, newValue: boolean) => void,
+    fieldKey: BaseConfigurationType | TruckAddonsType,
+    onChange: (fieldKey: BaseConfigurationType | TruckAddonsType, newValue: boolean) => void,
     price: number
 }
 
-
-const labelMap: Record<BaseConfigurationType, string> = {
-  [BaseConfigurationType.ELECTRICITY]: 'Elektryka',
-  [BaseConfigurationType.WATER]: 'Sanitaria',
-  [BaseConfigurationType.ADDITONAL_WEIGHT_SUPPORT]: 'Wzmocniona Podloga',
-  [BaseConfigurationType.COLOR]: 'Dowolny Kolor Obicia',
-  [BaseConfigurationType.SIZE_ADJUSTMENT]: 'Dostosuj rozmiar'
-};
 
 const EquipmentCheckbox: React.FC<EquipmentCheckboxProps> = ({fieldKey, price, value, onChange }) => {
 
