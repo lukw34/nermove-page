@@ -1,14 +1,14 @@
 import React, { ChangeEvent, useCallback } from 'react';
 import i18next from 'i18next';
 import './input.scss';
-import './configurator.scss';
-import { labelMap } from '../../config/models.config';
-import { BaseConfigurationType, TruckAddonsType } from '../../config/models.config types';
+import '../configurator.scss';
+import { labelMap } from '../../../config/models.config';
+import { FieldKeys } from '../../../config/models.config types';
 
 interface EquipmentCheckboxProps {
     value: boolean,
-    fieldKey: BaseConfigurationType | TruckAddonsType,
-    onChange: (fieldKey: BaseConfigurationType | TruckAddonsType, newValue: boolean) => void,
+    fieldKey: FieldKeys
+    onChange: (fieldKey: FieldKeys, newValue: boolean) => void,
     price: number
 }
 

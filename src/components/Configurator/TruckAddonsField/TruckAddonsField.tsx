@@ -1,34 +1,50 @@
-import React, { ChangeEvent, useCallback, useMemo } from 'react';
-import i18next from 'i18next';
-import './input.scss';
-import './configurator.scss';
-import { BaseConfigurationType, FieldType, TruckAddonsType } from '../../../config/models.config types';
-import { labelMap } from '../../../config/models.config';
+import React, { useContext, useMemo } from 'react';
+import { FieldType, TruckAddonsType } from '../../../config/models.config types';
 import { truckAddons } from '../../../config/addons.config';
-import EquipmentCheckbox from '../EquipmentCheckbox';
+import EquipmentCheckbox from '../inputs/EquipmentCheckbox';
+import { ConfiguratorContext } from '../../../context/Configurator.context';
+import Selector from '../inputs/Selector';
 
 interface TruckAddonsFieldProps {
-    value: boolean | string,
     fieldKey: TruckAddonsType
-    onChange: (fieldKey: TruckAddonsType, newValue: boolean | string) => void,
 }
 
 
-const TruckAddonsField: React.FC<TruckAddonsFieldProps> = ({fieldKey, value, onChange }) => {
+const TruckAddonsField: React.FC<TruckAddonsFieldProps> = ({fieldKey }) => {
+  const {
+    configurator: {
+      setup: {
+        configurtationOptions
+      },
+      setConfigurationOptions
+    }
+  } = useContext(ConfiguratorContext);
 
   const addonItem = useMemo(() => truckAddons[fieldKey], [fieldKey]);
+  const value = useMemo(() => configurtationOptions[fieldKey], [fieldKey, configurtationOptions]);
   if(addonItem.type === FieldType.CHECKBOX) {
     return (
       <EquipmentCheckbox 
         fieldKey={fieldKey} 
-        onChange={onChange}
+        onChange={setConfigurationOptions}
         price={addonItem.price}
         value={!!value}
       />
     );
   }
   
-  return <div>DUPA</div>;
+  if(addonItem.type === FieldType.SELECTION) {
+    return (
+      <Selector
+        fieldKey={fieldKey}
+        onChange={setConfigurationOptions}
+        options={addonItem.options}
+        value={String(value)}
+      />
+    );
+  }
+  
+  return null;
 };
 
 export default TruckAddonsField;

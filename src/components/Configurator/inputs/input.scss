@@ -1,4 +1,4 @@
-@import "./configurator.scss";
+@import "../configurator.scss";
 
 .input-number {
     width: 40px;
@@ -66,7 +66,6 @@
         background-color: rgb(230, 230, 230);
     }
 }
-
 .water-wrapper {
     &:hover {
         background-color: #86c5ff;

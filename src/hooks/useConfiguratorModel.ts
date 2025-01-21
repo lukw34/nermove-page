@@ -5,19 +5,17 @@ import {
   ModelDimension,
   BaseConfigurationType,
   TruckAddonsType,
-  FieldType, 
+  FieldType,
 } from '../config/models.config types';
 import { truckAddons } from '../config/addons.config';
+import { defaultConfigurationOptions } from '../context/Configurator.context';
 
 
 export const useConfiguratorModel = (modelConfig: Model) => {
   const [setup, setSetupValue] = useState<ConfiguratorModel>({
     width: modelConfig.size.width,
     depth: modelConfig.size.depth,
-    configurtationOptions: modelConfig.baseConfigurationOptions.reduce((prev, item) => ({
-      ...prev,
-      [item.type]: false
-    }), {})
+    configurtationOptions: defaultConfigurationOptions
   });
 
 
@@ -51,14 +49,14 @@ export const useConfiguratorModel = (modelConfig: Model) => {
     }, price);
 
     return Object.keys(truckAddons).reduce((prev, itemKey) => {
-      if(setup.configurtationOptions[itemKey]) {
+      if(setup.configurtationOptions[itemKey as TruckAddonsType]) {
         const addonItem = truckAddons[itemKey as TruckAddonsType];
         if(addonItem.type === FieldType.CHECKBOX) {
           return prev + addonItem.price;
         }
 
         if(addonItem.type === FieldType.SELECTION) {
-          const selection = addonItem.options.find(opt => opt.label === setup.configurtationOptions[itemKey])
+          const selection = addonItem.options.find(opt => opt.label === setup.configurtationOptions[itemKey as TruckAddonsType]);
           if(selection) {
             return selection.price + prev;
           }

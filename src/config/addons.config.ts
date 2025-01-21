@@ -1,4 +1,4 @@
-import { FanOptions, FieldType, HoodOptions, TruckAddonsMap, TruckAddonsType } from './models.config types';
+import { FanOptions, FieldType, HoodOptions, TruckAddonsMap, TruckAddonsType, WindowOptions } from './models.config types';
 
 export const truckAddons: TruckAddonsMap = {
   [TruckAddonsType.DETACHABLE_DRAWBAR]: {
@@ -16,6 +16,8 @@ export const truckAddons: TruckAddonsMap = {
   [TruckAddonsType.HOOD]: {
     type: FieldType.SELECTION,
     options: [{
+      label: HoodOptions.NO_HOOD.valueOf(), price: 0,
+    },{
       label: HoodOptions.ONE_METER.valueOf(), price: 1250,
     }, {
       label: HoodOptions.ONE_HALF_METER.valueOf(), price: 1500,
@@ -28,6 +30,8 @@ export const truckAddons: TruckAddonsMap = {
   [TruckAddonsType.FAN]: {
     type: FieldType.SELECTION,
     options: [{
+      label: FanOptions.NO_FAN.valueOf(), price: 0,
+    },{
       label: FanOptions.FAN_LVL_1.valueOf(), price: 700,
     }, {
       label: FanOptions.FAN_LVL_2.valueOf(), price: 1000,
@@ -38,5 +42,17 @@ export const truckAddons: TruckAddonsMap = {
   [TruckAddonsType.FAN_CONTROLLER]: {
     price: 400,
     type: FieldType.CHECKBOX
+  },
+  [TruckAddonsType.WINDOWS]: {
+    type: FieldType.SELECTION,
+    options: [{
+      label: WindowOptions.NO_WINDOW.valueOf(), price: 0,
+    },{
+      label: WindowOptions.TWO_METERS.valueOf(), price: 3500,
+    }, {
+      label: WindowOptions.TWO_HALF_METERS.valueOf(), price: 4000,
+    }, {
+      label: WindowOptions.THREE_METERS.valueOf(), price: 4500,
+    }]
   }
 };

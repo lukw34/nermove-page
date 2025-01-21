@@ -5,23 +5,26 @@
     display: flex;
     flex-flow: row nowrap;
     background-image: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgb(255,255, 255) 5%);    
-    align-items: flex-start;
+    align-items: center;
     overflow-y: hidden;
     overflow-x: hidden;
 
     .model-image {
-        border-radius: 20px;
+        border-radius: 5px;
         width: 65vw;
         height: 90%;
-        margin: 5% 0;
-        object-fit: fill;
         border: 2px solid rgb(249, 235, 195);
+        background-size: 50vw 50vh;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-image: url("/img/project.jpeg");
     }
 
     .basic-config {
         overflow-y: scroll;
         width: 35vw;
         height: 78vh;
+        margin-bottom: 10vh;
         flex: 1;
         display: flex;
         flex-direction: column;
@@ -52,6 +55,31 @@
                 justify-content: space-between;
                 display: flex;
             }
+            .selector-box{
+                background-color: #eeebeb;
+                height: 45px;
+                width: 100%;
+                background-color: #fff;
+                position: relative;
+                color: #000;
+                cursor: pointer;
+                
+                &:focus {
+                    outline: none;
+                }
+
+                &:hover {
+                    background-color: #ccc;
+                }
+
+                option {
+                    font-weight: 100;
+                    display: flex;
+                    justify-content: center;
+                    background-color: #ffffff;
+                }
+            }
+            
         }
     }
 }

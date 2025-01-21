@@ -1,8 +1,8 @@
-import { BaseConfigurationType, Model, TruckAddonsType } from './models.config types';
+import { BaseConfigurationType, FieldKeys, Model, TruckAddonsType } from './models.config types';
 
 
 
-const labelMap: Record<BaseConfigurationType | TruckAddonsType, string> = {
+const labelMap: Record<FieldKeys, string> = {
   [BaseConfigurationType.ELECTRICITY]: 'Elektryka',
   [BaseConfigurationType.WATER]: 'Sanitaria',
   [BaseConfigurationType.ADDITONAL_WEIGHT_SUPPORT]: 'Wzmocniona Podloga',
@@ -13,7 +13,8 @@ const labelMap: Record<BaseConfigurationType | TruckAddonsType, string> = {
   [TruckAddonsType.HOOD]: 'Okap',
   [TruckAddonsType.TRIPLE_SINK]: 'Potrójny zlew',
   [TruckAddonsType.FAN]: 'Wentylator',
-  [TruckAddonsType.FAN_CONTROLLER]: 'Regulator obrotów'
+  [TruckAddonsType.FAN_CONTROLLER]: 'Regulator obrotów',
+  [TruckAddonsType.WINDOWS]: 'Okna całoroczne'
 };
 
 const modelsBaseConfigs: Model[] = [{
@@ -24,7 +25,6 @@ const modelsBaseConfigs: Model[] = [{
     width: 350,
     depth: 200,
   },
-  image: 'https://przyczepygastronomiczne.pl/wp-content/uploads/2022/12/food-truck-coffe-merrild-45.jpg',
   baseConfigurationOptions: [{
     type: BaseConfigurationType.ELECTRICITY,
     additionalPrice: 2500,
@@ -46,7 +46,6 @@ const modelsBaseConfigs: Model[] = [{
     width: 450,
     depth: 220,
   },
-  image: 'https://przyczepygastronomiczne.pl/wp-content/uploads/2023/07/syty-wol-24.jpg',
   baseConfigurationOptions: [{
     type: BaseConfigurationType.ELECTRICITY,
     additionalPrice: 2500,
@@ -68,7 +67,6 @@ const modelsBaseConfigs: Model[] = [{
     depth: 240,
   },
   basePrice: 3023403,
-  image: 'https://przyczepygastronomiczne.pl/wp-content/uploads/2021/11/samochod-ekspozycyjny-wystawowy-010.jpg',
   baseConfigurationOptions: [{
     type: BaseConfigurationType.ELECTRICITY,
     additionalPrice: 2500,
@@ -90,7 +88,6 @@ const modelsBaseConfigs: Model[] = [{
     depth: 240,
   },
   basePrice: 3023403,
-  image: 'https://przyczepygastronomiczne.pl/wp-content/uploads/2021/11/samochod-ekspozycyjny-wystawowy-010.jpg',
   baseConfigurationOptions: [{
     type: BaseConfigurationType.ELECTRICITY,
     additionalPrice: 2500,

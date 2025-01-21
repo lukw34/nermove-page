@@ -1,10 +1,10 @@
 import React, { useContext, useMemo } from 'react';
-import EquipmentCheckbox from '../EquipmentCheckbox';
-import NumberInput from '../NumberInput';
+import EquipmentCheckbox from '../inputs/EquipmentCheckbox';
+import NumberInput from '../inputs/NumberInput';
 import PriceIndicator from '../PriceIndicator/PriceIndicator';
 import { ConfiguratorContext } from '../../../context/Configurator.context';
 import { BaseConfigurationType, SIZE_ADJUSTMENT_PRICE, TruckAddonsType } from '../../../config/models.config types';
-import { truckAddons } from '../../../config/addons.config';
+import TruckAddonsField from '../TruckAddonsField/TruckAddonsField';
 
 export const Setup = () => {
   const {
@@ -23,7 +23,7 @@ export const Setup = () => {
       calculatedPrice
     }
   } = useContext(ConfiguratorContext);
-  const isSizeAdjusted = useMemo(() => setup.configurtationOptions[BaseConfigurationType.SIZE_ADJUSTMENT], [setConfigurationOptions]); 
+  const isSizeAdjusted = useMemo(() => !!setup.configurtationOptions[BaseConfigurationType.SIZE_ADJUSTMENT], [setConfigurationOptions]); 
   return (
     <>
       <div className="basic-config">
@@ -58,21 +58,33 @@ export const Setup = () => {
             key={`${name}-${type}`}
             onChange={setConfigurationOptions}
             price={additionalPrice}
-            value={setup.configurtationOptions[type]}
+            value={!!setup.configurtationOptions[type]}
           />
         ))}
         <p className="config-divider">Dodatki</p>
-        <EquipmentCheckbox
-          fieldKey={TruckAddonsType.DETACHABLE_DRAWBAR}
-          onChange={setConfigurationOptions}
-          price={truckAddons[TruckAddonsType.DETACHABLE_DRAWBAR].price}
-          value={setup.configurtationOptions[BaseConfigurationType.DETACHABLE_DRAWBAR]}
+        <TruckAddonsField
+          fieldKey={TruckAddonsType.SUPPORTS}
         />
-        <EquipmentCheckbox
-          fieldKey={BaseConfigurationType.SUPPORTS}
-          onChange={setConfigurationOptions}
-          price={truckAddons[BaseConfigurationType.SUPPORTS].price}
-          value={setup.configurtationOptions[BaseConfigurationType.SUPPORTS]}
+        <TruckAddonsField
+          fieldKey={TruckAddonsType.TRIPLE_SINK}
+        />
+        <TruckAddonsField
+          fieldKey={TruckAddonsType.DETACHABLE_DRAWBAR}
+        />
+        <p className="config-divider">Okap</p>
+        <TruckAddonsField
+          fieldKey={TruckAddonsType.HOOD}
+        />
+        <p className="config-divider">Wentylator</p>
+        <TruckAddonsField
+          fieldKey={TruckAddonsType.FAN}
+        />
+        <TruckAddonsField
+          fieldKey={TruckAddonsType.FAN_CONTROLLER}
+        />
+        <p className="config-divider">Okna całoroczne</p>
+        <TruckAddonsField
+          fieldKey={TruckAddonsType.WINDOWS}
         />
       </div>
       <PriceIndicator calculatedPrice={calculatedPrice} />
