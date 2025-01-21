@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { redirect, useParams } from 'react-router-dom';
-import { modelsConfigs } from '../models.config';
+import { modelsConfigs } from '../config/models.config';
 import Configurator from '../components/Configurator/Configurator';
 import { ConfiguratorContextProvider } from '../context/Configurator.context';
 

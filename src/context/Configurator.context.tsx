@@ -1,19 +1,34 @@
 import { createContext } from 'react';
-import {ConfiguratorModel, ModelDimension, BaseConfigurationType, Model} from '../models.config';
 import { useConfiguratorModel } from '../hooks/useConfiguratorModel';
+import { ConfiguratorModel, ModelDimension, Model, FieldKeys, BaseConfigurationType, TruckAddonsType, HoodOptions, FanOptions, WindowOptions } from '../config/models.config types';
 
 
 interface Configurator {
     setup: ConfiguratorModel,
     setSize: (key: ModelDimension, value: number) => void
     calculatedPrice: number
-    setConfigurationOptions: (key: BaseConfigurationType, value: boolean) => void
+    setConfigurationOptions: (key: FieldKeys, value: boolean | string) => void
 }
 
 interface ConfigurationContext {
     selectedModel: Model,
     configurator: Configurator
 }
+
+export const defaultConfigurationOptions = {
+  [BaseConfigurationType.ELECTRICITY]: false,
+  [BaseConfigurationType.WATER]: false,
+  [BaseConfigurationType.ADDITONAL_WEIGHT_SUPPORT]: false,
+  [BaseConfigurationType.COLOR]: false,
+  [BaseConfigurationType.SIZE_ADJUSTMENT]: false,
+  [TruckAddonsType.DETACHABLE_DRAWBAR]: false,
+  [TruckAddonsType.SUPPORTS]: false,
+  [TruckAddonsType.HOOD]: HoodOptions.NO_HOOD.valueOf(),
+  [TruckAddonsType.TRIPLE_SINK]: false,
+  [TruckAddonsType.FAN]: FanOptions.NO_FAN.valueOf(),
+  [TruckAddonsType.FAN_CONTROLLER]: false,
+  [TruckAddonsType.WINDOWS]: WindowOptions.NO_WINDOW.valueOf()
+};
 
 const defaultContext: ConfigurationContext = {
   configurator: {
@@ -23,7 +38,7 @@ const defaultContext: ConfigurationContext = {
     setup: {
       width: 0,
       depth: 0,
-      configurtationOptions: {}
+      configurtationOptions: defaultConfigurationOptions
     }
   },
   selectedModel: {
@@ -34,7 +49,6 @@ const defaultContext: ConfigurationContext = {
       width: 0,
     },
     basePrice: 0,
-    image: '',
     baseConfigurationOptions: [],
   },
 };   

@@ -1,13 +1,13 @@
 import React, { forwardRef, useRef } from 'react';
-import styles from './foodTruckModels.module.scss';
+import './foodTruckModels.scss';
 import { StrongLinkButton } from '../Button/StrongLinkButton';
-import { modelsConfigs, modelsList } from '../../models.config';
+import { modelsConfigs, modelsList } from '../../config/models.config';
 import ArrowDownButton from '../Button/ArrowDownButton';
 
 const FoodTruckModels = forwardRef<HTMLDivElement | null>(function FoodTruckModel (props, ref) {
   const itemsRef = useRef<HTMLElement[]>([]);
   return (
-    <div className={styles.modelsContainer}>
+    <div className="models-container">
       {modelsList.map((id: string, index: number) => {
         const item = modelsConfigs[id];
         const refProps = index === 0 ? { ref }: { ref: (el: HTMLDivElement) => itemsRef.current[index] = el};
@@ -21,18 +21,17 @@ const FoodTruckModels = forwardRef<HTMLDivElement | null>(function FoodTruckMode
         };
 
         return (
-          <div className={styles.singleModel} key={item.key} {...refProps}>
-            <img alt={item.name} className={styles.image} src={item.image} />
-            <div className={styles.info}>
+          <div className={`single-model ${item.key}`} key={item.key} {...refProps}>
+            <div className="info">
               <h2>{item.name}</h2>
             </div>
-            <div className={styles.button}>
+            <div className="button">
               <StrongLinkButton 
                 title={`Skonfiguruj ${item.name} pod swoje potrzeby`}
                 to={`/models/${item.key}`}
               />
             </div>
-            { index !== modelsList.length - 1 ? <div className={styles.nextButton}>
+            { index !== modelsList.length - 1 ? <div className="next-button">
               <ArrowDownButton onClick={onClick}/>
             </div> : null }
           </div>
