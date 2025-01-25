@@ -18,7 +18,6 @@ const Header: React.FC<HeaderProps> = ({ openOverlay }) => (
       <MenuLinkButton title="Galeria" to="gallery"/>
       <MenuLinkButton title="Kontakt" to="contact"/>
       <MenuLinkButton title="Proces Realizacji" to="process"/>
-      <MenuLinkButton title="O nas" to="about"/>
     </div>
     <div className="header-menu-button">   
       <ActionButton onClick={openOverlay} title="Menu"/>

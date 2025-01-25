@@ -17,8 +17,8 @@ export const Summary = () => {
   } = useContext(ConfiguratorContext);
   
   const deliveryDate = useMemo(() => {
-    const today = new Date();
-    return `${today.getMonth() + 1}/${today.getFullYear()}`;
+    const deliveryDate = new Date(new Date().getTime() + (63 * 24 * 60 * 60 * 1000));
+    return `${deliveryDate.getMonth() + 1}/${deliveryDate.getFullYear()}`;
   }, []);
 
   return (

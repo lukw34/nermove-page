@@ -6,14 +6,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-y: scroll;
     .delivery-label {
         font-weight: 400;
         color: #5c5e62;
         font-size: 0.9rem;
     }
     .price-container {
-        padding: 20px 0;
-        font-size: 1.5rem;
+        padding: 10px 0;
+        font-size: 1.1rem;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
