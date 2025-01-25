@@ -13,7 +13,10 @@ export enum TruckAddonsType {
   TRIPLE_SINK = 'TRIPLE_SINK',
   FAN = 'FAN',
   FAN_CONTROLLER = 'FAN_CONTROLLER',
-  WINDOWS = 'WINDOWS'
+  WINDOWS = 'WINDOWS',
+  FURNITURES = 'FURNITURES',
+  STEAL_COUNTERTOP = 'STEAL_COUNTERTOP',
+  STEAL_WALLS = 'STEAL_WALLS'
 }
 
 
@@ -65,21 +68,30 @@ export interface Model {
 export interface ConfiguratorModel {
   width: number,
   depth: number,
-  configurtationOptions: Record<FieldKeys, boolean | string>
+  configurtationOptions: Record<FieldKeys, boolean | string | number>
 }
 
 export enum FieldType {
   CHECKBOX = 'CHECKBOX',
-  SELECTION = 'SELECTION'
+  SELECTION = 'SELECTION',
+  QUANTITY = 'QUANTITY'
 }
 
-export type ModelDimension = 'width' | 'depth';
-
+export enum ModelDimension {
+  width = 'width',
+  depth = 'depth'
+}
 export const SIZE_ADJUSTMENT_PRICE = 1000;
 
 export interface CheckboxAddon {
   type: FieldType.CHECKBOX,
   price: number
+}
+
+export interface QuantityAddon {
+  type: FieldType.QUANTITY,
+  quantityPrice: number,
+  quantityLabel: string
 }
 
 export interface SelectionOptionsItem {
@@ -92,7 +104,7 @@ export interface SelectionOptions {
 }
 
 export type TruckAddonsMap = {
-[key in (keyof typeof TruckAddonsType)]: CheckboxAddon | SelectionOptions
+[key in (keyof typeof TruckAddonsType)]: CheckboxAddon | SelectionOptions | QuantityAddon
 }
 
-export type FieldKeys = BaseConfigurationType | TruckAddonsType
+export type FieldKeys = BaseConfigurationType | TruckAddonsType | ModelDimension

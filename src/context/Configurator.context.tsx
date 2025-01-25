@@ -5,9 +5,8 @@ import { ConfiguratorModel, ModelDimension, Model, FieldKeys, BaseConfigurationT
 
 interface Configurator {
     setup: ConfiguratorModel,
-    setSize: (key: ModelDimension, value: number) => void
     calculatedPrice: number
-    setConfigurationOptions: (key: FieldKeys, value: boolean | string) => void
+    setConfigurationOptions: (key: FieldKeys, value: boolean | string | number) => void
 }
 
 interface ConfigurationContext {
@@ -27,12 +26,16 @@ export const defaultConfigurationOptions = {
   [TruckAddonsType.TRIPLE_SINK]: false,
   [TruckAddonsType.FAN]: FanOptions.NO_FAN.valueOf(),
   [TruckAddonsType.FAN_CONTROLLER]: false,
-  [TruckAddonsType.WINDOWS]: WindowOptions.NO_WINDOW.valueOf()
+  [TruckAddonsType.WINDOWS]: WindowOptions.NO_WINDOW.valueOf(),
+  [TruckAddonsType.STEAL_COUNTERTOP]: 0,
+  [TruckAddonsType.STEAL_WALLS]: 0,
+  [TruckAddonsType.FURNITURES]: 0,
+  [ModelDimension.depth]: 0,
+  [ModelDimension.width]: 0
 };
 
 const defaultContext: ConfigurationContext = {
   configurator: {
-    setSize: () => { },
     calculatedPrice: 0,
     setConfigurationOptions: () => { },
     setup: {

@@ -1,19 +1,28 @@
 import React, { ChangeEvent, useCallback, useEffect } from 'react';
 import './input.scss';
 import '../configurator.scss';
-import { ModelDimension } from '../../../config/models.config types';
+import { FieldKeys } from '../../../config/models.config types';
 
 interface NumberInputProps {
     defaultValue: number,
     value: number,
-    fieldKey: ModelDimension,
-    onChange: (fieldKey: ModelDimension, newValue: number) => void,
+    fieldKey: FieldKeys,
+    onChange: (fieldKey: FieldKeys, newValue: number) => void,
     label: string;
     disabled: boolean
+    valueLabel: string
 }
 
 
-const NumberInput: React.FC<NumberInputProps> = ({fieldKey, value, onChange, label, disabled,defaultValue }) => {
+const NumberInput: React.FC<NumberInputProps> = ({
+  fieldKey,
+  value,
+  onChange,
+  label,
+  disabled,
+  defaultValue,
+  valueLabel
+}) => {
 
   useEffect(() => {
     if(disabled) {
@@ -54,7 +63,7 @@ const NumberInput: React.FC<NumberInputProps> = ({fieldKey, value, onChange, lab
             disabled={disabled}
             onClick={decrement}>–</button>
           <input className="input-number" disabled={disabled} min={100} onChange={onChangeHandler} type="number" value={value}/>
-          <span>cm</span>
+          <span>{valueLabel}</span>
         </div>
       </div> 
     </div>

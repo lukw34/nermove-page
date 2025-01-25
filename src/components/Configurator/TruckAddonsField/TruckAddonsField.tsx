@@ -4,6 +4,8 @@ import { truckAddons } from '../../../config/addons.config';
 import EquipmentCheckbox from '../inputs/EquipmentCheckbox';
 import { ConfiguratorContext } from '../../../context/Configurator.context';
 import Selector from '../inputs/Selector';
+import NumberInput from '../inputs/NumberInput';
+import { labelMap } from '../../../config/models.config';
 
 interface TruckAddonsFieldProps {
     fieldKey: TruckAddonsType
@@ -40,6 +42,20 @@ const TruckAddonsField: React.FC<TruckAddonsFieldProps> = ({fieldKey }) => {
         onChange={setConfigurationOptions}
         options={addonItem.options}
         value={String(value)}
+      />
+    );
+  }
+
+  if(addonItem.type === FieldType.QUANTITY) {
+    return (
+      <NumberInput
+        defaultValue={0}
+        disabled={false}
+        fieldKey={fieldKey}
+        label={labelMap[fieldKey]}
+        onChange={setConfigurationOptions}
+        value={Number(value)}
+        valueLabel={addonItem.quantityLabel}
       />
     );
   }

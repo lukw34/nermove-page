@@ -54,5 +54,20 @@ export const truckAddons: TruckAddonsMap = {
     }, {
       label: WindowOptions.THREE_METERS.valueOf(), price: 4500,
     }]
+  },
+  [TruckAddonsType.FURNITURES]: {
+    type: FieldType.QUANTITY,
+    quantityPrice: 600,
+    quantityLabel: 'szt'
+  },
+  [TruckAddonsType.STEAL_COUNTERTOP]: {
+    type: FieldType.QUANTITY,
+    quantityPrice: 300,
+    quantityLabel: 'm'
+  },
+  [TruckAddonsType.STEAL_WALLS]: {
+    type: FieldType.QUANTITY,
+    quantityPrice: 300,
+    quantityLabel: 'm'
   }
 };

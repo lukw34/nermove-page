@@ -25,7 +25,7 @@ export const Summary = () => {
     <div className="summary-container">
       <h3>Twój model {name}</h3>
       <div className="delivery-label">Szacowany termin realizacji: {deliveryDate}</div>
-      <LinkButton title="Wróć do konfiguratora" to={`/models/${key}`}></LinkButton>
+      <LinkButton title="Wróć do konfiguratora" to={`/models/${key}`} />
       <div className="price-container"> 
         Szacowana cena realizacji: <span className="price-value">{i18next.t('priceWithCurrency',{ val: calculatedPrice })}</span>
       </div>

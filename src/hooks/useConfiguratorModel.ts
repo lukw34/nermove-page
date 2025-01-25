@@ -2,10 +2,10 @@ import { useMemo, useState } from 'react';
 import { 
   Model,
   ConfiguratorModel,
-  ModelDimension,
-  BaseConfigurationType,
   TruckAddonsType,
   FieldType,
+  FieldKeys,
+  ModelDimension,
 } from '../config/models.config types';
 import { truckAddons } from '../config/addons.config';
 import { defaultConfigurationOptions } from '../context/Configurator.context';
@@ -13,21 +13,17 @@ import { defaultConfigurationOptions } from '../context/Configurator.context';
 
 export const useConfiguratorModel = (modelConfig: Model) => {
   const [setup, setSetupValue] = useState<ConfiguratorModel>({
-    width: modelConfig.size.width,
-    depth: modelConfig.size.depth,
-    configurtationOptions: defaultConfigurationOptions
+    width: 0,
+    depth: 0,
+    configurtationOptions: {
+      ...defaultConfigurationOptions,
+      [ModelDimension.width]: modelConfig.size.width,
+      [ModelDimension.depth]: modelConfig.size.depth,
+    }
   });
 
 
-  const setSize = (key: ModelDimension, value: number) => {
-    setSetupValue({
-      ...setup,
-      [key]: value
-    });
-  };
-
-
-  const setConfigurationOptions = (key: BaseConfigurationType | TruckAddonsType, value: boolean | string) => {
+  const setConfigurationOptions = (key: FieldKeys, value: boolean | string | number) => {
     setSetupValue({
       ...setup,
       configurtationOptions: {
@@ -49,7 +45,8 @@ export const useConfiguratorModel = (modelConfig: Model) => {
     }, price);
 
     return Object.keys(truckAddons).reduce((prev, itemKey) => {
-      if(setup.configurtationOptions[itemKey as TruckAddonsType]) {
+      const value = setup.configurtationOptions[itemKey as TruckAddonsType];
+      if(value) {
         const addonItem = truckAddons[itemKey as TruckAddonsType];
         if(addonItem.type === FieldType.CHECKBOX) {
           return prev + addonItem.price;
@@ -61,6 +58,10 @@ export const useConfiguratorModel = (modelConfig: Model) => {
             return selection.price + prev;
           }
         }
+
+        if(addonItem.type === FieldType.QUANTITY) {
+          return prev + (addonItem.quantityPrice * Number(value));
+        }
       }
       return prev;
     }, priceFromBasicConfig);
@@ -70,8 +71,11 @@ export const useConfiguratorModel = (modelConfig: Model) => {
   ]);
 
   return  {
-    setup,
-    setSize,
+    setup: {
+      ...setup,
+      width: Number(setup.configurtationOptions[ModelDimension.width]),
+      depth: Number(setup.configurtationOptions[ModelDimension.depth])
+    },
     calculatedPrice,
     setConfigurationOptions,
   };

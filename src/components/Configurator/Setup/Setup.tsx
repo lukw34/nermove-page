@@ -3,7 +3,7 @@ import EquipmentCheckbox from '../inputs/EquipmentCheckbox';
 import NumberInput from '../inputs/NumberInput';
 import PriceIndicator from '../PriceIndicator/PriceIndicator';
 import { ConfiguratorContext } from '../../../context/Configurator.context';
-import { BaseConfigurationType, SIZE_ADJUSTMENT_PRICE, TruckAddonsType } from '../../../config/models.config types';
+import { BaseConfigurationType, ModelDimension, SIZE_ADJUSTMENT_PRICE, TruckAddonsType } from '../../../config/models.config types';
 import TruckAddonsField from '../TruckAddonsField/TruckAddonsField';
 
 export const Setup = () => {
@@ -18,7 +18,6 @@ export const Setup = () => {
     },
     configurator: {
       setup,
-      setSize,
       setConfigurationOptions,
       calculatedPrice
     }
@@ -32,18 +31,20 @@ export const Setup = () => {
         <NumberInput 
           defaultValue={width} 
           disabled={!isSizeAdjusted} 
-          fieldKey="width" 
+          fieldKey={ModelDimension.width} 
           label="Szerokość" 
-          onChange={setSize}
+          onChange={setConfigurationOptions}
           value={setup.width}
+          valueLabel="cm"
         />
         <NumberInput 
           defaultValue={depth} 
           disabled={!isSizeAdjusted} 
-          fieldKey="depth" 
+          fieldKey={ModelDimension.width}
           label="Głębokość" 
-          onChange={setSize}
+          onChange={setConfigurationOptions}
           value={setup.depth}
+          valueLabel="cm"
         />
         <EquipmentCheckbox
           fieldKey={BaseConfigurationType.SIZE_ADJUSTMENT}
@@ -61,6 +62,9 @@ export const Setup = () => {
             value={!!setup.configurtationOptions[type]}
           />
         ))}
+        <TruckAddonsField
+          fieldKey={TruckAddonsType.FURNITURES}
+        />
         <p className="config-divider">Dodatki</p>
         <TruckAddonsField
           fieldKey={TruckAddonsType.SUPPORTS}
@@ -85,6 +89,13 @@ export const Setup = () => {
         <p className="config-divider">Okna całoroczne</p>
         <TruckAddonsField
           fieldKey={TruckAddonsType.WINDOWS}
+        />
+        <p className="config-divider">Obicia</p>
+        <TruckAddonsField
+          fieldKey={TruckAddonsType.STEAL_COUNTERTOP}
+        />
+        <TruckAddonsField
+          fieldKey={TruckAddonsType.STEAL_WALLS}
         />
       </div>
       <PriceIndicator calculatedPrice={calculatedPrice} />

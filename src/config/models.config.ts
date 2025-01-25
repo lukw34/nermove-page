@@ -1,4 +1,4 @@
-import { BaseConfigurationType, FieldKeys, Model, TruckAddonsType } from './models.config types';
+import { BaseConfigurationType, FieldKeys, Model, ModelDimension, TruckAddonsType } from './models.config types';
 
 
 
@@ -14,7 +14,12 @@ const labelMap: Record<FieldKeys, string> = {
   [TruckAddonsType.TRIPLE_SINK]: 'Potrójny zlew',
   [TruckAddonsType.FAN]: 'Wentylator',
   [TruckAddonsType.FAN_CONTROLLER]: 'Regulator obrotów',
-  [TruckAddonsType.WINDOWS]: 'Okna całoroczne'
+  [TruckAddonsType.WINDOWS]: 'Okna całoroczne',
+  [TruckAddonsType.FURNITURES]: 'Umeblowanie',
+  [TruckAddonsType.STEAL_COUNTERTOP]: 'Obicie stala nierdzewn blatu',
+  [TruckAddonsType.STEAL_WALLS]: 'Obicie stala nierdzewna ścian',
+  [ModelDimension.width]:'Długość',
+  [ModelDimension.depth]: 'Głębokość'
 };
 
 const modelsBaseConfigs: Model[] = [{
