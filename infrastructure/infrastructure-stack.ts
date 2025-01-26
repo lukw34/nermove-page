@@ -4,12 +4,10 @@ import * as s3 from 'aws-cdk-lib/aws-s3';
 import * as s3Deploy from 'aws-cdk-lib/aws-s3-deployment';
 import * as path from 'path';
 import { 
-  AllowedMethods,
   Distribution,
   OriginAccessIdentity,
-  OriginProtocolPolicy, 
 } from 'aws-cdk-lib/aws-cloudfront';
-import { HttpOrigin, S3BucketOrigin, S3Origin } from 'aws-cdk-lib/aws-cloudfront-origins';
+import { S3BucketOrigin } from 'aws-cdk-lib/aws-cloudfront-origins';
 
 export class InfrastructureStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
