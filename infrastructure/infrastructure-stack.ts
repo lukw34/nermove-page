@@ -8,6 +8,7 @@ import {
   OriginAccessIdentity,
 } from 'aws-cdk-lib/aws-cloudfront';
 import { S3BucketOrigin } from 'aws-cdk-lib/aws-cloudfront-origins';
+import { Size } from 'aws-cdk-lib';
 
 export class InfrastructureStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
@@ -24,7 +25,9 @@ export class InfrastructureStack extends cdk.Stack {
       sources: [
         s3Deploy.Source.asset(path.join(__dirname, '../build')),
       ],
-      destinationBucket: bucket
+      destinationBucket: bucket,
+      memoryLimit: 2048,
+      ephemeralStorageSize: Size.gibibytes(2),
     });
     
     const originAccessIdentity = new OriginAccessIdentity(this, 'OriginAccessIdentity');
