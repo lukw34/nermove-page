@@ -44,7 +44,7 @@ export class InfrastructureStack extends cdk.Stack {
     
     const sendContactEmail = new Function(this, 'contact-email', {
       runtime: Runtime.NODEJS_20_X,
-      code: Code.fromAsset('lambdas'),
+      code: Code.fromAsset('lambda'),
       handler: 'send-contact-email.send',
     });
 
