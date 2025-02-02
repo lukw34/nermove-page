@@ -7,8 +7,10 @@ import {
   Distribution,
   OriginAccessIdentity,
 } from 'aws-cdk-lib/aws-cloudfront';
+import { Function, Runtime, Code } from 'aws-cdk-lib/aws-lambda'
 import { S3BucketOrigin } from 'aws-cdk-lib/aws-cloudfront-origins';
 import { Size } from 'aws-cdk-lib';
+import { ApiKeySourceType, Cors, RestApi } from 'aws-cdk-lib/aws-apigateway'
 
 export class InfrastructureStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
@@ -40,5 +42,27 @@ export class InfrastructureStack extends cdk.Stack {
       }
     });
     
+    const sendContactEmail = new Function(this, 'contact-email', {
+      runtime: Runtime.NODEJS_20_X,
+      code: Code.fromAsset('lambdas'),
+      handler: 'send-contact-email.send',
+    });
+
+    const api = new RestApi(this, 'EmailApi', {
+      restApiName: 'EmailAPi',
+      defaultCorsPreflightOptions: {
+        allowOrigins: Cors.ALL_ORIGINS,
+        allowMethods: Cors.ALL_METHODS,
+      },
+      apiKeySourceType: ApiKeySourceType.HEADER,
+    });
+
+    const apiKey = new apiKey(this, "EmailApiKey");
+
+        
+    const helloResource = api.root.addResource('contact');
+    helloResource.addMethod('GET',);
+
   }
 }
+ 
