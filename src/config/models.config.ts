@@ -64,11 +64,11 @@ const modelsBaseConfigs: Model[] = [{
     type: BaseConfigurationType.WATER,
     additionalPrice: 2500
   }],
-}, {
-  key: 'odyssey',
-  name: 'Odyssey',
+},  {
+  key: 'rocket',
+  name: 'Rocket',
   size: {
-    width: 550,
+    width: 650,
     depth: 240,
   },
   basePrice: 3023403,
@@ -85,11 +85,11 @@ const modelsBaseConfigs: Model[] = [{
     type: BaseConfigurationType.WATER,
     additionalPrice: 2500
   }]
-},  {
-  key: 'rocket',
-  name: 'Rocket',
+}, {
+  key: 'odyssey',
+  name: 'Odyssey',
   size: {
-    width: 650,
+    width: 550,
     depth: 240,
   },
   basePrice: 3023403,

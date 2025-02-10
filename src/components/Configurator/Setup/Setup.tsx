@@ -41,7 +41,7 @@ export const Setup = () => {
           defaultValue={depth} 
           disabled={!isSizeAdjusted} 
           fieldKey={ModelDimension.width}
-          label="Głębokość" 
+          label="Długość" 
           onChange={setConfigurationOptions}
           value={setup.depth}
           valueLabel="cm"

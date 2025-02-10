@@ -10,7 +10,8 @@ interface NumberInputProps {
     onChange: (fieldKey: FieldKeys, newValue: number) => void,
     label: string;
     disabled: boolean
-    valueLabel: string
+    valueLabel: string,
+    minValue?: number
 }
 
 
@@ -21,7 +22,8 @@ const NumberInput: React.FC<NumberInputProps> = ({
   label,
   disabled,
   defaultValue,
-  valueLabel
+  valueLabel,
+  minValue = 100
 }) => {
 
   useEffect(() => {
@@ -32,7 +34,7 @@ const NumberInput: React.FC<NumberInputProps> = ({
 
   const decrement = useCallback(() => {
     const newValue = value - 1;
-    if(newValue >= 100) {
+    if(newValue >= minValue) {
       onChange(fieldKey, newValue);
     }
   }, [value, onChange]);
@@ -52,7 +54,7 @@ const NumberInput: React.FC<NumberInputProps> = ({
   return (
     <div className="config-item-container">
       <div className="config-item">
-        {label} <div>
+        {label} <div className="number-controls">
           <button 
             className={`input-number-modificator ${disabled && 'input-disabled'}`} 
             disabled={disabled}

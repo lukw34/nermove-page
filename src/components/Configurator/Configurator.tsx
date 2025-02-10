@@ -7,7 +7,7 @@ const Configurator: React.FC = () => {
     
   return (
     <div className="configurator-wrapper">
-      <img className="model-image" />
+      <div className="model-image" />
       <Outlet />
     </div>
   );

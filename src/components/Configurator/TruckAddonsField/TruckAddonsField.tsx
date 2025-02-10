@@ -53,6 +53,7 @@ const TruckAddonsField: React.FC<TruckAddonsFieldProps> = ({fieldKey }) => {
         disabled={false}
         fieldKey={fieldKey}
         label={labelMap[fieldKey]}
+        minValue={0}
         onChange={setConfigurationOptions}
         value={Number(value)}
         valueLabel={addonItem.quantityLabel}
