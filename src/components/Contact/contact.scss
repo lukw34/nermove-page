@@ -1,5 +1,11 @@
 .simple-contact-container {
     width: 100%;
+    .contact-wrapper {
+        width: 100%;
+        padding: 0;
+        padding-top: 20px;
+        padding-bottom: 5px;
+    }
 }
 
 .contact-container {
@@ -30,6 +36,9 @@
     justify-content: center;
     display: flex;
     flex-direction: column;
+    .regulation-note {
+        font-size: 0.9rem;
+    }
 }
 
 .textarea-wrapper{

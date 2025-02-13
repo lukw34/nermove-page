@@ -12,6 +12,7 @@ const ContactForm = () => {
         <input className="input-wrapper" name="emailaddress" placeholder="Podaj swój email" required type="email" />
         <textarea className="textarea-wrapper" cols={50} name="subject" placeholder="Wpisz wiadomość do nas" required rows={4} />
         <ActionButton onClick={() => null} title="Wyslij wiadomosć" />
+        <p className="regulation-note">Klikając &ldquo;Wyślij wiadomość&ldquo; akceptujesz <a href="/#/regulations">Regulamin</a></p>  
       </form>
       <ContactInfo />
     </div>

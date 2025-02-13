@@ -9,6 +9,7 @@ const SimpleContacForm = () => {
         <input className="input-wrapper" name="name" placeholder="Podaj swoje imię" required />
         <input className="input-wrapper" name="emailaddress" placeholder="Podaj swój email" required type="email" />
         <ActionButton onClick={() => null} title="Wyslij wiadomosć" />
+        <p className="regulation-note">Klikając &ldquo;Wyślij wiadomość&ldquo; akceptujesz <a href="/#/regulations">Regulamin</a></p>  
       </form>
     </div>
   );

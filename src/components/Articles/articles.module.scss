@@ -4,6 +4,7 @@
     background: rgba(249, 235, 195, 0.5);
     min-height: 40vh;
     margin-bottom: 20px;
+   
     .articleContent {
         text-align:justify;
         padding: 20px;
@@ -12,6 +13,11 @@
         h3 {
             font-size: 2rem;
         }
+    }
+
+    .fullArticleContent {
+        @extend.articleContent;
+        width: 90vw;
     }
     
     .articleImage {
@@ -34,4 +40,10 @@
             max-height: 40vh;
         }
     }
+}
+
+.customArticleItemContainer {
+    @extend .articleItemContainer;
+    min-height: 10vh;
+    margin-bottom: 10px;
 }

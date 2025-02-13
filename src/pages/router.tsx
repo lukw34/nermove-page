@@ -11,6 +11,8 @@ import About from './About';
 import RealizationProcess from './RealizationProcess';
 import { Setup } from '../components/Configurator/Setup/Setup';
 import { Summary } from '../components/Configurator/Summary/Summary';
+import Regulations from './Regulations';
+import Rodo from './Rodo';
 
   
 export const router = createHashRouter([
@@ -45,6 +47,14 @@ export const router = createHashRouter([
       {
         path: 'process',
         element: <RealizationProcess />,
+      },
+      {
+        path: 'regulations',
+        element: <Regulations />,
+      },
+      {
+        path: 'rodo',
+        element: <Rodo />,
       },
       {
         path: '',
