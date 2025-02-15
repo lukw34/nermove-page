@@ -18,7 +18,7 @@ export const useSendContactEmnail = () => {
     }
   } = useContext(ConfiguratorContext);
   
-  const sendEmail = async (title: string, message: string) => {
+  const sendEmail = async (subject: string, message: string) => {
     setRequestStatus({
       isLoading: false,
       result: null
@@ -31,7 +31,7 @@ export const useSendContactEmnail = () => {
       await fetch('/api/contact', {
         method: 'POST',
         body: JSON.stringify({
-          title,
+          subject,
           message
         }),
             
@@ -67,8 +67,8 @@ export const useSendContactEmnail = () => {
         value: message
       }
     } = event.target as any;
-    const title  = `[Contact] [${emailAddress}] Wiadomość od ${name}`;
-    await sendEmail(title, message);
+    const subject  = `[Contact] [${emailAddress}] Wiadomość od ${name}`;
+    await sendEmail(subject, message);
     return false;
   };
 
@@ -82,9 +82,9 @@ export const useSendContactEmnail = () => {
         value: emailAddress
       }
     } = event.target as any;
-    const title  = `[Order] [${emailAddress}] Wiadomość od ${name}`;
+    const subject  = `[Order] [${emailAddress}] Wiadomość od ${name}`;
     console.log(getSummary());
-    await sendEmail(title, getSummary());
+    await sendEmail(subject, getSummary());
     return false;
   };
 

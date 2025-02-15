@@ -34,7 +34,7 @@
     "lint": "eslint ./src && eslint ./infrastructure",
     "lint:fix": "eslint --fix ./src && eslint --fix ./infrastructure",
     "watch": "tsc -w",
-    "deploy": "rm -rf ./build && build && cdk deploy"
+    "deploy": "rm -rf ./build && yarn build && cdk deploy"
   },
   "eslintConfig": {
     "extends": [

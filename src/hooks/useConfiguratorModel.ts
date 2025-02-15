@@ -68,6 +68,7 @@ export const useConfiguratorModel = (modelConfig: Model) => {
     const setupSummary = Object.keys(setup).map((key) => `${labelMap[key as FieldKeys]}: ${setup[key as FieldKeys]}`);
     return `
     Cena całkowita: ${calculatedPrice}
+    Model: ${modelConfig.name}
     Elementy składowe:
     ${setupSummary.join('\n')}
     `;

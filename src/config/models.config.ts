@@ -18,8 +18,8 @@ const labelMap: Record<FieldKeys, string> = {
   [TruckAddonsType.FURNITURES]: 'Umeblowanie',
   [TruckAddonsType.STEAL_COUNTERTOP]: 'Obicie stala nierdzewn blatu',
   [TruckAddonsType.STEAL_WALLS]: 'Obicie stala nierdzewna ścian',
-  [ModelDimension.width]:'Długość',
-  [ModelDimension.length]: 'Głębokość'
+  [ModelDimension.width]:'Szerokość',
+  [ModelDimension.length]: 'Długość'
 };
 
 const modelsBaseConfigs: Model[] = [{

@@ -5,7 +5,6 @@ import * as s3Deploy from 'aws-cdk-lib/aws-s3-deployment';
 import * as path from 'path';
 import { 
   Distribution,
-  OriginAccessIdentity,
   AllowedMethods,
   CachePolicy,
   ViewerProtocolPolicy,
@@ -14,12 +13,13 @@ import {
 } from 'aws-cdk-lib/aws-cloudfront';
 import { Function, Runtime, Code } from 'aws-cdk-lib/aws-lambda';
 import { HttpOrigin, S3BucketOrigin } from 'aws-cdk-lib/aws-cloudfront-origins';
-import { CfnOutput, Size } from 'aws-cdk-lib';
-import { ApiKey, ApiKeySourceType, Cors, LambdaIntegration, RestApi, UsagePlan } from 'aws-cdk-lib/aws-apigateway';
+import { Size } from 'aws-cdk-lib';
+import { ApiKeySourceType, Cors, LambdaIntegration, Period, RestApi } from 'aws-cdk-lib/aws-apigateway';
 import { Certificate } from 'aws-cdk-lib/aws-certificatemanager';
 import { Topic } from 'aws-cdk-lib/aws-sns';
 import { PolicyStatement } from 'aws-cdk-lib/aws-iam';
 import { EmailSubscription } from 'aws-cdk-lib/aws-sns-subscriptions';
+import { Secret } from 'aws-cdk-lib/aws-secretsmanager';
 
 const SSL_CERTIFICATE_ARN =  'arn:aws:acm:us-east-1:682537233573:certificate/bc91a90f-0523-402c-afb1-16425049a93c';
 const DOMAIN_NAME = 'neromove.eu';
@@ -39,11 +39,9 @@ export class InfrastructureStack extends cdk.Stack {
     const certificate = Certificate.fromCertificateArn(this, 'Certificate', SSL_CERTIFICATE_ARN);
 
     const email = 'lukw34@gmail.com';
-    const subject = 'Formularz Kontaktowy';
-    
 
     const topic = new Topic(this, 'NeromoveContact', {
-      displayName: subject
+      displayName: 'Neromove Contact Form'
     });
 
     topic.addSubscription(new EmailSubscription(email));
@@ -52,25 +50,30 @@ export class InfrastructureStack extends cdk.Stack {
       resources: [topic.topicArn],
       actions: ['sns:Publish'] 
     });
-    
-    const originAccessIdentity = new OriginAccessIdentity(this, 'OriginAccessIdentity');
-    bucket.grantRead(originAccessIdentity);
 
+    const secret = new Secret(this, 'Secret', {
+      generateSecretString: {
+        generateStringKey: 'api_key',
+        secretStringTemplate: JSON.stringify({
+          username: 'neromove-api-user',
+        }),
+        excludeCharacters: ' %+~`#$&*()|[]{}:;<>?!\'/@"\\',
+      },
+    });
+
+    const secretValue = secret.secretValueFromJson('api_key').unsafeUnwrap();
     
     const sendContactEmail = new Function(this, 'contact-email', {
       runtime: Runtime.NODEJS_20_X,
       code: Code.fromAsset('lambda'),
       handler: 'send-contact-email.send',
       environment: {
-        Subject: subject,
-        ContactUsSNSTopic: topic.topicArn
+        TOPIC_ARN: topic.topicArn
       },
       initialPolicy: [
         lambdaSNSPolicyStatement
       ]
     });
-
-    const apiKey = new ApiKey(this, 'NeromoveApiKey');
 
     const api = new RestApi(this, 'EmailApi', {
       restApiName: 'EmailApi',
@@ -84,21 +87,30 @@ export class InfrastructureStack extends cdk.Stack {
       apiKeySourceType: ApiKeySourceType.HEADER,
     });
 
-    const usagePlan = new UsagePlan(this, 'UsagePlan', {
-      name: 'Usage Plan',
-      apiStages: [
-        {
-          api,
-          stage: api.deploymentStage
-        },
-      ],
+
+    const apiKey = api.addApiKey('NeromoveApiKeyForGateway', {
+      value: secret.secretValueFromJson('api_key').unsafeUnwrap(),
     });
 
-    usagePlan.addApiKey(apiKey);
+    const plan = api.addUsagePlan('UsagePlan', {
+      name: 'Usage Plan',
+      throttle: {
+        rateLimit: 10,
+        burstLimit: 2,
+      },
+      quota: {
+        limit: 1000,
+        period: Period.MONTH,
+      }
+    });
+
+    plan.addApiKey(apiKey);
+    plan.addApiStage({
+      stage: api.deploymentStage
+    });
 
     const contactResource = api.root.addResource('api').addResource('contact');
-    contactResource.addMethod('GET', new LambdaIntegration(sendContactEmail));
-    contactResource.addMethod('POST', new LambdaIntegration(sendContactEmail));
+    contactResource.addMethod('POST', new LambdaIntegration(sendContactEmail), { apiKeyRequired: true });
     const apiOriginPath = `/${api.deploymentStage.stageName}`;
     const apiOriginName = `${api.restApiId}.execute-api.${this.region}.amazonaws.com`;
     const distribution = new Distribution(this, 'Distribution', {
@@ -110,8 +122,7 @@ export class InfrastructureStack extends cdk.Stack {
         allowedMethods: AllowedMethods.ALLOW_GET_HEAD_OPTIONS,
         cachePolicy: CachePolicy.CACHING_OPTIMIZED,
         viewerProtocolPolicy: ViewerProtocolPolicy.ALLOW_ALL,
-      },
-    
+      },    
       additionalBehaviors: {
         'api/*': {
           origin: new HttpOrigin(apiOriginName, {
@@ -119,7 +130,10 @@ export class InfrastructureStack extends cdk.Stack {
             protocolPolicy: OriginProtocolPolicy.HTTPS_ONLY,
             httpPort: 80,
             httpsPort: 443,
-            originPath: apiOriginPath
+            originPath: apiOriginPath,
+            customHeaders: {
+              'x-api-key': secretValue
+            }
           }),
           viewerProtocolPolicy: ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
           cachePolicy: CachePolicy.CACHING_DISABLED,
