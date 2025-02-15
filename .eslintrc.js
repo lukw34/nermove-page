@@ -20,6 +20,7 @@ module.exports = {
     '@typescript-eslint'
   ],
   rules: {
+    '@typescript-eslint/no-explicit-any': 'off',
     'jsx-quotes': ['error', 'prefer-double'],
     quotes: ['error', 'double'],
     indent: [2, 2],

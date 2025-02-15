@@ -3,7 +3,7 @@ import EquipmentCheckbox from '../inputs/EquipmentCheckbox';
 import NumberInput from '../inputs/NumberInput';
 import PriceIndicator from '../PriceIndicator/PriceIndicator';
 import { ConfiguratorContext } from '../../../context/Configurator.context';
-import { BaseConfigurationType, ModelDimension, SIZE_ADJUSTMENT_PRICE, TruckAddonsType } from '../../../config/models.config types';
+import { ModelDimension, TruckAddonsType } from '../../../config/models.config types';
 import TruckAddonsField from '../TruckAddonsField/TruckAddonsField';
 
 export const Setup = () => {
@@ -13,7 +13,7 @@ export const Setup = () => {
       baseConfigurationOptions,
       size: {
         width,
-        depth
+        length: depth
       }
     },
     configurator: {
@@ -22,7 +22,7 @@ export const Setup = () => {
       calculatedPrice
     }
   } = useContext(ConfiguratorContext);
-  const isSizeAdjusted = useMemo(() => !!setup.configurtationOptions[BaseConfigurationType.SIZE_ADJUSTMENT], [setConfigurationOptions]); 
+  const isSizeAdjusted = useMemo(() => !!setup[TruckAddonsType.SIZE_ADJUSTMENT], [setConfigurationOptions]); 
   return (
     <>
       <div className="basic-config">
@@ -34,23 +34,20 @@ export const Setup = () => {
           fieldKey={ModelDimension.width} 
           label="Szerokość" 
           onChange={setConfigurationOptions}
-          value={setup.width}
+          value={Number(setup.width)}
           valueLabel="cm"
         />
         <NumberInput 
           defaultValue={depth} 
           disabled={!isSizeAdjusted} 
-          fieldKey={ModelDimension.width}
+          fieldKey={ModelDimension.length}
           label="Długość" 
           onChange={setConfigurationOptions}
-          value={setup.depth}
+          value={Number(setup.length)}
           valueLabel="cm"
         />
-        <EquipmentCheckbox
-          fieldKey={BaseConfigurationType.SIZE_ADJUSTMENT}
-          onChange={setConfigurationOptions}
-          price={SIZE_ADJUSTMENT_PRICE}
-          value={isSizeAdjusted}
+        <TruckAddonsField
+          fieldKey={TruckAddonsType.SIZE_ADJUSTMENT}
         />
         <p className="config-divider">Wyposażenie Bazowe</p>
         { baseConfigurationOptions.map(({type, additionalPrice }) => (
@@ -59,7 +56,7 @@ export const Setup = () => {
             key={`${name}-${type}`}
             onChange={setConfigurationOptions}
             price={additionalPrice}
-            value={!!setup.configurtationOptions[type]}
+            value={!!setup[type]}
           />
         ))}
         <TruckAddonsField

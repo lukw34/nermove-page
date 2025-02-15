@@ -14,3 +14,9 @@
     height: 100%;
   }
 }
+
+@media only screen and (max-width: 550px) {
+  .app   {
+    background-image: url("/img/main_mobile.png");
+  }
+}

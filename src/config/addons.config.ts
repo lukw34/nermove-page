@@ -69,5 +69,9 @@ export const truckAddons: TruckAddonsMap = {
     type: FieldType.QUANTITY,
     quantityPrice: 300,
     quantityLabel: 'm'
-  }
+  },
+  [TruckAddonsType.SIZE_ADJUSTMENT]: {
+    price: 1000,
+    type: FieldType.CHECKBOX
+  },
 };

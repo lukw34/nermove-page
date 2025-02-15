@@ -2,8 +2,7 @@ export enum BaseConfigurationType {
     ELECTRICITY = 'ELECTRICITY',
     WATER = 'WATER',
     ADDITONAL_WEIGHT_SUPPORT = 'ADDITONAL_WEIGHT_SUPPORT',
-    COLOR = 'COLOR',
-    SIZE_ADJUSTMENT = 'SIZE_ADJUSTMENT'
+    COLOR = 'COLOR'
 }
 
 export enum TruckAddonsType {
@@ -16,7 +15,8 @@ export enum TruckAddonsType {
   WINDOWS = 'WINDOWS',
   FURNITURES = 'FURNITURES',
   STEAL_COUNTERTOP = 'STEAL_COUNTERTOP',
-  STEAL_WALLS = 'STEAL_WALLS'
+  STEAL_WALLS = 'STEAL_WALLS',
+  SIZE_ADJUSTMENT = 'SIZE_ADJUSTMENT'
 }
 
 
@@ -54,7 +54,7 @@ export interface BaseConfiguration {
 
 export interface ModelSize {
   width: number,
-  depth: number,
+  length: number,
 }
 
 export interface Model {
@@ -65,11 +65,8 @@ export interface Model {
     baseConfigurationOptions: BaseConfiguration[],
 }
 
-export interface ConfiguratorModel {
-  width: number,
-  depth: number,
-  configurtationOptions: Record<FieldKeys, boolean | string | number>
-}
+export type  ConfiguratorModel = 
+  Record<FieldKeys, boolean | string | number>
 
 export enum FieldType {
   CHECKBOX = 'CHECKBOX',
@@ -79,9 +76,8 @@ export enum FieldType {
 
 export enum ModelDimension {
   width = 'width',
-  depth = 'depth'
+  length = 'length'
 }
-export const SIZE_ADJUSTMENT_PRICE = 1000;
 
 export interface CheckboxAddon {
   type: FieldType.CHECKBOX,

@@ -9,27 +9,21 @@ import {
 } from '../config/models.config types';
 import { truckAddons } from '../config/addons.config';
 import { defaultConfigurationOptions } from '../context/Configurator.context';
+import { labelMap } from '../config/models.config';
 
 
 export const useConfiguratorModel = (modelConfig: Model) => {
   const [setup, setSetupValue] = useState<ConfiguratorModel>({
-    width: 0,
-    depth: 0,
-    configurtationOptions: {
-      ...defaultConfigurationOptions,
-      [ModelDimension.width]: modelConfig.size.width,
-      [ModelDimension.depth]: modelConfig.size.depth,
-    }
+    ...defaultConfigurationOptions,
+    [ModelDimension.width]: modelConfig.size.width,
+    [ModelDimension.length]: modelConfig.size.length,
   });
 
 
   const setConfigurationOptions = (key: FieldKeys, value: boolean | string | number) => {
     setSetupValue({
       ...setup,
-      configurtationOptions: {
-        ...setup.configurtationOptions,
-        [key]: value
-      }
+      [key]: value
     });
   };
 
@@ -37,7 +31,7 @@ export const useConfiguratorModel = (modelConfig: Model) => {
     const price = modelConfig.basePrice;
 
     const priceFromBasicConfig = modelConfig.baseConfigurationOptions.reduce((prev, item) => {
-      if(setup.configurtationOptions[item.type]) {
+      if(setup[item.type]) {
         return prev + item.additionalPrice;
       }
 
@@ -45,7 +39,7 @@ export const useConfiguratorModel = (modelConfig: Model) => {
     }, price);
 
     return Object.keys(truckAddons).reduce((prev, itemKey) => {
-      const value = setup.configurtationOptions[itemKey as TruckAddonsType];
+      const value = setup[itemKey as TruckAddonsType];
       if(value) {
         const addonItem = truckAddons[itemKey as TruckAddonsType];
         if(addonItem.type === FieldType.CHECKBOX) {
@@ -53,7 +47,7 @@ export const useConfiguratorModel = (modelConfig: Model) => {
         }
 
         if(addonItem.type === FieldType.SELECTION) {
-          const selection = addonItem.options.find(opt => opt.label === setup.configurtationOptions[itemKey as TruckAddonsType]);
+          const selection = addonItem.options.find(opt => opt.label === setup[itemKey as TruckAddonsType]);
           if(selection) {
             return selection.price + prev;
           }
@@ -67,17 +61,23 @@ export const useConfiguratorModel = (modelConfig: Model) => {
     }, priceFromBasicConfig);
 
   }, [modelConfig,
-    setup.configurtationOptions,
+    setup,
   ]);
 
+  const getSummary = (): string => {
+    const setupSummary = Object.keys(setup).map((key) => `${labelMap[key as FieldKeys]}: ${setup[key as FieldKeys]}`);
+    return `
+    Cena całkowita: ${calculatedPrice}
+    Elementy składowe:
+    ${setupSummary.join('\n')}
+    `;
+  };
+
   return  {
-    setup: {
-      ...setup,
-      width: Number(setup.configurtationOptions[ModelDimension.width]),
-      depth: Number(setup.configurtationOptions[ModelDimension.depth])
-    },
+    setup,
     calculatedPrice,
     setConfigurationOptions,
+    getSummary
   };
 
 };

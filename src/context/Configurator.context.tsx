@@ -7,7 +7,8 @@ interface Configurator {
     setup: ConfiguratorModel,
     calculatedPrice: number
     setConfigurationOptions: (key: FieldKeys, value: boolean | string | number) => void
-}
+    getSummary: () => string
+  }
 
 interface ConfigurationContext {
     selectedModel: Model,
@@ -19,7 +20,7 @@ export const defaultConfigurationOptions = {
   [BaseConfigurationType.WATER]: false,
   [BaseConfigurationType.ADDITONAL_WEIGHT_SUPPORT]: false,
   [BaseConfigurationType.COLOR]: false,
-  [BaseConfigurationType.SIZE_ADJUSTMENT]: false,
+  [TruckAddonsType.SIZE_ADJUSTMENT]: false,
   [TruckAddonsType.DETACHABLE_DRAWBAR]: false,
   [TruckAddonsType.SUPPORTS]: false,
   [TruckAddonsType.HOOD]: HoodOptions.NO_HOOD.valueOf(),
@@ -30,7 +31,7 @@ export const defaultConfigurationOptions = {
   [TruckAddonsType.STEAL_COUNTERTOP]: 0,
   [TruckAddonsType.STEAL_WALLS]: 0,
   [TruckAddonsType.FURNITURES]: 0,
-  [ModelDimension.depth]: 0,
+  [ModelDimension.length]: 0,
   [ModelDimension.width]: 0
 };
 
@@ -38,17 +39,14 @@ const defaultContext: ConfigurationContext = {
   configurator: {
     calculatedPrice: 0,
     setConfigurationOptions: () => { },
-    setup: {
-      width: 0,
-      depth: 0,
-      configurtationOptions: defaultConfigurationOptions
-    }
+    setup: defaultConfigurationOptions,
+    getSummary: () => ''
   },
   selectedModel: {
     key: '',
     name: '',
     size: {
-      depth: 0,
+      length: 0,
       width: 0,
     },
     basePrice: 0,

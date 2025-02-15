@@ -7,7 +7,7 @@ const labelMap: Record<FieldKeys, string> = {
   [BaseConfigurationType.WATER]: 'Sanitaria',
   [BaseConfigurationType.ADDITONAL_WEIGHT_SUPPORT]: 'Wzmocniona Podloga',
   [BaseConfigurationType.COLOR]: 'Dowolny Kolor Obicia',
-  [BaseConfigurationType.SIZE_ADJUSTMENT]: 'Dostosuj rozmiar',
+  [TruckAddonsType.SIZE_ADJUSTMENT]: 'Dostosuj rozmiar',
   [TruckAddonsType.DETACHABLE_DRAWBAR]: 'Odpinany dyszel',
   [TruckAddonsType.SUPPORTS]: 'Podpory nożycowe Al-KO',
   [TruckAddonsType.HOOD]: 'Okap',
@@ -19,7 +19,7 @@ const labelMap: Record<FieldKeys, string> = {
   [TruckAddonsType.STEAL_COUNTERTOP]: 'Obicie stala nierdzewn blatu',
   [TruckAddonsType.STEAL_WALLS]: 'Obicie stala nierdzewna ścian',
   [ModelDimension.width]:'Długość',
-  [ModelDimension.depth]: 'Głębokość'
+  [ModelDimension.length]: 'Głębokość'
 };
 
 const modelsBaseConfigs: Model[] = [{
@@ -27,18 +27,18 @@ const modelsBaseConfigs: Model[] = [{
   name: 'Nunu',
   basePrice: 17900,
   size: {
-    width: 350,
-    depth: 200,
+    width: 200,
+    length: 350,
   },
   baseConfigurationOptions: [{
     type: BaseConfigurationType.ELECTRICITY,
     additionalPrice: 2500,
   }, {
     type: BaseConfigurationType.ADDITONAL_WEIGHT_SUPPORT,
-    additionalPrice: 3934593
+    additionalPrice: 1250
   }, {
     type: BaseConfigurationType.COLOR,
-    additionalPrice: 3934593
+    additionalPrice: 1500
   }, {
     type: BaseConfigurationType.WATER,
     additionalPrice: 2500
@@ -46,20 +46,20 @@ const modelsBaseConfigs: Model[] = [{
 }, {
   key: 'explorer',
   name: 'Explorer',
-  basePrice: 20032400,
+  basePrice: 28900,
   size: {
-    width: 450,
-    depth: 220,
+    width: 220,
+    length: 450,
   },
   baseConfigurationOptions: [{
     type: BaseConfigurationType.ELECTRICITY,
-    additionalPrice: 2500,
+    additionalPrice: 2750,
   }, {
     type: BaseConfigurationType.ADDITONAL_WEIGHT_SUPPORT,
-    additionalPrice: 3934593
+    additionalPrice: 1500
   }, {
     type: BaseConfigurationType.COLOR,
-    additionalPrice: 3934593
+    additionalPrice: 1750
   }, {
     type: BaseConfigurationType.WATER,
     additionalPrice: 2500
@@ -68,19 +68,19 @@ const modelsBaseConfigs: Model[] = [{
   key: 'rocket',
   name: 'Rocket',
   size: {
-    width: 650,
-    depth: 240,
+    width: 240,
+    length: 500,
   },
-  basePrice: 3023403,
+  basePrice: 34900,
   baseConfigurationOptions: [{
     type: BaseConfigurationType.ELECTRICITY,
-    additionalPrice: 2500,
+    additionalPrice: 3000,
   }, {
     type: BaseConfigurationType.ADDITONAL_WEIGHT_SUPPORT,
-    additionalPrice: 3934593
+    additionalPrice: 1750
   }, {
     type: BaseConfigurationType.COLOR,
-    additionalPrice: 3934593
+    additionalPrice: 2500
   }, {
     type: BaseConfigurationType.WATER,
     additionalPrice: 2500
@@ -89,19 +89,19 @@ const modelsBaseConfigs: Model[] = [{
   key: 'odyssey',
   name: 'Odyssey',
   size: {
-    width: 550,
-    depth: 240,
+    width: 240,
+    length: 550,
   },
-  basePrice: 3023403,
+  basePrice:43900,
   baseConfigurationOptions: [{
     type: BaseConfigurationType.ELECTRICITY,
-    additionalPrice: 2500,
+    additionalPrice: 3500,
   }, {
     type: BaseConfigurationType.ADDITONAL_WEIGHT_SUPPORT,
-    additionalPrice: 3934593
+    additionalPrice: 2500
   }, {
     type: BaseConfigurationType.COLOR,
-    additionalPrice: 3934593
+    additionalPrice: 2250
   }, {
     type: BaseConfigurationType.WATER,
     additionalPrice: 2500

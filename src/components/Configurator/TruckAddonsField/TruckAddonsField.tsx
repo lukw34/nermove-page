@@ -15,15 +15,13 @@ interface TruckAddonsFieldProps {
 const TruckAddonsField: React.FC<TruckAddonsFieldProps> = ({fieldKey }) => {
   const {
     configurator: {
-      setup: {
-        configurtationOptions
-      },
+      setup,
       setConfigurationOptions
     }
   } = useContext(ConfiguratorContext);
 
   const addonItem = useMemo(() => truckAddons[fieldKey], [fieldKey]);
-  const value = useMemo(() => configurtationOptions[fieldKey], [fieldKey, configurtationOptions]);
+  const value = useMemo(() => setup[fieldKey], [fieldKey, setup]);
   if(addonItem.type === FieldType.CHECKBOX) {
     return (
       <EquipmentCheckbox 
