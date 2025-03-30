@@ -28,24 +28,23 @@ export const useSendContactEmnail = () => {
         isLoading: true,
         result: null
       });
-      // await fetch('/api/contact', {
-      //   method: 'POST',
-      //   body: JSON.stringify({
-      //     subject,
-      //     message
-      //   }),
+      await fetch('/api/contact', {
+        method: 'POST',
+        body: JSON.stringify({
+          subject,
+          message
+        }),
             
-      //   headers: {
-      //     'Content-type': 'application/json; charset=UTF-8'
-      //   }
-      // });
-      await Promise.reject([subject, message]);
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8'
+        }
+      });
       setTimeout(() => {
         setRequestStatus({
           isLoading: false,
           result: RequestStatus.SUCCESS
         });
-      }, 2000);
+      }, 1500);
     } catch(e) {
       console.error(e);
       setRequestStatus({
@@ -84,7 +83,6 @@ export const useSendContactEmnail = () => {
       }
     } = event.target as any;
     const subject  = `[Order] [${emailAddress}] Wiadomość od ${name}`;
-    console.log(getSummary());
     await sendEmail(subject, getSummary());
     return false;
   };
