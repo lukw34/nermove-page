@@ -51,6 +51,12 @@
 .explorer {
     background-image: url("/img/truck/explorer_desktop.jpg");
 }
+.odyssey {
+    background-image: url("/img/truck/odyssey_desktop.jpg");
+}
+.rocket {
+    background-image: url("/img/truck/rocket_desktop.jpg");
+}
 
 @media only screen and (max-width: 550px) {
     .nunu {
@@ -58,5 +64,11 @@
     }
     .explorer {
         background-image: url("/img/truck/explorer_mobile.jpg");
+    }
+    .odyssey {
+        background-image: url("/img/truck/odyssey_mobile.jpg");
+    }
+    .rocket {
+        background-image: url("/img/truck/rocket_mobile.jpg");
     }
 }
