@@ -12,7 +12,8 @@ export const Summary = () => {
       key
     },
     configurator: {
-      calculatedPrice
+      calculatedPrice,
+      leasing
     }
   } = useContext(ConfiguratorContext);
   
@@ -30,7 +31,9 @@ export const Summary = () => {
         Szacowana cena realizacji: <span className="price-value">{i18next.t('priceWithCurrency',{ val: calculatedPrice })}</span>
       </div>
       <div className="price-container">
-        Szacowana rata leasingu: <span className="price-value">{i18next.t('priceWithCurrency',{ val: 2137 })}</span>
+        Szacowana rata leasingu na: <span className="price-value">{i18next.t('priceWithCurrency',{ val: leasing })}</span>
+        <p className="price-details">*Czas trwania: 36 miesięcy</p>
+        <p className="price-details">**Wkład własny: 10%</p>
       </div>
       <SimpleContacForm/>
     </div>

@@ -24,6 +24,7 @@ const FoodTruckModels = forwardRef<HTMLDivElement | null>(function FoodTruckMode
           <div className={`single-model ${item.key}`} key={item.key} {...refProps}>
             <div className="info">
               <h2>{item.name}</h2>
+              <h4>{item.description}</h4>
             </div>
             <div className="button">
               <StrongLinkButton 

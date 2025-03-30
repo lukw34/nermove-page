@@ -1,7 +1,7 @@
 import { FormEventHandler, useContext, useState } from 'react';
 import { ConfiguratorContext } from '../context/Configurator.context';
 
-enum RequestStatus {
+export enum RequestStatus {
     SUCCESS = 'SUCCESS',
     ERROR = 'ERROR'
 }
@@ -28,17 +28,18 @@ export const useSendContactEmnail = () => {
         isLoading: true,
         result: null
       });
-      await fetch('/api/contact', {
-        method: 'POST',
-        body: JSON.stringify({
-          subject,
-          message
-        }),
+      // await fetch('/api/contact', {
+      //   method: 'POST',
+      //   body: JSON.stringify({
+      //     subject,
+      //     message
+      //   }),
             
-        headers: {
-          'Content-type': 'application/json; charset=UTF-8'
-        }
-      });
+      //   headers: {
+      //     'Content-type': 'application/json; charset=UTF-8'
+      //   }
+      // });
+      await Promise.reject([subject, message]);
       setTimeout(() => {
         setRequestStatus({
           isLoading: false,

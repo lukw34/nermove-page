@@ -19,7 +19,8 @@ export const Setup = () => {
     configurator: {
       setup,
       setConfigurationOptions,
-      calculatedPrice
+      calculatedPrice,
+      leasing
     }
   } = useContext(ConfiguratorContext);
   const isSizeAdjusted = useMemo(() => !!setup[TruckAddonsType.SIZE_ADJUSTMENT], [setConfigurationOptions]); 
@@ -95,6 +96,6 @@ export const Setup = () => {
           fieldKey={TruckAddonsType.STEAL_WALLS}
         />
       </div>
-      <PriceIndicator calculatedPrice={calculatedPrice} />
+      <PriceIndicator calculatedPrice={calculatedPrice} leasing={leasing}/>
     </>
   );};

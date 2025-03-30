@@ -57,7 +57,7 @@ export const truckAddons: TruckAddonsMap = {
   },
   [TruckAddonsType.FURNITURES]: {
     type: FieldType.QUANTITY,
-    quantityPrice: 600,
+    quantityPrice: 1100,
     quantityLabel: 'szt'
   },
   [TruckAddonsType.STEAL_COUNTERTOP]: {

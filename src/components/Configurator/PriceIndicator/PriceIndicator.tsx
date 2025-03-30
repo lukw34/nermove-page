@@ -5,11 +5,12 @@ import './priceIndicator.scss';
 import { useNavigate } from 'react-router-dom';
 
 interface PriceIndicatorProps {
-    calculatedPrice: number
+    calculatedPrice: number,
+    leasing: number
 }
 
 
-const PriceIndicator: React.FC<PriceIndicatorProps> = ({ calculatedPrice }) => {
+const PriceIndicator: React.FC<PriceIndicatorProps> = ({ calculatedPrice, leasing }) => {
   const navigate = useNavigate();
   const handleOnClick = () => {
     navigate('summary');
@@ -21,7 +22,7 @@ const PriceIndicator: React.FC<PriceIndicatorProps> = ({ calculatedPrice }) => {
         Szacunkowa wycena: 
         <div className="price">{i18next.t('priceWithCurrency',{ val: calculatedPrice })}</div>
         <div className="monthly-price">
-          Rata: <span className="monthly-price-value">{i18next.t('priceWithCurrency',{ val: 2137 })}/mies</span>
+          Rata (3 lata): <span className="monthly-price-value">{i18next.t('priceWithCurrency',{ val: leasing })}/mies</span>
         </div>
       </div>
       <div className="submit-button-container">

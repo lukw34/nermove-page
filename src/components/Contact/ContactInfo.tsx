@@ -6,10 +6,11 @@ const ContactInfo = () => {
   return (
     <div className="contact-wrapper contact-wrapper-size">
       <h2>Neromove S.A</h2>
-      <h4>npasdasd@gmail.com</h4>
-      <h4>+48 50234234</h4>
-      <div>Dummy Address 32/234</div>
-      <div>Dummy 31-2323</div>      
+      <h4>biuro@neromove.com</h4>
+      <h4>Mateusz: +48 574 966 502</h4>
+      <h4>Kamil: +48 608 104 798</h4>
+      <div>Ul. Świętego  Stanisława 53</div>
+      <div>31-040 Świątniki Górne</div>      
     </div>
   );
 };

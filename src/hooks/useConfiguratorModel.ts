@@ -74,11 +74,24 @@ export const useConfiguratorModel = (modelConfig: Model) => {
     `;
   };
 
+  const leasing: number = useMemo(() => {
+    // 10% for own contribution
+    const base = calculatedPrice * 0.9;
+    // 9,5%
+    const interestRate = 0.095;
+    const duration = 36;
+    const buyout = calculatedPrice * 0.2;
+    const leasingTop = base - (buyout / (1 + interestRate) ** duration);
+    const leasingBottom = (1 - (1 + interestRate) ** (-duration)) / interestRate; 
+    return Number((leasingTop / leasingBottom).toFixed(2));
+  }, [calculatedPrice]);
+
   return  {
     setup,
     calculatedPrice,
     setConfigurationOptions,
-    getSummary
+    getSummary,
+    leasing,
   };
 
 };

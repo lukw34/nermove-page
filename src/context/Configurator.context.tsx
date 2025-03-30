@@ -5,7 +5,8 @@ import { ConfiguratorModel, ModelDimension, Model, FieldKeys, BaseConfigurationT
 
 interface Configurator {
     setup: ConfiguratorModel,
-    calculatedPrice: number
+    calculatedPrice: number,
+    leasing: number,
     setConfigurationOptions: (key: FieldKeys, value: boolean | string | number) => void
     getSummary: () => string
   }
@@ -38,12 +39,14 @@ export const defaultConfigurationOptions = {
 const defaultContext: ConfigurationContext = {
   configurator: {
     calculatedPrice: 0,
+    leasing: 0,
     setConfigurationOptions: () => { },
     setup: defaultConfigurationOptions,
     getSummary: () => ''
   },
   selectedModel: {
     key: '',
+    description: '',
     name: '',
     size: {
       length: 0,

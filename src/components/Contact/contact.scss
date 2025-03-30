@@ -13,7 +13,97 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    position: relative;
 }
+
+.contact-result-base {
+    &::before {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Nova Flat";
+        font-size: 1.5rem;
+        background: rgba(249, 235, 195, 0.86);
+        border-radius: 5px;
+        color: rgb(102, 80, 80);
+        opacity: 100%;
+        position: absolute;
+        text-wrap: wrap;
+        animation: fade-out 1s ease-out;
+        animation-fill-mode: forwards;
+        animation-delay: 2s;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+    }
+}
+
+.contact-success {
+    @extend .contact-result-base;
+    &::before {
+        content: "Wiadomość została wysłana !";
+    }
+}
+
+.contact-error {
+    @extend .contact-result-base;
+    &::before {
+        content: "Wiadomość NIE została wysłana !";
+        background: rgba(102, 80, 80, 0.9);
+        color: rgb(249, 235, 195);
+    }
+}
+
+
+.contact-loader {
+    &::before {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        font-family: "Nova Flat";
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        font-size: 1.1rem;
+        background: rgba(249, 235, 195, 0.86);
+        border-radius: 5px;
+        color: rgb(102, 80, 80);
+        padding-bottom: 20px;
+        position: absolute;
+        content: "Wysyłamy Twoją wiadomość...";
+    }
+    &::after {
+        position: absolute;
+        content: "";
+        border: 16px solid #f3f3f3; 
+        border-top: 16px solid rgb(102, 80, 80); 
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        animation: spin 2s linear infinite;
+        opacity: 100%;
+    }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+@keyframes fade-out {
+    0% { opacity: 100%; }
+    70% { 
+        opacity: 0%;
+    }
+    100% {
+        z-index: -1;
+    }
+}
+
+
 
 .contact-wrapper-size {
     min-width: 350px;
@@ -39,6 +129,8 @@
     .regulation-note {
         font-size: 0.9rem;
     }
+    position: relative;
+    
 }
 
 .textarea-wrapper{

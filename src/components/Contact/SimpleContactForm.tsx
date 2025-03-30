@@ -1,12 +1,17 @@
 import React from 'react';
 import './contact.scss';
 import { ActionButton } from '../Button/ActionButton';
-import { useSendContactEmnail } from '../../hooks/useSendContactEmail';
+import { RequestStatus, useSendContactEmnail } from '../../hooks/useSendContactEmail';
 
 const SimpleContacForm = () => {
-  const { submitConfigurationForm, requestStatus: { isLoading } } = useSendContactEmnail();
+  const { submitConfigurationForm, requestStatus: { isLoading, result } } = useSendContactEmnail();
+  const requestClass = isLoading ? 'contact-loader' : {
+    [RequestStatus.SUCCESS]: 'contact-success',
+    [RequestStatus.ERROR]: 'contact-error'
+  }[result as RequestStatus] || '';
+  
   return (
-    <div className="simple-contact-container contact-container">
+    <div className={`simple-contact-container contact-container ${requestClass}`}>
       <form className="contact-wrapper" onSubmit={submitConfigurationForm} >
         <input className="input-wrapper" name="name" placeholder="Podaj swoje imię" required />
         <input className="input-wrapper" name="emailaddress" placeholder="Podaj swój email" required type="email" />

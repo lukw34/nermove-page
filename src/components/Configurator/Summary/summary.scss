@@ -13,13 +13,16 @@
         font-size: 0.9rem;
     }
     .price-container {
-        padding: 10px 0;
+        padding: 25px 0;
         font-size: 1.1rem;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         .price-value {
             font-weight: bold;
+        }
+        .price-details {
+            font-size: 0.7rem;
         }
     }
 }
@@ -35,7 +38,7 @@
             width: 100vw !important;
             padding-top: 0;
             .price-container {
-                padding: 5px 0;
+                padding: 15px 0;
                 font-size: 1rem;
             }
         }

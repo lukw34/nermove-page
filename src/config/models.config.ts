@@ -25,6 +25,7 @@ const labelMap: Record<FieldKeys, string> = {
 const modelsBaseConfigs: Model[] = [{
   key: 'nunu',
   name: 'Nunu',
+  description: 'Jest to przyczepa idealna dla osób rozpoczynających swoją przygodę na mała skalę, a masa i rozmiar pozwala na to by zabrać ją każdym samochodem na kat. B',
   basePrice: 17900,
   size: {
     width: 200,
@@ -45,6 +46,7 @@ const modelsBaseConfigs: Model[] = [{
   }],
 }, {
   key: 'explorer',
+  description: 'Model Eksplorer przeznaczony jest dla małej gastronomii potrzebującej wiekszej przestrzeni. Pozwala on nam na swobodną pracę dwóch osób.',
   name: 'Explorer',
   basePrice: 28900,
   size: {
@@ -67,6 +69,7 @@ const modelsBaseConfigs: Model[] = [{
 },  {
   key: 'rocket',
   name: 'Rocket',
+  description: 'Model Rockett to rozwiązanie idealne pod biznesy aspirujące, wymagające wiekszej przestrzeni tj. Kebab/burger pod pracę 2-3 osób. W tym projekcie mozemy stworzyc zaplecze magazynowe',
   size: {
     width: 240,
     length: 500,
@@ -88,6 +91,7 @@ const modelsBaseConfigs: Model[] = [{
 }, {
   key: 'odyssey',
   name: 'Odyssey',
+  description: 'Model Odyssey skierowany jest do wiekszych gastronomii, pozwala stworzyc nam sporą przestrzen magazynową i swobodną pracę 2-4 osób. Idealne rozwiązanie dla popularnych miejsc',
   size: {
     width: 240,
     length: 550,

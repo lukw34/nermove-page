@@ -60,6 +60,7 @@ export interface ModelSize {
 export interface Model {
     key: string,
     name: string,
+    description: string,
     basePrice: number,
     size: ModelSize,
     baseConfigurationOptions: BaseConfiguration[],
