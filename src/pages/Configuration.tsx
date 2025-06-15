@@ -1,14 +1,25 @@
-import React, { useMemo } from 'react';
-import { redirect, useParams } from 'react-router-dom';
+import React, { useEffect, useMemo } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { modelsConfigs } from '../config/models.config';
 import Configurator from '../components/Configurator/Configurator';
 import { ConfiguratorContextProvider } from '../context/Configurator.context';
 
 const Configuration = () => {
   const { modelId } = useParams();
+  const navigate = useNavigate();
 
-  if(!modelId || !modelsConfigs[modelId]) {
-    redirect('/');
+  useEffect(() => {
+    if(!modelId || !modelsConfigs[modelId]) {
+      navigate('/');
+    }
+  
+    if(modelId === 'house') {
+      navigate('/house');
+    }
+
+  }, [modelId]);
+  
+  if(!modelId) {
     return null;
   }
 

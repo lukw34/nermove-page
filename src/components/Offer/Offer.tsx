@@ -41,8 +41,6 @@ const Offer = forwardRef<{ firstItem: any, lastItem: HTMLDivElement }>(function 
           }
         };
 
-        console.log(ref);
-        console.log(itemsRef);
         return (
           <div className={`single-model ${item.key}`} key={item.key} {...refProps}>
             <div className="info">

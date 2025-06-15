@@ -13,6 +13,7 @@ import { Setup } from '../components/Configurator/Setup/Setup';
 import { Summary } from '../components/Configurator/Summary/Summary';
 import Regulations from './Regulations';
 import Rodo from './Rodo';
+import HouseConfigurator from '../components/Configurator/HouseConfigurator';
 
   
 export const router = createHashRouter([
@@ -22,16 +23,22 @@ export const router = createHashRouter([
     action: () => redirect('/main'),
     children: [
       {
-        path: 'models/:modelId',
+        path: 'models',
         element: <Configuration />,
-        children: [{
-          path: '',
+        children: [ {
+          path: ':modelId',
           element: <Setup/>
         }, {
-          path: 'summary',
+          path: ':modelId/summary',
           element: <Summary />
         }]
       },
+
+      {
+        path: 'house',
+        element: <HouseConfigurator />,
+      },
+      
       {
         path: 'contact',
         element: <Contact />,
