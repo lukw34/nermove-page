@@ -110,6 +110,29 @@ const modelsBaseConfigs: Model[] = [{
     type: BaseConfigurationType.WATER,
     additionalPrice: 2500
   }]
+}, 
+{
+  key: 'house',
+  name: 'Dom Modułowy',
+  description: '',
+  size: {
+    width: 240,
+    length: 550,
+  },
+  basePrice:43900,
+  baseConfigurationOptions: [{
+    type: BaseConfigurationType.ELECTRICITY,
+    additionalPrice: 3500,
+  }, {
+    type: BaseConfigurationType.ADDITONAL_WEIGHT_SUPPORT,
+    additionalPrice: 2500
+  }, {
+    type: BaseConfigurationType.COLOR,
+    additionalPrice: 2250
+  }, {
+    type: BaseConfigurationType.WATER,
+    additionalPrice: 2500
+  }]
 }];
 
 const { modelsConfigs, modelsList } = modelsBaseConfigs.reduce<{

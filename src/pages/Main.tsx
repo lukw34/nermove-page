@@ -1,21 +1,32 @@
 import React, { useRef } from 'react';
 import MainPicture from '../components/MainPicture/MainPicture';
-import FoodTruckModels from '../components/FoodTruckModels/FoodTruckModels';
-
+import Offer from '../components/Offer/Offer';
 const Main = () => {
-  const firstElementRef = useRef<HTMLDivElement | null>(null);  
+  const offerRef = useRef<{
+    firstItem: HTMLDivElement,
+    lastItem: HTMLDivElement
+  } | null>(null);  
   const navigateToFirstModel = () => {
-    if(firstElementRef) {
-      firstElementRef.current?.scrollIntoView({
+    if(offerRef) {
+      console.log(offerRef);
+      (offerRef as any).firstItem?.scrollIntoView({
         behavior: 'smooth',
       });
     }
+  };
 
+  const navigateToLastModel = () => {
+    console.log(offerRef);
+    if(offerRef) {
+      (offerRef as any).lastItem?.scrollIntoView({
+        behavior: 'smooth',
+      });
+    }
   };
   return (
     <>
-      <MainPicture navigateToFirstModel={navigateToFirstModel} />
-      <FoodTruckModels ref={firstElementRef} />
+      <MainPicture navigateToFirstModel={navigateToFirstModel} navigateToLastModel={navigateToLastModel} />
+      <Offer ref={offerRef} />
     </>
   );
 };

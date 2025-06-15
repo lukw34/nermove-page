@@ -1,5 +1,5 @@
 import React from 'react';
-import ArticleItem from './ArticleItem';
+import ArticleItem, { ImagePosition } from './ArticleItem';
 
 const articles = {
   kamil: {
@@ -14,8 +14,8 @@ const articles = {
 
 const AboutArticle = () => (
   <div>
-    <ArticleItem content={articles.kamil.content} imagePosition="left" imageUrl={articles.kamil.imageUrl} title="Kamil" />
-    <ArticleItem content={articles.loczek.content} imagePosition="right" imageUrl={articles.loczek.imageUrl} title="Loczek" />
+    <ArticleItem content={articles.kamil.content} imagePosition={ImagePosition.left} imageUrl={articles.kamil.imageUrl} title="Kamil" />
+    <ArticleItem content={articles.loczek.content} imagePosition={ImagePosition.right} imageUrl={articles.loczek.imageUrl} title="Loczek" />
   </div>
 );
 

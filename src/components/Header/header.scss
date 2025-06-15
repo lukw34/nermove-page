@@ -19,9 +19,9 @@
     font-family: "Nova Flat";
     justify-content: space-between;
     z-index: 100;
-    width: 92vw;
+    width: 100%;
     height: 6vh;
-    padding: 0 2rem;
+    background-color: rgba(74, 54, 65, 0.768627451);
     .header-full-screen-buttons {
         display: flex;
     }

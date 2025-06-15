@@ -1,16 +1,37 @@
 import React, { forwardRef, useRef } from 'react';
-import './foodTruckModels.scss';
+import './offer.scss';
 import { StrongLinkButton } from '../Button/StrongLinkButton';
 import { modelsConfigs, modelsList } from '../../config/models.config';
 import ArrowDownButton from '../Button/ArrowDownButton';
 
-const FoodTruckModels = forwardRef<HTMLDivElement | null>(function FoodTruckModel (props, ref) {
+const Offer = forwardRef<{ firstItem: any, lastItem: HTMLDivElement }>(function Offers (props, ref) {
   const itemsRef = useRef<HTMLElement[]>([]);
   return (
     <div className="models-container">
       {modelsList.map((id: string, index: number) => {
         const item = modelsConfigs[id];
-        const refProps = index === 0 ? { ref }: { ref: (el: HTMLDivElement) => itemsRef.current[index] = el};
+        let refProps = { ref: (el: HTMLDivElement) => itemsRef.current[index] = el };
+        if(index === 0) {
+          refProps = { ref: (el: HTMLDivElement) => {
+            if(ref) {
+              (ref as any).firstItem = el; 
+              itemsRef.current[index] = el;
+            } 
+            return el;
+          }
+          };
+        } else if(index === modelsList.length -1) {
+          console.log('dupa');
+          refProps = { ref: (el: HTMLDivElement) => {
+            if(ref) {
+              (ref as any).lastItem = el; 
+              itemsRef.current[index] = el;
+            } 
+            return el;
+          }
+          };
+        }
+      
         const onClick = () => {
           const nextElement = itemsRef.current[index + 1];
           if(nextElement) {
@@ -20,6 +41,8 @@ const FoodTruckModels = forwardRef<HTMLDivElement | null>(function FoodTruckMode
           }
         };
 
+        console.log(ref);
+        console.log(itemsRef);
         return (
           <div className={`single-model ${item.key}`} key={item.key} {...refProps}>
             <div className="info">
@@ -42,4 +65,4 @@ const FoodTruckModels = forwardRef<HTMLDivElement | null>(function FoodTruckMode
   );
 });
 
-export default FoodTruckModels;
+export default Offer;

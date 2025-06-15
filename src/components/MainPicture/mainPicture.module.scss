@@ -1,10 +1,41 @@
 .mainImageContainer {
     position: relative;
     height: 94vh;
+    
     .mainImage {
-        width: 100vw;
+        position: absolute;
         height: 100%;
-        object-fit: fill;
+        width: 77%;
+        top: 0px;
+        left: 0;
+        z-index: 100;
+    }
+
+    .movingImage {
+        transition: transform 1s;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0px;
+        left: 0;
+        z-index: 101;
+        transform: translateX(75vw);
+        &.activeImage {
+            transform: translateX(25vw);
+        }
+    }
+
+
+    .actionButtonContainer {
+        transition: transform 1s;
+        position: absolute;
+        bottom: 50%;
+        left:0;
+        transform: translateX(74vw) rotate(90deg);
+        z-index: 120;
+        &.revert {
+            transform: translateX(24vw) rotate(270deg);
+        }
     }
     
     .mainImageButtonContainer {
@@ -15,6 +46,23 @@
         left: 0; 
         right: 0; 
         bottom: 15%;
+        z-index: 100;
+    }
+    
+    .mainImageSecondButtonContainer {
+        transition: transform 1s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute; 
+        left: 0; 
+        right: 0; 
+        bottom: 15%;
+        z-index: 101;
+        transform: translateX(75vw);
+        &.active {
+            transform: translateX(12vw);
+        }
     }
 
     
@@ -33,6 +81,63 @@
         padding: 10px 0;
         background-color: rgba(249, 235, 195, 0.15)
        
+    }
+
+
+    @media only screen and (max-width: 700px) {
+        .mainImage {
+            position: absolute;
+            height: 70%;
+            width: 100%;
+        }
+    
+        .movingImage {
+            z-index: 101;
+            transform: translateY(65vh);
+            &.activeImage {
+                transform: translateY(15vh);
+            }
+        }
+    
+    
+        .actionButtonContainer {
+            transition: transform 1s;
+            position: absolute;
+            bottom: 0;
+            left: 75%;
+            transform: translateY(-26vh) rotate(180deg);
+            z-index: 120;
+            &.revert {
+                transform: translateY(-76vh) rotate(0deg);
+            }
+        }
+        
+        .mainImageButtonContainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute; 
+            left: 0; 
+            right: 0; 
+            bottom: 45%;
+            z-index: 100;
+        }
+        
+        .mainImageSecondButtonContainer {
+            transition: transform 1s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute; 
+            left: 0; 
+            right: 0; 
+            bottom: 15%;
+            z-index: 101;
+            transform: translateY(60vh);
+            &.active {
+                transform: translateY(0);
+            }
+        }
     }
     
 
