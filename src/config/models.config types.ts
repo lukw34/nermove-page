@@ -19,6 +19,23 @@ export enum TruckAddonsType {
   SIZE_ADJUSTMENT = 'SIZE_ADJUSTMENT'
 }
 
+export enum HouseConfiguration {
+  HOUSE_TYPE = 'HOUSE_TYPE',
+  HOUSE_FINISHING = 'HOUSE_FINISHING'
+}
+
+export enum HouseTypes {
+  TYPE_1 = 'Typ 1',
+  TYPE_2 = 'Typ 2',
+  TYPE_3 = 'Type 3'
+}
+
+export enum HouseFinish {
+  RAW = 'Stan Surowy Zamknięty',
+  DEVELOPER = 'Stan Developerski',
+  KEY = 'Wykonczenie "Pod klucz"'
+}
+
 
 export enum FanOptions{
   NO_FAN = 'Brak Wentylatora',
@@ -92,7 +109,7 @@ export interface QuantityAddon {
 }
 
 export interface SelectionOptionsItem {
-  price: number, label: string
+  price: number | null, label: string
 }
 
 export interface SelectionOptions {
@@ -100,8 +117,8 @@ export interface SelectionOptions {
   type: FieldType.SELECTION
 }
 
-export type TruckAddonsMap = {
-[key in (keyof typeof TruckAddonsType)]: CheckboxAddon | SelectionOptions | QuantityAddon
+export type AddonsMap = {
+[key in (keyof typeof TruckAddonsType | HouseConfiguration)]: CheckboxAddon | SelectionOptions | QuantityAddon
 }
 
-export type FieldKeys = BaseConfigurationType | TruckAddonsType | ModelDimension
+export type FieldKeys = BaseConfigurationType | TruckAddonsType | ModelDimension | HouseConfiguration

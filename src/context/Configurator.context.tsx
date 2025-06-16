@@ -1,6 +1,6 @@
 import { createContext } from 'react';
 import { useConfiguratorModel } from '../hooks/useConfiguratorModel';
-import { ConfiguratorModel, ModelDimension, Model, FieldKeys, BaseConfigurationType, TruckAddonsType, HoodOptions, FanOptions, WindowOptions } from '../config/models.config types';
+import { ConfiguratorModel, ModelDimension, Model, FieldKeys, BaseConfigurationType, TruckAddonsType, HoodOptions, FanOptions, WindowOptions, HouseConfiguration } from '../config/models.config types';
 
 
 interface Configurator {
@@ -33,7 +33,9 @@ export const defaultConfigurationOptions = {
   [TruckAddonsType.STEAL_WALLS]: 0,
   [TruckAddonsType.FURNITURES]: 0,
   [ModelDimension.length]: 0,
-  [ModelDimension.width]: 0
+  [ModelDimension.width]: 0,
+  [HouseConfiguration.HOUSE_FINISHING]: 0,
+  [HouseConfiguration.HOUSE_TYPE]: 0,
 };
 
 const defaultContext: ConfigurationContext = {

@@ -1,4 +1,4 @@
-import { BaseConfigurationType, FieldKeys, Model, ModelDimension, TruckAddonsType } from './models.config types';
+import { BaseConfigurationType, FieldKeys, HouseConfiguration, Model, ModelDimension, TruckAddonsType } from './models.config types';
 
 
 
@@ -18,8 +18,10 @@ const labelMap: Record<FieldKeys, string> = {
   [TruckAddonsType.FURNITURES]: 'Umeblowanie',
   [TruckAddonsType.STEAL_COUNTERTOP]: 'Obicie stala nierdzewn blatu',
   [TruckAddonsType.STEAL_WALLS]: 'Obicie stala nierdzewna ścian',
-  [ModelDimension.width]:'Szerokość',
-  [ModelDimension.length]: 'Długość'
+  [ModelDimension.width]: 'Szerokość',
+  [ModelDimension.length]: 'Długość',
+  [HouseConfiguration.HOUSE_TYPE]: 'Typ Dpmu',
+  [HouseConfiguration.HOUSE_FINISHING]: 'Rpdzaj wykończenia'
 };
 
 const modelsBaseConfigs: Model[] = [{

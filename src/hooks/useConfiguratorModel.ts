@@ -7,7 +7,7 @@ import {
   FieldKeys,
   ModelDimension,
 } from '../config/models.config types';
-import { truckAddons } from '../config/addons.config';
+import { addons } from '../config/addons.config';
 import { defaultConfigurationOptions } from '../context/Configurator.context';
 import { labelMap } from '../config/models.config';
 
@@ -38,17 +38,17 @@ export const useConfiguratorModel = (modelConfig: Model) => {
       return prev;
     }, price);
 
-    return Object.keys(truckAddons).reduce((prev, itemKey) => {
+    return Object.keys(addons).reduce((prev, itemKey) => {
       const value = setup[itemKey as TruckAddonsType];
       if(value) {
-        const addonItem = truckAddons[itemKey as TruckAddonsType];
+        const addonItem = addons[itemKey as TruckAddonsType];
         if(addonItem.type === FieldType.CHECKBOX) {
           return prev + addonItem.price;
         }
 
         if(addonItem.type === FieldType.SELECTION) {
           const selection = addonItem.options.find(opt => opt.label === setup[itemKey as TruckAddonsType]);
-          if(selection) {
+          if(selection && selection.price) {
             return selection.price + prev;
           }
         }

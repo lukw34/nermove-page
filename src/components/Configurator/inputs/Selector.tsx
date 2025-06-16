@@ -20,7 +20,7 @@ const Selector: React.FC<SelectorProps> = ({fieldKey, options, value, onChange }
       <select className="selector-box config-item" onChange={onChangeHandler}>
         {options.map(({ price, label}) => (
           <option className="selector-box config-item" key={`${fieldKey}-${label}`} value={label}>
-            <span>{label} - {i18next.t('priceWithCurrency',{ val: price })}</span>
+            <span>{label} {price ? `- ${i18next.t('priceWithCurrency',{ val: price })}`: ''}</span>
           </option>
         ))}
       </select>

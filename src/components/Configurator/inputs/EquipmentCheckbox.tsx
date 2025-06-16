@@ -9,7 +9,7 @@ interface EquipmentCheckboxProps {
     value: boolean,
     fieldKey: FieldKeys
     onChange: (fieldKey: FieldKeys, newValue: boolean) => void,
-    price: number
+    price?: number
 }
 
 
@@ -24,7 +24,7 @@ const EquipmentCheckbox: React.FC<EquipmentCheckboxProps> = ({fieldKey, price, v
     <div className="config-item-container">
       <label className={`config-item box-checkbox ${value && 'checked-checkbox'} ${fieldKey.toLowerCase()}-wrapper`}>
         <span>{labelMap[fieldKey]}</span>
-        <span>{priceValue}</span>
+        {price ? <span>{priceValue}</span> : <span/>}
         <input checked={value} className="disable-input" onChange={onChangeHandler} type="checkbox"/>
       </label>
     </div>

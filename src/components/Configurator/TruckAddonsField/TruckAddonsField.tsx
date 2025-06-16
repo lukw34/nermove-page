@@ -1,6 +1,6 @@
 import React, { useContext, useMemo } from 'react';
-import { FieldType, TruckAddonsType } from '../../../config/models.config types';
-import { truckAddons } from '../../../config/addons.config';
+import { FieldType, HouseConfiguration, TruckAddonsType } from '../../../config/models.config types';
+import { addons } from '../../../config/addons.config';
 import EquipmentCheckbox from '../inputs/EquipmentCheckbox';
 import { ConfiguratorContext } from '../../../context/Configurator.context';
 import Selector from '../inputs/Selector';
@@ -8,7 +8,7 @@ import NumberInput from '../inputs/NumberInput';
 import { labelMap } from '../../../config/models.config';
 
 interface TruckAddonsFieldProps {
-    fieldKey: TruckAddonsType
+    fieldKey: TruckAddonsType | HouseConfiguration
 }
 
 
@@ -20,7 +20,7 @@ const TruckAddonsField: React.FC<TruckAddonsFieldProps> = ({fieldKey }) => {
     }
   } = useContext(ConfiguratorContext);
 
-  const addonItem = useMemo(() => truckAddons[fieldKey], [fieldKey]);
+  const addonItem = useMemo(() => addons[fieldKey], [fieldKey]);
   const value = useMemo(() => setup[fieldKey], [fieldKey, setup]);
   if(addonItem.type === FieldType.CHECKBOX) {
     return (

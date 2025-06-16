@@ -7,7 +7,7 @@ const HouseConfigurator: React.FC = () => {
     
   return (
     <div className="configurator-wrapper">
-      <div className="model-image" />
+      <div className="house-image" />
       <HouseSetup />
     </div>
   );
