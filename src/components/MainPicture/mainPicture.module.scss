@@ -1,6 +1,8 @@
 .mainImageContainer {
     position: relative;
     height: 94vh;
+
+    border-top:solid rgb(249, 235, 195) 1px;
     
     .mainImage {
         position: absolute;
@@ -9,6 +11,8 @@
         top: 0px;
         left: 0;
         z-index: 100;
+      
+
     }
 
     .movingImage {

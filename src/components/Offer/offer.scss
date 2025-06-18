@@ -5,6 +5,28 @@
         background-size: 100vw 100vh;
         width: 100vw;
         height: 100vh;
+        &::after {
+            content: '';
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            bottom:3%;
+            left: 3%;
+            border-bottom:solid rgb(249, 235, 195) 5px;
+            border-left:solid rgb(249, 235, 195) 5px;
+        }
+
+
+        &::before{
+            content: '';
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            top:3%;
+            right: 3%;
+            border-top:solid rgb(249, 235, 195) 5px;
+            border-right:solid rgb(249, 235, 195) 5px;
+        }
 
         .next-button {
             position: absolute;
@@ -20,7 +42,7 @@
             margin-inline: auto;
             background-color: #4a3641c4;
             letter-spacing: 9px;
-            width: 100%;
+            width: 50%;
             color: rgba(249, 235, 195, 0.86);
 
             h2 {
@@ -30,6 +52,7 @@
 
             h4 {
                 letter-spacing: normal;
+                font-size: 1.2rem;
             }
         }
 
@@ -47,7 +70,27 @@
 }
 
 .nunu {
-    background-image: url("/img/truck/nunu_desktop.jpg");
+    animation: nunu_desktop_animation 15s infinite alternate;
+    @keyframes nunu_desktop_animation {
+    0% {
+        background-image: url("/img/truck/nunu_desktop/1.jpg");
+    }
+
+    25% {
+        background-image: url("/img/truck/nunu_desktop/2.jpg");
+    }
+
+    50%{
+        background-image: url("/img/truck/nunu_desktop/3.jpg");
+    }
+
+    75% {
+        background-image: url("/img/truck/nunu_desktop/4.jpg");
+    }
+    100% {
+        background-image: url("/img/truck/nunu_desktop/1.jpg");
+    }
+    }
 }
 .explorer {
     background-image: url("/img/truck/explorer_desktop.jpg");
@@ -74,5 +117,12 @@
     }
     .rocket {
         background-image: url("/img/truck/rocket_mobile.jpg");
+    }
+
+    .next-button {
+        position: absolute;
+        bottom: 5%;
+        right: 50%;
+        left: 50%;
     }
 }

@@ -19,7 +19,7 @@
         background-position: center;
         background-size: cover;
 
-        animation: image 16s infinite alternate;
+        
         &::after {
             content: '';
             background-position: center;
@@ -37,6 +37,7 @@
         
         }
 
+        animation: image 16s infinite alternate;
         @keyframes image {
         0% {
             background-image: url("/img/house_setup/1.jpg");
