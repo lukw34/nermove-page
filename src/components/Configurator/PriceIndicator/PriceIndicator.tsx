@@ -20,7 +20,7 @@ const PriceIndicator: React.FC<PriceIndicatorProps> = ({ calculatedPrice, leasin
     <div className="price-indicator-wrapper">
       <div className="price-indicators">
         Szacunkowa wycena: 
-        <div className="price">{i18next.t('priceWithCurrency',{ val: calculatedPrice })}</div>
+        <div className="price">{i18next.t('priceWithCurrency',{ val: calculatedPrice })} - {i18next.t('priceWithCurrency',{ val: calculatedPrice * 1.15 })} </div>
         <div className="monthly-price">
           Rata (3 lata): <span className="monthly-price-value">{i18next.t('priceWithCurrency',{ val: leasing })}/mies</span>
         </div>

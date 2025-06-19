@@ -11,6 +11,20 @@
         top: 0px;
         left: 0;
         z-index: 100;
+        animation: main_desktop_animation 9s infinite alternate;
+        @keyframes main_desktop_animation {
+        0% {
+            background-image: url("/img/main_truck/1_desktop.jpg");
+        }
+    
+        50% {
+            background-image: url("/img/main_truck/2_desktop.jpg");
+        }
+    
+        100% {
+            background-image: url("/img/main_truck/1_desktop.jpg");
+        }
+        }
       
 
     }

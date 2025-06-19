@@ -7,7 +7,7 @@ const Configurator: React.FC = () => {
     
   return (
     <div className="configurator-wrapper">
-      <div className="model-image" />
+      <div className="model-image nunu" />
       <Outlet />
     </div>
   );

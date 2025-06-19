@@ -28,7 +28,7 @@ export const Summary = () => {
       <div className="delivery-label">Szacowany termin realizacji: {deliveryDate}</div>
       <LinkButton title="Wróć do konfiguratora" to={`/models/${key}`} />
       <div className="price-container"> 
-        Szacowana cena realizacji: <span className="price-value">{i18next.t('priceWithCurrency',{ val: calculatedPrice })}</span>
+        Szacowana cena realizacji: <span className="price-value">{i18next.t('priceWithCurrency',{ val: calculatedPrice })} - {i18next.t('priceWithCurrency',{ val: calculatedPrice * 1.15 })}</span>
       </div>
       <div className="price-container">
         Szacowana rata leasingu na: <span className="price-value">{i18next.t('priceWithCurrency',{ val: leasing })}</span>

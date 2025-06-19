@@ -1,4 +1,3 @@
-import i18next from 'i18next';
 import { useCallback, ChangeEvent } from 'react';
 import { FieldKeys, SelectionOptionsItem } from '../../../config/models.config types';
 
@@ -18,9 +17,9 @@ const Selector: React.FC<SelectorProps> = ({fieldKey, options, value, onChange }
   return (
     <div className="config-item-container">
       <select className="selector-box config-item" onChange={onChangeHandler}>
-        {options.map(({ price, label}) => (
+        {options.map(({ label}) => (
           <option className="selector-box config-item" key={`${fieldKey}-${label}`} value={label}>
-            <span>{label} {price ? `- ${i18next.t('priceWithCurrency',{ val: price })}`: ''}</span>
+            <span>{label}</span>
           </option>
         ))}
       </select>

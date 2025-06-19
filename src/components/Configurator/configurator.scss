@@ -58,14 +58,50 @@
     }
 
     .model-image {
-        width: 60vw;
+        width: 75vw;
         height: 90%;
-        border: 0;
-        border-style: none;
-        background-size: contain;
-        background-repeat: no-repeat;
+        background-color: #eee;
         background-position: center;
-        background-image: url("/img/project.png");
+        background-size: cover;
+        &::after {
+            content: '';
+            background-position: center;
+            background:
+            linear-gradient(0deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 92%, rgba(255, 255, 255, 1) 99%),
+            linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 92%, rgba(255, 255, 255, 1) 99%),
+            linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 92%, rgba(255, 255, 255, 1) 99%),
+            linear-gradient(270deg,rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 92%, rgba(255, 255, 255, 1) 99%);
+            position: absolute;
+            width: 75vw;
+            height: 90%;
+            top: 5%;
+            bottom: 0;
+            left: 0;
+        
+        }
+        .nunu {
+            animation: nunu_desktop_animation 15s infinite alternate;
+            @keyframes nunu_desktop_animation {
+            0% {
+                background-image: url("/img/truck/nunu_desktop/1.jpg");
+            }
+        
+            25% {
+                background-image: url("/img/truck/nunu_desktop/2.jpg");
+            }
+        
+            50%{
+                background-image: url("/img/truck/nunu_desktop/3.jpg");
+            }
+        
+            75% {
+                background-image: url("/img/truck/nunu_desktop/4.jpg");
+            }
+            100% {
+                background-image: url("/img/truck/nunu_desktop/1.jpg");
+            }
+            }
+        }
     }
 
     .basic-config {
@@ -134,10 +170,10 @@
 
 @media only screen and (max-width: 900px) {
     .model-image  {
-        width: 60vw !important;
+        width: 70vw !important;
     }
     .basic-config {
-        width: 40vw !important;
+        width: 30vw !important;
     }
 }
 
