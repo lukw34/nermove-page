@@ -1,13 +1,15 @@
 import React from 'react';
 import './configurator.scss';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useParams } from 'react-router-dom';
+import classNames from 'classnames';
 
 
 const Configurator: React.FC = () => {
+  const { modelId } = useParams();
     
   return (
     <div className="configurator-wrapper">
-      <div className="model-image nunu" />
+      <div className={classNames('model-image', modelId)} />
       <Outlet />
     </div>
   );

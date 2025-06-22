@@ -23,13 +23,13 @@ export const router = createHashRouter([
     action: () => redirect('/main'),
     children: [
       {
-        path: 'models',
+        path: 'models/:modelId',
         element: <Configuration />,
         children: [ {
-          path: ':modelId',
+          path: '',
           element: <Setup/>
         }, {
-          path: ':modelId/summary',
+          path: 'summary',
           element: <Summary />
         }]
       },

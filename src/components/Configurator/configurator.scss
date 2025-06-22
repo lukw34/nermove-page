@@ -170,10 +170,25 @@
 
 @media only screen and (max-width: 900px) {
     .model-image  {
-        width: 70vw !important;
+        width: 65vw !important;
+        &::after {
+            content: '';
+            background-position: center;
+            background:
+            linear-gradient(0deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 92%, rgba(255, 255, 255, 1) 99%),
+            linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 92%, rgba(255, 255, 255, 1) 99%),
+            linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 92%, rgba(255, 255, 255, 1) 99%),
+            linear-gradient(270deg,rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 92%, rgba(255, 255, 255, 1) 99%);
+            position: absolute;
+            width: 65vw !important;
+            height: 90%;
+            top: 5%;
+            bottom: 0;
+            left: 0;
+        }
     }
     .basic-config {
-        width: 30vw !important;
+        width: 35vw !important;
     }
 }
 
@@ -185,6 +200,22 @@
             width: 96vw !important;
             height: 30vh;
             margin: 2% 0;
+            &::after {
+                content: '';
+                background-position: center;
+                background:
+                linear-gradient(0deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 92%, rgba(255, 255, 255, 1) 99%),
+                linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 92%, rgba(255, 255, 255, 1) 99%),
+                linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 92%, rgba(255, 255, 255, 1) 99%),
+                linear-gradient(270deg,rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 92%, rgba(255, 255, 255, 1) 99%);
+                position: absolute;
+                width: 100% !important;
+                height: 32vh !important;
+                top: 0;
+                bottom: 0;
+                left: 0;
+            }
+            
         }
         .basic-config {
             width: 100vw !important;

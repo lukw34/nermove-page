@@ -2,7 +2,7 @@
     position: relative;
     height: 94vh;
 
-    border-top:solid rgb(249, 235, 195) 1px;
+    border-top:solid rgb(249, 235, 195) 4px;
     
     .mainImage {
         position: absolute;
@@ -11,19 +11,26 @@
         top: 0px;
         left: 0;
         z-index: 100;
-        animation: main_desktop_animation 9s infinite alternate;
+        background-size: cover;
+        animation: main_desktop_animation 12s infinite alternate;
         @keyframes main_desktop_animation {
-        0% {
-            background-image: url("/img/main_truck/1_desktop.jpg");
-        }
-    
-        50% {
-            background-image: url("/img/main_truck/2_desktop.jpg");
-        }
-    
-        100% {
-            background-image: url("/img/main_truck/1_desktop.jpg");
-        }
+            0% {
+                background-image: url("/img/main_truck/GD1.jpg");
+            }
+        
+            25% {
+                background-image: url("/img/main_truck/GD2.jpg");
+            }
+            50% {
+                background-image: url("/img/main_truck/GD3.jpg");
+            }
+            75% {
+                background-image: url("/img/main_truck/GD4.jpg");
+            }
+        
+            100% {
+                background-image: url("/img/main_truck/GD1.jpg");
+            }
         }
       
 
@@ -107,6 +114,27 @@
             position: absolute;
             height: 70%;
             width: 100%;
+            animation: main_mobile_animation 12s infinite alternate;
+            @keyframes main_mobile_animation {
+            0% {
+                background-image: url("/img/main_truck/GM1.jpg");
+            }
+        
+            25% {
+                background-image: url("/img/main_truck/GM2.jpg");
+            }
+            50% {
+                background-image: url("/img/main_truck/GM3.jpg");
+            }
+            75% {
+                background-image: url("/img/main_truck/GM4.jpg");
+            }
+        
+            100% {
+                background-image: url("/img/main_truck/GM1.jpg");
+            }
+            }
+          
         }
     
         .movingImage {
