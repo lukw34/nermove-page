@@ -26,7 +26,7 @@ const MainPicture: React.FC<MainPictureProps> = ({ navigateToFirstModel, navigat
       setActiveSection(Sections.TRACK);
     }
   }, [activeSection,setActiveSection]);
-  console.log(activeSection);
+
   return(
     <section className={styles.mainImageContainer}>
       <img className={classnames(styles.movingImage, { [styles.activeImage]: activeSection === Sections.HOUSE}) } src={house}/>

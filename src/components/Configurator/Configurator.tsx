@@ -8,7 +8,7 @@ const Configurator: React.FC = () => {
   const { modelId } = useParams();
     
   return (
-    <div className="configurator-wrapper">
+    <div className={classNames('configurator-wrapper', `${modelId}-wrapper`)}>
       <div className={classNames('model-image', modelId)} />
       <Outlet />
     </div>

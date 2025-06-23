@@ -8,7 +8,7 @@ const Main = () => {
   } | null>(null);  
   const navigateToFirstModel = () => {
     if(offerRef) {
-      console.log(offerRef);
+
       (offerRef as any).firstItem?.scrollIntoView({
         behavior: 'smooth',
       });
@@ -16,7 +16,6 @@ const Main = () => {
   };
 
   const navigateToLastModel = () => {
-    console.log(offerRef);
     if(offerRef) {
       (offerRef as any).lastItem?.scrollIntoView({
         behavior: 'smooth',

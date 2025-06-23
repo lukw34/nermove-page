@@ -6,10 +6,11 @@ import {
   FieldType,
   FieldKeys,
   ModelDimension,
+  HouseConfiguration,
 } from '../config/models.config types';
 import { addons } from '../config/addons.config';
 import { defaultConfigurationOptions } from '../context/Configurator.context';
-import { labelMap } from '../config/models.config';
+import { houseLabel, LabelKeys, truckLabelMap } from '../config/models.config';
 
 
 export const useConfiguratorModel = (modelConfig: Model) => {
@@ -65,7 +66,12 @@ export const useConfiguratorModel = (modelConfig: Model) => {
   ]);
 
   const getSummary = (): string => {
-    const setupSummary = Object.keys(setup).map((key) => `${labelMap[key as FieldKeys]}: ${setup[key as FieldKeys]}`);
+    let setupSummary;
+    if(modelConfig.key === 'house') {
+      setupSummary = Object.keys(setup).filter(key => !!houseLabel[key as HouseConfiguration]).map((key) => `${houseLabel[key as HouseConfiguration]}: ${setup[key as FieldKeys]}`);
+    } else {
+      setupSummary = Object.keys(setup).filter(key => !!truckLabelMap[key as LabelKeys]).map((key) => `${truckLabelMap[key as LabelKeys]}: ${setup[key as FieldKeys]}`);
+    }
     return `
     Cena całkowita: ${calculatedPrice}
     Model: ${modelConfig.name}
@@ -85,6 +91,7 @@ export const useConfiguratorModel = (modelConfig: Model) => {
     const leasingBottom = (1 - (1 + interestRate) ** (-duration)) / interestRate; 
     return Number((leasingTop / leasingBottom).toFixed(2));
   }, [calculatedPrice]);
+
 
   return  {
     setup,

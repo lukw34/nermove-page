@@ -1,8 +1,14 @@
 import { BaseConfigurationType, FieldKeys, HouseConfiguration, Model, ModelDimension, TruckAddonsType } from './models.config types';
 
+export const houseLabel: Record<HouseConfiguration, string> = {
+  [HouseConfiguration.HOUSE_TYPE]: 'Typ Domu',
+  [HouseConfiguration.HOUSE_FINISHING]: 'Rpdzaj wykończenia'
+};
+
+export type LabelKeys = BaseConfigurationType | TruckAddonsType | ModelDimension;
 
 
-const labelMap: Record<FieldKeys, string> = {
+export const truckLabelMap: Record<LabelKeys, string> = {
   [BaseConfigurationType.ELECTRICITY]: 'Elektryka',
   [BaseConfigurationType.WATER]: 'Sanitaria',
   [BaseConfigurationType.ADDITONAL_WEIGHT_SUPPORT]: 'Wzmocniona Podloga',
@@ -19,9 +25,12 @@ const labelMap: Record<FieldKeys, string> = {
   [TruckAddonsType.STEAL_COUNTERTOP]: 'Obicie stala nierdzewn blatu',
   [TruckAddonsType.STEAL_WALLS]: 'Obicie stala nierdzewna ścian',
   [ModelDimension.width]: 'Szerokość',
-  [ModelDimension.length]: 'Długość',
-  [HouseConfiguration.HOUSE_TYPE]: 'Typ Dpmu',
-  [HouseConfiguration.HOUSE_FINISHING]: 'Rpdzaj wykończenia'
+  [ModelDimension.length]: 'Długość'
+};
+
+const labelMap: Record<FieldKeys, string> = {
+  ...truckLabelMap,
+  ...houseLabel
 };
 
 const modelsBaseConfigs: Model[] = [{

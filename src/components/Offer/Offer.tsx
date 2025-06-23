@@ -21,7 +21,6 @@ const Offer = forwardRef<{ firstItem: any, lastItem: HTMLDivElement }>(function 
           }
           };
         } else if(index === modelsList.length -1) {
-          console.log('dupa');
           refProps = { ref: (el: HTMLDivElement) => {
             if(ref) {
               (ref as any).lastItem = el; 

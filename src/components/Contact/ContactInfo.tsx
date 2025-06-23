@@ -5,7 +5,7 @@ const ContactInfo = () => {
 
   return (
     <div className="contact-wrapper contact-wrapper-size">
-      <h2>Neromove S.A</h2>
+      <h2>Neromove</h2>
       <h4>biuro@neromove.com</h4>
       <h4>Mateusz: +48 574 966 502</h4>
       <h4>Kamil: +48 608 104 798</h4>
