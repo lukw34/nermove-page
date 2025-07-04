@@ -118,10 +118,10 @@
     margin-top: 5vh;
     font-family: 'Source Sans Pro', sans-serif;
     color:#fff;
-    border: 1px solid rgba(0,0,0,.2);
     border-radius: 5px;
     background-clip: padding-box;
-    background: rgba(0, 0, 0, 0.5); 
+    background: linear-gradient(90deg, rgba(74, 54, 65, 0), rgba(74, 54, 65, 0.768627451) 5%, rgba(74, 54, 65, 0.768627451) 95%, rgba(74, 54, 65, 0) 99%);
+
     overflow: hidden; 
     align-items: center;
     justify-content: center;

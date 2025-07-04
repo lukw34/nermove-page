@@ -2,6 +2,24 @@
     .basic-config {
         margin-bottom: 0 !important;
     }
+    &::before {
+        z-index: 1000;
+        position: absolute;
+        position: absolute;
+        border-radius: 10px;
+        left: 8vw;
+        bottom: 18%;
+        margin-inline: auto;
+        background-color: #4a3641c4;
+        width: 59vw;
+        padding: 5px;
+        height: 95px;
+        display: flex;
+        align-items: center;
+        color: rgba(249, 235, 195, 0.86);
+        content:"Zajmujemy się projektowaniem, produkcją i sprzedażą wysokiej jakości domków mobilnych.";
+        animation: house-info-text-change 20s linear infinite;
+    }
 }
 
 .configurator-wrapper {
@@ -43,24 +61,8 @@
         
         }
 
-        animation: image 16s infinite alternate;
-        @keyframes image {
-        0% {
-            background-image: url("/img/house_setup/1.jpg");
-        }
+        animation: house-image-animation 16s infinite alternate !important;
 
-        33% {
-            background-image: url("/img/house_setup/2.jpg");
-        }
-
-        66%{
-            background-image: url("/img/house_setup/3.jpg");
-        }
-
-        100% {
-            background-image: url("/img/house_setup/4.jpg");
-        }
-        }
     }
 
     .model-image {
@@ -84,26 +86,6 @@
             bottom: 0;
             left: 0;
         
-        }
-        .house {
-            animation: image 12s infinite alternate;
-            @keyframes image {
-                0% {
-                    background-image: url("/img/house_setup/1.jpg");
-                }
-
-                33% {
-                    background-image: url("/img/house_setup/2.jpg");
-                }
-
-                66%{
-                    background-image: url("/img/house_setup/3.jpg");
-                }
-
-                100% {
-                    background-image: url("/img/house_setup/4.jpg");
-                }
-            }
         }
     }
 
@@ -171,6 +153,7 @@
     }
 }
 
+
 @media only screen and (max-width: 900px) {
     .model-image  {
         width: 65vw !important;
@@ -196,6 +179,21 @@
 }
 
 @media only screen and (max-width: 750px) {
+    .house-wrapper {
+        .basic-config {
+            margin-bottom: 0 !important;
+        }
+        &::before {
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 18% !important;
+            width: 95% !important;
+            padding: 5px !important;
+            min-height: 95px !important;
+        }
+    }
+
     .configurator-wrapper {
         flex-direction: column;
         align-items: center;
@@ -224,5 +222,20 @@
             width: 100vw !important;
             margin-bottom: 12vh;
         }
+    }
+}
+
+@keyframes house-info-text-change {
+    0%  { 
+        content: "Zajmujemy się projektowaniem, produkcją i sprzedażą wysokiej jakości domków mobilnych.";
+    }
+    25% { 
+        content: "Nasze produkty są doskonałą alternatywą dla tradycyjnych rozwiązań mieszkaniowych, oferując komfort, funkcjonalność i mobilność.";
+    }
+    50% { 
+        content: "Zapewniamy naszym klientom wolności i elastyczności w wyborze miejsca zamieszkania.";
+    }
+    75% {
+         content: "Dążymy do tego, aby dostarczyć innowacyjne i przyjazne środowisku rozwiązania mieszkaniowe, które spełniają najwyższe standardy jakości i estetyki.";
     }
 }
