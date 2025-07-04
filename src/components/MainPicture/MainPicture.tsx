@@ -3,7 +3,6 @@ import classnames from 'classnames';
 import styles from './mainPicture.module.scss';
 import Button from '../Button/Button';
 
-import house from '../../img/main_house_desktop.jpg';
 import ArrowDownButton from '../Button/ArrowDownButton';
 
 enum Sections {
@@ -29,7 +28,7 @@ const MainPicture: React.FC<MainPictureProps> = ({ navigateToFirstModel, navigat
 
   return(
     <section className={styles.mainImageContainer}>
-      <img className={classnames(styles.movingImage, { [styles.activeImage]: activeSection === Sections.HOUSE}) } src={house}/>
+      <div className={classnames(styles.movingImage, { [styles.activeImage]: activeSection === Sections.HOUSE}) } />
       <div className={styles.mainImage}/>
       <div className={classnames(styles.actionButtonContainer, { [styles.revert]: activeSection === Sections.HOUSE})}>
         <ArrowDownButton onClick={handleOnClick}/>

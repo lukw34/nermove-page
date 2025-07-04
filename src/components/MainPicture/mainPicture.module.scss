@@ -12,28 +12,7 @@
         left: 0;
         z-index: 100;
         background-size: cover;
-        animation: main_desktop_animation 12s infinite alternate;
-        @keyframes main_desktop_animation {
-            0% {
-                background-image: url("/img/main_truck/GD1.jpg");
-            }
-        
-            25% {
-                background-image: url("/img/main_truck/GD2.jpg");
-            }
-            50% {
-                background-image: url("/img/main_truck/GD3.jpg");
-            }
-            75% {
-                background-image: url("/img/main_truck/GD4.jpg");
-            }
-        
-            100% {
-                background-image: url("/img/main_truck/GD1.jpg");
-            }
-        }
-      
-
+        animation: main_desktop_animation 12s infinite alternate;     
     }
 
     .movingImage {
@@ -45,9 +24,12 @@
         left: 0;
         z-index: 101;
         transform: translateX(75vw);
+        background-image: url("/img/main_house/GD1.jpg");
         &.activeImage {
             transform: translateX(25vw);
+            animation: main_desktop_house_animation 12s infinite alternate;
         }
+
     }
 
 
@@ -115,34 +97,18 @@
             height: 70%;
             width: 100%;
             animation: main_mobile_animation 12s infinite alternate;
-            @keyframes main_mobile_animation {
-            0% {
-                background-image: url("/img/main_truck/GM1.jpg");
-            }
-        
-            25% {
-                background-image: url("/img/main_truck/GM2.jpg");
-            }
-            50% {
-                background-image: url("/img/main_truck/GM3.jpg");
-            }
-            75% {
-                background-image: url("/img/main_truck/GM4.jpg");
-            }
-        
-            100% {
-                background-image: url("/img/main_truck/GM1.jpg");
-            }
-            }
           
         }
     
         .movingImage {
             z-index: 101;
             transform: translateY(65vh);
+            background-image: url("/img/main_house/GM1.jpg");
             &.activeImage {
                 transform: translateY(15vh);
+                animation: main_mobile_house_animation 12s infinite alternate;
             }
+            
         }
     
     
@@ -189,3 +155,72 @@
 
 }
 
+
+@keyframes main_mobile_animation {
+    0% {
+        background-image: url("/img/main_truck/GM1.jpg");
+    }
+
+    25% {
+        background-image: url("/img/main_truck/GM2.jpg");
+    }
+    50% {
+        background-image: url("/img/main_truck/GM3.jpg");
+    }
+    75% {
+        background-image: url("/img/main_truck/GM4.jpg");
+    }
+
+    100% {
+        background-image: url("/img/main_truck/GM1.jpg");
+    }
+}
+
+@keyframes main_mobile_house_animation {
+    0% {
+        background-image: url("/img/main_house/GM1.jpg");
+    }
+    50% {
+        background-image: url("/img/main_house/GM2.jpg");
+    }
+
+    100% {
+        background-image: url("/img/main_house/GM1.jpg");
+    }
+}
+
+@keyframes main_desktop_animation {
+    0% {
+        background-image: url("/img/main_truck/GD1.jpg");
+    }
+
+    25% {
+        background-image: url("/img/main_truck/GD2.jpg");
+    }
+    50% {
+        background-image: url("/img/main_truck/GD3.jpg");
+    }
+    75% {
+        background-image: url("/img/main_truck/GD4.jpg");
+    }
+
+    100% {
+        background-image: url("/img/main_truck/GD1.jpg");
+    }
+}
+
+@keyframes main_desktop_house_animation {
+    0% {
+        background-image: url("/img/main_house/GD1.jpg");
+    }
+
+    33% {
+        background-image: url("/img/main_house/GD2.jpg");
+    }
+    66% {
+        background-image: url("/img/main_house/GD3.jpg");
+    }
+    100% {
+        background-image: url("/img/main_house/GD1.jpg");
+    }
+}

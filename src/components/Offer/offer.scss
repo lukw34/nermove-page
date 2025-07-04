@@ -38,6 +38,7 @@
 
         .info {
             position: absolute;
+            border-radius: 10px;
             left: 0;
             right: 0;
             top: 5%;
@@ -155,10 +156,18 @@
     }
 }
 .house {
-    background-image: url("/img/truck/house_desktop.jpg");
+    background-image: url("/img/house/desktop.jpg");
 }
 
 @media only screen and (max-width: 550px) {
+    .info {
+        width: 80% !important;
+    }
+
+    .house {
+        background-image: url("/img/house/mobile.jpg");
+    }
+
     .nunu {
         animation: nunu_mobile_animation 15s infinite alternate;
         @keyframes nunu_mobile_animation {

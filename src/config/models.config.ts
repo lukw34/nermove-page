@@ -124,8 +124,8 @@ const modelsBaseConfigs: Model[] = [{
 }, 
 {
   key: 'house',
-  name: 'Dom Modułowy',
-  description: '',
+  name: 'Neroliving',
+  description: 'Całoroczne Domy Mobilne i Modułowe',
   size: {
     width: 240,
     length: 550,
