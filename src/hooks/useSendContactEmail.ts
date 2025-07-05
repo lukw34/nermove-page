@@ -46,7 +46,8 @@ export const useSendContactEmnail = () => {
           result: RequestStatus.SUCCESS
         });
       }, 1500);
-    } catch(e) {
+    } catch(e: any) {
+      console.error(e);
       setRequestStatus({
         isLoading: false,
         result: RequestStatus.ERROR
