@@ -8,7 +8,7 @@ export enum ImagePosition {
 
 interface ArticleItemProps {
     title: string;
-    content: string;
+    content?: string;
     imageUrl?: string;
     imagePosition?: ImagePosition
 }
@@ -20,7 +20,7 @@ const ArticleItem: React.FC<ArticleItemProps> = ({ title, content, imageUrl, ima
     </div> : null}
     <div className={imageUrl ? styles.articleContent : styles.fullArticleContent}>
       <h3>{title}</h3>
-      <p>{content}</p>
+      {content ? <p>{content}</p> : null}
     </div>
     {imageUrl && imagePosition === ImagePosition.right ? <div>
       <img className={styles.articleImage} src={imageUrl}/>

@@ -15,6 +15,7 @@ const Header: React.FC<HeaderProps> = ({ openOverlay }) => (
       <img className="logo-image" src={logo}/>
     </Link>
     <div className="header-full-screen-buttons">
+      <MenuLinkButton title="NeroLiving" to="neroliving"/>
       <MenuLinkButton title="Galeria" to="gallery"/>
       <MenuLinkButton title="Kontakt" to="contact"/>
       <MenuLinkButton title="Proces Realizacji" to="process"/>

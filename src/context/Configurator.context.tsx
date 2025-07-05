@@ -1,6 +1,6 @@
 import { createContext } from 'react';
 import { useConfiguratorModel } from '../hooks/useConfiguratorModel';
-import { ConfiguratorModel, ModelDimension, Model, FieldKeys, BaseConfigurationType, TruckAddonsType, HoodOptions, FanOptions, WindowOptions, HouseConfiguration } from '../config/models.config types';
+import { ConfiguratorModel, ModelDimension, Model, FieldKeys, BaseConfigurationType, TruckAddonsType, HoodOptions, FanOptions, WindowOptions, HouseConfiguration, HouseFinish } from '../config/models.config types';
 
 
 interface Configurator {
@@ -34,8 +34,7 @@ export const defaultConfigurationOptions = {
   [TruckAddonsType.FURNITURES]: 0,
   [ModelDimension.length]: 0,
   [ModelDimension.width]: 0,
-  [HouseConfiguration.HOUSE_FINISHING]: 0,
-  [HouseConfiguration.HOUSE_TYPE]: 0,
+  [HouseConfiguration.HOUSE_FINISHING]: HouseFinish.DEVELOPER.valueOf(),
 };
 
 const defaultContext: ConfigurationContext = {

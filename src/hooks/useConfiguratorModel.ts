@@ -66,18 +66,21 @@ export const useConfiguratorModel = (modelConfig: Model) => {
   ]);
 
   const getSummary = (): string => {
-    let setupSummary;
     if(modelConfig.key === 'house') {
-      setupSummary = Object.keys(setup).filter(key => !!houseLabel[key as HouseConfiguration]).map((key) => `${houseLabel[key as HouseConfiguration]}: ${setup[key as FieldKeys]}`);
-    } else {
-      setupSummary = Object.keys(setup).filter(key => !!truckLabelMap[key as LabelKeys]).map((key) => `${truckLabelMap[key as LabelKeys]}: ${setup[key as FieldKeys]}`);
-    }
+      const setupSummary = Object.keys(setup).filter(key => !!houseLabel[key as HouseConfiguration]).map((key) => `${houseLabel[key as HouseConfiguration]}: ${setup[key as FieldKeys]}`);
+      return `
+       Prośba o oferte domu modulowego
+       ${setupSummary.join('\n')}  
+      `;
+    } 
+    const setupSummary = Object.keys(setup).filter(key => !!truckLabelMap[key as LabelKeys]).map((key) => `${truckLabelMap[key as LabelKeys]}: ${setup[key as FieldKeys]}`);
     return `
-    Cena całkowita: ${calculatedPrice}
-    Model: ${modelConfig.name}
-    Elementy składowe:
-    ${setupSummary.join('\n')}
-    `;
+      Proponowana cena całkowita: ${calculatedPrice}
+      Model: ${modelConfig.name}
+      Elementy składowe:
+      ${setupSummary.join('\n')}
+      `;
+
   };
 
   const leasing: number = useMemo(() => {

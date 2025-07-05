@@ -2,6 +2,7 @@ import React from 'react';
 import TruckAddonsField from '../TruckAddonsField/TruckAddonsField';
 import { HouseConfiguration } from '../../../config/models.config types';
 import SimpleContacForm from '../../Contact/SimpleContactForm';
+import InfoBox from '../../InfoBox/InfoBox';
 
 export const HouseSetup = () => {
   return (
@@ -11,14 +12,8 @@ export const HouseSetup = () => {
       <TruckAddonsField
         fieldKey={HouseConfiguration.HOUSE_FINISHING}
       />
-      {/* <div>
-        <p>
-          Domki wyceniane są indywidualnie w zależności od metrażu, standardu wykończenia oraz innych czynnikow
-        </p>
-        <p>
-          Do ceny domku należy doliczyć koszt transportu w wybrane miejsce.
-        </p>
-      </div>} */}
+      <InfoBox infoText="Domki wyceniane są indywidualnie w zależności od metrażu, standardu wykończenia oraz innych czynnikow"/>
+      <InfoBox infoText="Do ceny domku należy doliczyć koszt transportu w wybrane miejsce."/>
       <SimpleContacForm/>
     </div>
   );};

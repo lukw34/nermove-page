@@ -20,7 +20,6 @@ export enum TruckAddonsType {
 }
 
 export enum HouseConfiguration {
-  HOUSE_TYPE = 'HOUSE_TYPE',
   HOUSE_FINISHING = 'HOUSE_FINISHING'
 }
 

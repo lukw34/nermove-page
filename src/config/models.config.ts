@@ -1,8 +1,7 @@
 import { BaseConfigurationType, FieldKeys, HouseConfiguration, Model, ModelDimension, TruckAddonsType } from './models.config types';
 
 export const houseLabel: Record<HouseConfiguration, string> = {
-  [HouseConfiguration.HOUSE_TYPE]: 'Typ Domu',
-  [HouseConfiguration.HOUSE_FINISHING]: 'Rpdzaj wykończenia'
+  [HouseConfiguration.HOUSE_FINISHING]: 'Rodzaj wykończenia'
 };
 
 export type LabelKeys = BaseConfigurationType | TruckAddonsType | ModelDimension;

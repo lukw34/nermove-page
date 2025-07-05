@@ -15,7 +15,8 @@ const OverlayNavigation: React.FC<OverlayNavigationProps> = ({ onClose, isOpen }
       <StrongLinkButton onClick={onClose} title="Galeria" to="gallery"/>
       <StrongLinkButton onClick={onClose} title="Kontakt" to="contact"/>
       <StrongLinkButton onClick={onClose} title="Proces Realizacji" to="process"/>
-      <StrongLinkButton title="Regulamin" to="regulations"/>
+      <StrongLinkButton onClick={onClose} title="Regulamin" to="regulations"/>
+      <StrongLinkButton onClick={onClose} title="Neroliving" to="neroliving"/>
     </div>
   </div>
     

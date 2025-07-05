@@ -15,7 +15,8 @@ export const useSendContactEmnail = () => {
   const {
     configurator: {
       getSummary
-    }
+    },
+    selectedModel
   } = useContext(ConfiguratorContext);
   
   const sendEmail = async (subject: string, message: string) => {
@@ -46,7 +47,6 @@ export const useSendContactEmnail = () => {
         });
       }, 1500);
     } catch(e) {
-      console.error(e);
       setRequestStatus({
         isLoading: false,
         result: RequestStatus.ERROR
@@ -82,7 +82,7 @@ export const useSendContactEmnail = () => {
         value: emailAddress
       }
     } = event.target as any;
-    const subject  = `[Order] [${emailAddress}] Wiadomość od ${name}`;
+    const subject  = `[Order] [${selectedModel.name}] [${emailAddress}] Wiadomość od ${name}`;
     await sendEmail(subject, getSummary());
     return false;
   };

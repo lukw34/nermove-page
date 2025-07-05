@@ -1,4 +1,4 @@
-import { FanOptions, FieldType, HoodOptions, AddonsMap, TruckAddonsType, WindowOptions, HouseConfiguration, HouseFinish, HouseTypes } from './models.config types';
+import { FanOptions, FieldType, HoodOptions, AddonsMap, TruckAddonsType, WindowOptions, HouseConfiguration, HouseFinish } from './models.config types';
 
 export const addons: AddonsMap = {
   [TruckAddonsType.DETACHABLE_DRAWBAR]: {
@@ -77,22 +77,11 @@ export const addons: AddonsMap = {
   [HouseConfiguration.HOUSE_FINISHING]: {
     type: FieldType.SELECTION,
     options: [{
-      label: HouseFinish.RAW.valueOf(), price: null,
+      label: HouseFinish.RAW.valueOf(), price: 0,
     },{
-      label: HouseFinish.DEVELOPER.valueOf(), price: null,
+      label: HouseFinish.DEVELOPER.valueOf(), price: 0,
     }, {
-      label: HouseFinish.KEY.valueOf(), price: null,
-    }]
-  },
-
-  [HouseConfiguration.HOUSE_TYPE]: {
-    type: FieldType.SELECTION,
-    options: [{
-      label: HouseTypes.TYPE_1.valueOf(), price: null,
-    },{
-      label: HouseTypes.TYPE_2.valueOf(), price: null,
-    }, {
-      label: HouseTypes.TYPE_3.valueOf(), price: null,
+      label: HouseFinish.KEY.valueOf(), price: 0,
     }]
   },
 };
