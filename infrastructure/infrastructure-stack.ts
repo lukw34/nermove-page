@@ -21,15 +21,15 @@ import { PolicyStatement } from 'aws-cdk-lib/aws-iam';
 import { EmailSubscription } from 'aws-cdk-lib/aws-sns-subscriptions';
 import { Secret } from 'aws-cdk-lib/aws-secretsmanager';
 
-const SSL_CERTIFICATE_ARN =  'arn:aws:acm:us-east-1:682537233573:certificate/bc91a90f-0523-402c-afb1-16425049a93c';
-const DOMAIN_NAME = 'neromove.eu';
+const SSL_CERTIFICATE_ARN =  'arn:aws:acm:us-east-1:682537233573:certificate/f68a6dd0-12a3-4ff8-b814-612d619b355a';
+const DOMAIN_NAMES = ['neromove.eu', 'visit.neromove.eu'];
 
 
 export class InfrastructureStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
     const bucket = new s3.Bucket(this, 'NeromovePageBucket', {
-      bucketName: DOMAIN_NAME,
+      bucketName: DOMAIN_NAMES[0],
       publicReadAccess: false,
       removalPolicy: cdk.RemovalPolicy.DESTROY,
       autoDeleteObjects: true,
@@ -38,13 +38,12 @@ export class InfrastructureStack extends cdk.Stack {
 
     const certificate = Certificate.fromCertificateArn(this, 'Certificate', SSL_CERTIFICATE_ARN);
 
-    const email = 'lukw34@gmail.com';
-
     const topic = new Topic(this, 'NeromoveContact', {
       displayName: 'Neromove Contact Form'
     });
 
-    topic.addSubscription(new EmailSubscription(email));
+    topic.addSubscription(new EmailSubscription('lukw34@gmail.com'));
+    topic.addSubscription(new EmailSubscription('kontak@neromove.com'));
 
     const lambdaSNSPolicyStatement = new PolicyStatement({
       resources: [topic.topicArn],
@@ -114,7 +113,7 @@ export class InfrastructureStack extends cdk.Stack {
     const apiOriginPath = `/${api.deploymentStage.stageName}`;
     const apiOriginName = `${api.restApiId}.execute-api.${this.region}.amazonaws.com`;
     const distribution = new Distribution(this, 'Distribution', {
-      domainNames: [DOMAIN_NAME],
+      domainNames: DOMAIN_NAMES,
       certificate: certificate,
       defaultRootObject: 'index.html',
       defaultBehavior: {
@@ -151,6 +150,10 @@ export class InfrastructureStack extends cdk.Stack {
       memoryLimit: 2048,
       ephemeralStorageSize: Size.gibibytes(2),
       distribution,
+    });
+
+    new cdk.CfnOutput(this, 'NeromoveCDNDomain', {
+      value: distribution.domainName,
     });
   }
 }
