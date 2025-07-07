@@ -3,36 +3,23 @@
     line-height: 25px;
     bottom: 0;
     right: 2vw;
-    width: 45vw;
+    width: 20vw;
     height: 10vh;
     min-height: 85px;
     display: flex;
     align-items: center;
     flex-direction: row;
     z-index: 100;
+    justify-content: center;
     font-size: 1rem;
     background: white;
+    font-size: 1rem;
     border-radius: 9px 9px 0 0;
     box-shadow: 0 -2px 8px 0 #0000001a;
-    .price-indicators {
-        flex: 1 1;
-        line-height: 1.9rem;
-        .price {
-            font-weight: bold;
-        }
-        .monthly-price {
-            border-top: #00000021 1px solid;
-            font-size: 0.9rem;
-            .monthly-price-value {
-            font-weight: bold;
-            }
-        }
-    }
-    .submit-button-container {
-        button {
-            font-size: 0.9rem;
-            margin: 0.5rem;
-        }
+    .price-indicator-button {
+        width: 90%;
+        display: flex;
+        justify-content: center;
     }
 }
 

@@ -28,8 +28,8 @@ import image23 from '../../img/gallery/23.jpg';
 const vertical = { width: 5, height: 6 };
 const horizontal = { width: 5, height: 3 };
 const photos = [
-  { src: image1, ...vertical },
-  { src: image2, ...horizontal },
+  { src: image1, ...horizontal },
+  { src: image2, ...vertical },
   { src: image3, ...horizontal },
   { src: image4, ...horizontal },
   { src: image5, ...vertical },

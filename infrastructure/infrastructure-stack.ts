@@ -22,7 +22,7 @@ import { EmailSubscription } from 'aws-cdk-lib/aws-sns-subscriptions';
 import { Secret } from 'aws-cdk-lib/aws-secretsmanager';
 
 const SSL_CERTIFICATE_ARN =  'arn:aws:acm:us-east-1:682537233573:certificate/f68a6dd0-12a3-4ff8-b814-612d619b355a';
-const DOMAIN_NAMES = ['neromove.eu', 'visit.neromove.eu'];
+const DOMAIN_NAMES = ['neromove.eu', 'visit.neromove.eu', 'visit.neromove.pl'];
 
 
 export class InfrastructureStack extends cdk.Stack {
