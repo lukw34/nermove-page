@@ -38,8 +38,8 @@ const modelsBaseConfigs: Model[] = [{
   description: 'Jest to przyczepa idealna dla osób rozpoczynających swoją przygodę na mała skalę, a masa i rozmiar pozwala na to by zabrać ją każdym samochodem na kat. B',
   basePrice: 17900,
   size: {
-    width: 200,
-    length: 350,
+    width: 215,
+    length: 375,
   },
   baseConfigurationOptions: [{
     type: BaseConfigurationType.ELECTRICITY,
@@ -61,7 +61,7 @@ const modelsBaseConfigs: Model[] = [{
   basePrice: 28900,
   size: {
     width: 220,
-    length: 450,
+    length: 400,
   },
   baseConfigurationOptions: [{
     type: BaseConfigurationType.ELECTRICITY,
@@ -104,7 +104,7 @@ const modelsBaseConfigs: Model[] = [{
   description: 'Model Odyssey skierowany jest do wiekszych gastronomii, pozwala stworzyc nam sporą przestrzen magazynową i swobodną pracę 2-4 osób. Idealne rozwiązanie dla popularnych miejsc',
   size: {
     width: 240,
-    length: 550,
+    length: 600,
   },
   basePrice:43900,
   baseConfigurationOptions: [{
