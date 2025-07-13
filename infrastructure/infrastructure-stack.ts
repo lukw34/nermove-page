@@ -21,8 +21,8 @@ import { PolicyStatement } from 'aws-cdk-lib/aws-iam';
 import { EmailSubscription } from 'aws-cdk-lib/aws-sns-subscriptions';
 import { Secret } from 'aws-cdk-lib/aws-secretsmanager';
 
-const SSL_CERTIFICATE_ARN =  'arn:aws:acm:us-east-1:682537233573:certificate/f68a6dd0-12a3-4ff8-b814-612d619b355a';
-const DOMAIN_NAMES = ['neromove.eu', 'visit.neromove.eu', 'visit.neromove.pl'];
+const SSL_CERTIFICATE_ARN = 'arn:aws:acm:us-east-1:682537233573:certificate/049a8abb-61cb-4c08-a52b-b4faeb9d53bb';
+const DOMAIN_NAMES = ['neromove.eu', 'neromove.com', 'neromove.pl', 'visit.neromove.eu', 'visit.neromove.pl', 'visit.neromove.com'];
 
 
 export class InfrastructureStack extends cdk.Stack {
@@ -120,7 +120,7 @@ export class InfrastructureStack extends cdk.Stack {
         origin: S3BucketOrigin.withOriginAccessControl(bucket),
         allowedMethods: AllowedMethods.ALLOW_GET_HEAD_OPTIONS,
         cachePolicy: CachePolicy.CACHING_OPTIMIZED,
-        viewerProtocolPolicy: ViewerProtocolPolicy.ALLOW_ALL,
+        viewerProtocolPolicy: ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
       },    
       additionalBehaviors: {
         'api/*': {
